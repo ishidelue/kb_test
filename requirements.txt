@@ -1,0 +1,14 @@
+# PMBA Knowledge Base — Python dependencies
+#
+# build_manifest.py uses the standard library only (json, re, sys, html,
+# pathlib, datetime) — no third-party packages are required.
+#
+# This file exists so the project's venv discipline is explicit and any
+# future dependency has a home. To set up / refresh the environment:
+#
+#   python -m venv venv
+#   venv\Scripts\python.exe -m pip install -r requirements.txt
+#
+# Always run project Python through the venv, e.g.:
+#
+#   venv\Scripts\python.exe build_manifest.py

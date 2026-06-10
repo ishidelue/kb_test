@@ -1,0 +1,48 @@
+[
+  {
+    "id": "pmba-2026-06-11-financial-statement-analysis",
+    "prefix": "PMBA",
+    "skill": "mba-class-note",
+    "type": "class-note",
+    "title": "財務管理導論與財務報表分析",
+    "course": "財務管理",
+    "date": "2026-06-11",
+    "topic": "Financial Statements & Ratio Analysis",
+    "tags": [
+      "Capital Structure",
+      "Cash Flow",
+      "Cash Conversion Cycle",
+      "Financial Ratios",
+      "ROE / ROA",
+      "Operating & Financial Leverage",
+      "Valuation Multiples"
+    ],
+    "domains": [
+      "hospital",
+      "startup"
+    ],
+    "created": "2026-06-11T14:55:00+08:00",
+    "file": "notes/pmba-2026-06-11-financial-statement-analysis.html"
+  },
+  {
+    "id": "pmba-2026-06-10-competitive-advantage",
+    "prefix": "PMBA",
+    "skill": "mba-class-note",
+    "type": "class-note",
+    "title": "策略管理 · Competitive Advantage",
+    "course": "策略管理",
+    "date": "2026-06-10",
+    "topic": "Competitive Advantage",
+    "tags": [
+      "Porter's Five Forces",
+      "Generic Strategies",
+      "Stuck in the Middle"
+    ],
+    "domains": [
+      "hospital",
+      "startup"
+    ],
+    "created": "2026-06-11T09:00:00+08:00",
+    "file": "notes/pmba-2026-06-10-competitive-advantage.html"
+  }
+]

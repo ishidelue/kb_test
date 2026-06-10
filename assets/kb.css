@@ -1,0 +1,221 @@
+/* ============================================================
+   PMBA Knowledge Base — shared stylesheet
+   Design language borrowed from "Spridea" (zinc grayscale;
+   Fraunces / Inter / IBM Plex Mono).
+   Single source of truth: change a token here, the whole KB follows.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  /* zinc ramp */
+  --g-0:#ffffff; --g-50:#fafafa; --g-100:#f4f4f5; --g-150:#ececee;
+  --g-200:#e4e4e7; --g-300:#d4d4d8; --g-400:#a1a1aa; --g-500:#71717a;
+  --g-600:#52525b; --g-700:#3f3f46; --g-800:#27272a; --g-900:#18181b; --g-950:#0b0b0d;
+
+  --bg: var(--g-50);
+  --surface: var(--g-0);
+  --surface-2: var(--g-100);
+  --surface-3: var(--g-150);
+  --border: rgba(24,24,27,0.08);
+  --border-strong: rgba(24,24,27,0.14);
+  --text: var(--g-900);
+  --text-2: var(--g-600);
+  --text-3: var(--g-500);
+  --text-4: var(--g-400);
+  --accent: var(--g-900);
+  --accent-fg: var(--g-0);
+  --correction:#a16207;  /* amber — marks fixes to the user's record (never red) */
+
+  /* domain accents — desaturated, muted tones */
+  --hospital:#8fa6b0;   /* muted blue   — 醫院/急診 */
+  --startup:#b79a86;    /* clay         — 資訊新創   */
+
+  --radius-sm:8px; --radius:12px; --radius-lg:18px; --radius-xl:24px;
+
+  --shadow-sm: 0 1px 0 rgba(24,24,27,0.04), 0 1px 2px rgba(24,24,27,0.04);
+  --shadow:    0 1px 0 rgba(24,24,27,0.03), 0 8px 24px -12px rgba(24,24,27,0.12);
+  --shadow-lg: 0 20px 50px -18px rgba(24,24,27,0.18), 0 2px 6px -2px rgba(24,24,27,0.06);
+
+  --sans:"Inter", ui-sans-serif, system-ui, -apple-system, "PingFang TC", "Noto Sans TC", Helvetica, Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --serif:"Fraunces", ui-serif, Georgia, "Noto Serif TC", serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16.5px;
+  line-height: 1.78;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ---------- header ---------- */
+.top {
+  display:flex; align-items:center; gap:20px;
+  padding: 16px 28px;
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
+  backdrop-filter: blur(8px);
+  position: sticky; top:0; z-index:20;
+}
+.brand { display:flex; align-items:center; gap:10px; }
+.brand a { display:flex; align-items:center; gap:10px; }
+.brand-mark {
+  width:30px; height:30px; border-radius:9px;
+  background: var(--accent); color: var(--accent-fg);
+  display:flex; align-items:center; justify-content:center;
+}
+.brand-mark svg { width:18px; height:18px; }
+.brand-wordmark {
+  font-family: var(--serif); font-weight:600; font-size:19px; letter-spacing:-0.01em;
+}
+.brand-tag {
+  font-family: var(--mono); font-size:11px; color: var(--text-3);
+  border-left:1px solid var(--border-strong); padding-left:10px; margin-left:2px;
+}
+.spacer { flex:1; }
+
+.search {
+  display:flex; align-items:center; gap:8px;
+  background: var(--surface-2); border:1px solid var(--border);
+  border-radius: var(--radius); padding:8px 12px; min-width:240px; max-width:420px; flex:1;
+  color: var(--text-3);
+}
+.search:focus-within { border-color: var(--border-strong); }
+.search input {
+  border:0; background:transparent; outline:none; flex:1;
+  font-family: var(--sans); font-size:14px; color: var(--text);
+}
+.search .kbd {
+  font-family: var(--mono); font-size:11px; color: var(--text-4);
+  border:1px solid var(--border); border-radius:6px; padding:1px 6px;
+}
+
+.icon-btn {
+  width:34px; height:34px; border-radius: var(--radius-sm);
+  border:1px solid var(--border); background: var(--surface);
+  display:flex; align-items:center; justify-content:center; cursor:pointer; color: var(--text-2);
+}
+.icon-btn:hover { border-color: var(--border-strong); color: var(--text); }
+.icon-btn svg { width:17px; height:17px; }
+
+/* ---------- layout ---------- */
+.wrap { max-width: 1180px; margin:0 auto; padding: 28px; }
+.article-wrap { max-width: 760px; margin:0 auto; padding: 48px 28px 110px; }
+
+/* ---------- filter bar ---------- */
+.filters { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:24px; }
+.filter-group { display:flex; gap:6px; align-items:center; }
+.filter-label { font-family: var(--mono); font-size:11px; color: var(--text-4); text-transform:uppercase; letter-spacing:0.04em; margin-right:2px; }
+.chip {
+  font-family: var(--mono); font-size:12px;
+  padding:5px 12px; border-radius:999px; cursor:pointer;
+  border:1px solid var(--border); background: var(--surface); color: var(--text-2);
+  transition: all .12s ease;
+}
+.chip:hover { border-color: var(--border-strong); }
+.chip[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+
+.count { font-family: var(--mono); font-size:12px; color: var(--text-4); margin-left:auto; }
+
+/* ---------- note cards ---------- */
+.grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:18px; }
+.card {
+  display:block; background: var(--surface); border:1px solid var(--border);
+  border-radius: var(--radius-lg); padding:20px; box-shadow: var(--shadow-sm);
+  transition: box-shadow .15s ease, transform .15s ease, border-color .15s ease;
+}
+.card:hover { box-shadow: var(--shadow); transform: translateY(-2px); border-color: var(--border-strong); }
+.card-eyebrow { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.badge {
+  font-family: var(--mono); font-size:10.5px; font-weight:500; letter-spacing:0.03em;
+  padding:2px 8px; border-radius:6px; background: var(--surface-3); color: var(--text-2);
+}
+.card-meta { font-family: var(--mono); font-size:11px; color: var(--text-4); }
+.card h2 {
+  font-family: var(--serif); font-weight:500; font-size:19px; line-height:1.3;
+  letter-spacing:-0.01em; margin:2px 0 12px;
+}
+.card-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:auto; }
+.tag {
+  font-family: var(--mono); font-size:11px; color: var(--text-3);
+  background: var(--surface-2); border-radius:6px; padding:2px 7px;
+}
+.domain-dots { display:flex; gap:5px; align-items:center; margin-top:12px; }
+.dot { width:8px; height:8px; border-radius:50%; }
+.dot.hospital { background: var(--hospital); }
+.dot.startup { background: var(--startup); }
+.dot-label { font-family: var(--mono); font-size:10.5px; color: var(--text-4); }
+
+.empty { text-align:center; padding:80px 20px; color: var(--text-3); font-family: var(--mono); font-size:13px; }
+
+/* ---------- article (note page) ---------- */
+.article-eyebrow {
+  font-family: var(--mono); font-size:12px; color: var(--text-3);
+  display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:18px;
+}
+.article-eyebrow .badge { font-size:11px; }
+h1.article-title {
+  font-family: var(--serif); font-weight:600; font-size:40px; line-height:1.15;
+  letter-spacing:-0.02em; margin-bottom:18px;
+}
+.article-meta { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:8px; }
+.article-domains { display:flex; gap:10px; margin:14px 0 34px; padding-bottom:30px; border-bottom:1px solid var(--border); }
+.domain-pill { display:flex; align-items:center; gap:7px; font-family: var(--mono); font-size:12px; color: var(--text-2); }
+
+section.note-section { margin-bottom:40px; }
+section.note-section > h2 {
+  font-family: var(--mono); font-size:12.5px; font-weight:500; text-transform:uppercase;
+  letter-spacing:0.07em; color: var(--text-4); margin-bottom:16px;
+  display:flex; align-items:center; gap:10px;
+}
+section.note-section > h2::after { content:""; flex:1; height:1px; background: var(--border); }
+.note-section ul { list-style:none; display:flex; flex-direction:column; gap:13px; }
+.note-section li ul { margin-top:10px; }
+.note-section li {
+  position:relative; padding-left:22px; color: var(--text); line-height:1.85;
+}
+.note-section li::before {
+  content:""; position:absolute; left:5px; top:12px; width:5px; height:5px;
+  border-radius:50%; background: var(--text-4);
+}
+.note-section li b, .note-section li strong { font-weight:600; }
+.kb-term, .note-section code {
+  font-family: var(--mono); font-size:0.9em; background: var(--surface-2);
+  border:1px solid var(--border); border-radius:5px; padding:0.5px 5px; color: var(--text);
+}
+
+/* the signature synthesis section gets a soft tinted card */
+section.synthesis {
+  background: var(--surface); border:1px solid var(--border); border-left:3px solid var(--accent);
+  border-radius: var(--radius); padding:24px 26px;
+}
+section.synthesis > h2 { color: var(--text-2); }
+section.synthesis > h2::after { display:none; }
+
+.correction { color: var(--correction); border-bottom:1px dashed var(--correction); cursor:help; }
+.refs a { color: var(--text-2); border-bottom:1px solid var(--border-strong); }
+.refs a:hover { color: var(--text); }
+
+.back-link {
+  display:inline-flex; align-items:center; gap:6px; font-family: var(--mono); font-size:12px;
+  color: var(--text-3); margin-bottom:26px;
+}
+.back-link:hover { color: var(--text); }
+
+@media (max-width: 640px) {
+  .top { padding:12px 16px; gap:12px; }
+  .brand-tag { display:none; }
+  .wrap, .article-wrap { padding:20px 16px; }
+  h1.article-title { font-size:30px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition:none !important; }
+}

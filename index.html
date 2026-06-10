@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PMBA · Knowledge Base</title>
+<link rel="stylesheet" href="assets/kb.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <a href="index.html">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"></circle>
+          <path d="M12 4 V 7.5"></path><path d="M12 16.5 V 20"></path>
+          <path d="M4 12 H 7.5"></path><path d="M16.5 12 H 20"></path>
+          <path d="M6.3 6.3 L 8.8 8.8"></path><path d="M15.2 15.2 L 17.7 17.7"></path>
+          <path d="M17.7 6.3 L 15.2 8.8"></path><path d="M8.8 15.2 L 6.3 17.7"></path>
+        </svg>
+      </div>
+      <div class="brand-wordmark">Knowledge Base</div>
+      <span class="brand-tag">課堂筆記 · 個人知識庫</span>
+    </a>
+  </div>
+  <div class="spacer"></div>
+  <label class="search" for="q">
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+    <input id="q" placeholder="搜尋標題、課程、框架、標籤…">
+    <span class="kbd">/</span>
+  </label>
+</header>
+
+<main class="wrap">
+  <div class="filters">
+    <div class="filter-group" id="prefixFilters">
+      <span class="filter-label">family</span>
+      <button class="chip" data-prefix="*" aria-pressed="true">All</button>
+    </div>
+    <div class="filter-group" id="domainFilters">
+      <span class="filter-label">domain</span>
+      <button class="chip" data-domain="*" aria-pressed="true">All</button>
+      <button class="chip" data-domain="hospital" aria-pressed="false">醫院/急診</button>
+      <button class="chip" data-domain="startup" aria-pressed="false">資訊新創</button>
+    </div>
+    <span class="count" id="count"></span>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none">沒有符合的筆記。</div>
+</main>
+
+<script>
+const state = { notes: [], prefix: "*", domain: "*", q: "" };
+
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmtDate = d => d || "—";
+
+async function load() {
+  try {
+    const res = await fetch("notes.json", { cache: "no-store" });
+    state.notes = await res.json();
+  } catch (e) {
+    state.notes = [];
+    document.getElementById("empty").textContent = "讀不到 notes.json — 請先執行 build_manifest.py，或用本機伺服器開啟（檔案協定可能擋 fetch）。";
+    document.getElementById("empty").style.display = "block";
+  }
+  // newest first
+  state.notes.sort((a,b) => (b.date||"").localeCompare(a.date||"") || (b.created||"").localeCompare(a.created||""));
+  buildPrefixChips();
+  render();
+}
+
+function buildPrefixChips() {
+  const prefixes = [...new Set(state.notes.map(n => n.prefix).filter(Boolean))].sort();
+  const grp = document.getElementById("prefixFilters");
+  prefixes.forEach(p => {
+    const b = document.createElement("button");
+    b.className = "chip"; b.dataset.prefix = p; b.setAttribute("aria-pressed","false"); b.textContent = p;
+    grp.appendChild(b);
+  });
+}
+
+function matches(n) {
+  if (state.prefix !== "*" && n.prefix !== state.prefix) return false;
+  if (state.domain !== "*" && !(n.domains||[]).includes(state.domain)) return false;
+  if (state.q) {
+    const hay = [n.title, n.course, n.topic, (n.tags||[]).join(" "), n.prefix].join(" ").toLowerCase();
+    if (!hay.includes(state.q.toLowerCase())) return false;
+  }
+  return true;
+}
+
+function card(n) {
+  const tags = (n.tags||[]).slice(0,4).map(t => `<span class="tag">${esc(t)}</span>`).join("");
+  const dots = (n.domains||[]).map(d => `<span class="dot ${d}"></span>`).join("");
+  const dlabel = (n.domains||[]).map(d => d==="hospital"?"醫院":d==="startup"?"新創":d).join(" · ");
+  return `<a class="card" href="${esc(n.file)}">
+    <div class="card-eyebrow">
+      <span class="badge">${esc(n.prefix||"")}</span>
+      <span class="card-meta">${esc(n.course||"")} · ${esc(fmtDate(n.date))}</span>
+    </div>
+    <h2>${esc(n.title||n.topic||n.id)}</h2>
+    <div class="card-tags">${tags}</div>
+    ${dots ? `<div class="domain-dots">${dots}<span class="dot-label">${esc(dlabel)}</span></div>` : ""}
+  </a>`;
+}
+
+function render() {
+  const list = state.notes.filter(matches);
+  const grid = document.getElementById("grid");
+  grid.innerHTML = list.map(card).join("");
+  document.getElementById("empty").style.display = list.length ? "none" : "block";
+  document.getElementById("count").textContent = `${list.length} / ${state.notes.length} 篇`;
+}
+
+// filters
+document.addEventListener("click", e => {
+  const chip = e.target.closest(".chip");
+  if (!chip) return;
+  if (chip.dataset.prefix !== undefined) {
+    state.prefix = chip.dataset.prefix;
+    document.querySelectorAll("[data-prefix]").forEach(c => c.setAttribute("aria-pressed", c===chip));
+  }
+  if (chip.dataset.domain !== undefined) {
+    state.domain = chip.dataset.domain;
+    document.querySelectorAll("[data-domain]").forEach(c => c.setAttribute("aria-pressed", c===chip));
+  }
+  render();
+});
+
+// search
+const qEl = document.getElementById("q");
+qEl.addEventListener("input", () => { state.q = qEl.value; render(); });
+document.addEventListener("keydown", e => {
+  if (e.key === "/" && document.activeElement !== qEl) { e.preventDefault(); qEl.focus(); }
+});
+
+load();
+</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PMBA · 財務管理導論與財務報表分析</title>
+
+<script type="application/json" id="kb-meta">
+{
+  "id": "pmba-2026-06-11-financial-statement-analysis",
+  "prefix": "PMBA",
+  "skill": "mba-class-note",
+  "type": "class-note",
+  "title": "財務管理導論與財務報表分析",
+  "course": "財務管理",
+  "date": "2026-06-11",
+  "topic": "Financial Statements & Ratio Analysis",
+  "tags": ["Capital Structure", "Cash Flow", "Cash Conversion Cycle", "Financial Ratios", "ROE / ROA", "Operating & Financial Leverage", "Valuation Multiples"],
+  "domains": ["hospital", "startup"],
+  "created": "2026-06-11T14:55:00+08:00",
+  "file": "notes/pmba-2026-06-11-financial-statement-analysis.html"
+}
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root{--bg:#fafafa;--surface:#fff;--surface-2:#f4f4f5;--border:rgba(24,24,27,.08);--text:#18181b;--text-2:#52525b;--text-3:#71717a;--text-4:#a1a1aa;--accent:#18181b;--radius:12px;--hospital:#8fa6b0;--startup:#b79a86;--correction:#a16207;--sans:"Inter",system-ui,"PingFang TC","Noto Sans TC",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--serif:"Fraunces",Georgia,"Noto Serif TC",serif;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16.5px;line-height:1.78;-webkit-font-smoothing:antialiased;}
+.article-wrap{max-width:760px;margin:0 auto;padding:48px 28px 110px;}
+.article-eyebrow{font-family:var(--mono);font-size:12.5px;color:var(--text-3);display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:18px;}
+.badge{font-family:var(--mono);font-size:11.5px;padding:2px 8px;border-radius:6px;background:var(--surface-2);color:var(--text-2);}
+h1.article-title{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.15;letter-spacing:-.02em;margin-bottom:20px;}
+.tag{font-family:var(--mono);font-size:11.5px;color:var(--text-3);background:var(--surface-2);border-radius:6px;padding:2px 7px;}
+.article-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:8px;}
+.article-domains{display:flex;gap:10px;margin:14px 0 40px;padding-bottom:32px;border-bottom:1px solid var(--border);}
+.domain-pill{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12.5px;color:var(--text-2);}
+.dot{width:8px;height:8px;border-radius:50%;}.dot.hospital{background:var(--hospital);}.dot.startup{background:var(--startup);}
+section.note-section{margin-bottom:40px;}
+section.note-section>h2{font-family:var(--mono);font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--text-4);margin-bottom:16px;}
+.note-section ul{list-style:none;display:flex;flex-direction:column;gap:13px;}
+.note-section li{position:relative;padding-left:22px;line-height:1.85;}
+.note-section li::before{content:"";position:absolute;left:5px;top:12px;width:5px;height:5px;border-radius:50%;background:var(--text-4);}
+.note-section li ul{margin-top:10px;}
+.kb-term{font-family:var(--mono);font-size:.9em;background:var(--surface-2);border:1px solid var(--border);border-radius:5px;padding:.5px 5px;}
+.correction{color:var(--correction);border-bottom:1px dashed var(--correction);cursor:help;}
+section.synthesis{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:24px 26px;}
+.refs a{color:var(--text-2);border-bottom:1px solid rgba(24,24,27,.14);}
+.refs a:hover{color:var(--text);}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12.5px;color:var(--text-3);margin-bottom:28px;}
+</style>
+
+<link rel="stylesheet" href="../assets/kb.css">
+</head>
+<body>
+
+<div class="article-wrap">
+  <a class="back-link" href="../index.html">← 知識庫</a>
+
+  <div class="article-eyebrow">
+    <span class="badge">PMBA</span>
+    <span>財務管理</span><span>·</span><span>2026-06-11</span>
+  </div>
+
+  <h1 class="article-title">財務管理導論與財務報表分析</h1>
+
+  <div class="article-meta">
+    <span class="tag">Capital Structure</span>
+    <span class="tag">Cash Flow</span>
+    <span class="tag">Cash Conversion Cycle</span>
+    <span class="tag">Financial Ratios</span>
+    <span class="tag">ROE / ROA</span>
+    <span class="tag">Operating &amp; Financial Leverage</span>
+    <span class="tag">Valuation Multiples</span>
+  </div>
+  <div class="article-domains">
+    <span class="domain-pill"><span class="dot hospital"></span>醫院/急診</span>
+    <span class="domain-pill"><span class="dot startup"></span>資訊新創</span>
+  </div>
+
+  <section class="note-section">
+    <h2>核心概念 · Frameworks &amp; Concepts</h2>
+    <ul>
+      <li><span class="kb-term">Capital Structure</span>（資本結構，<b>A = D + E</b>）— 用負債/股東權益的組合加上股利政策，去提升公司價值與股東權益。</li>
+      <li><span class="kb-term">Cash Flow</span> — 「有 cashflow 就有價值」；公司的目的就是產生現金流（老師口頭禪：<b>cashflow 人！</b>）。類比：月薪越高、每月現金流越大 = 你越有價值。</li>
+      <li><span class="kb-term">Operating vs Financial Leverage</span> — 資產負債表同時透露資產結構（<b>營運槓桿</b>）與資本結構（<b>財務槓桿</b>）。</li>
+      <li><span class="kb-term">Financial Ratios</span> — CEO 盯幾個比率就能定位問題、決定對策；四大類：營運能力、短期償債、獲利能力、市場基本面。</li>
+      <li><span class="kb-term">Cash Conversion Cycle</span>（現金循環長度）= 存貨天數 + 應收帳款天數 − 應付帳款天數。
+        <ul>
+          <li>例：60 + 60 − 100 = 只需 <b>20 天</b>現金水位。</li>
+          <li>例：60 + 60 − 20 = 需 <b>100 天</b>現金水位。</li>
+          <li>循環變長 = 警訊：存貨天數↑、應收帳款天數↑、或應付帳款天數↓（供應商議價力變強）。</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>課堂討論 · Discussion</h2>
+    <ul>
+      <li><b>張力/爭點：</b>帳面獲利 ≠ 現金流 — 有獲利的公司仍可能因現金循環過長而周轉不靈；比率分析的價值就在把這種「看不見的問題」畫出來。</li>
+      <li><b>老師重點：</b>公司存在的目的是產生 cashflow；CEO 不必讀完整份報表，盯幾個關鍵比率就知道問題在哪、怎麼解。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>應用 · Application</h2>
+    <ul>
+      <li>畫出現金週期即可快速診斷企業：<b>應收帳款大增要小心、存貨天數大增要小心</b>。</li>
+    </ul>
+  </section>
+
+  <section class="note-section synthesis">
+    <h2>我的綜整 · My Synthesis（So what）</h2>
+    <ul>
+      <li><b>醫院：</b>現金循環長度直接套用到醫院財務——醫院的「應收帳款天數」被 NHI 申報到撥款的延遲撐得很長，是現金水位的隱形殺手；用 <span class="kb-term">ROA</span>/<span class="kb-term">ROE</span> 檢視科部資本效率，營運槓桿高（人力、設備固定成本重）代表量能波動會對損益放大。</li>
+      <li><b>新創：</b>cashflow 就是命（<span class="kb-term">burn rate</span> / <span class="kb-term">runway</span>）；平台若涉及金流（如 Spridea 的 Ag/Au 錢包）就有自己的現金循環；軟體是極端營運槓桿（高固定、低邊際成本），規模一過損益平衡點獲利快速放大；早期 P/E、P/CF 意義不大，現金流與單位經濟才是重點。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>關鍵詞 · Key terms</h2>
+    <ul>
+      <li><span class="kb-term">A = D + E</span> — 資產 = 負債 + 股東權益（資本結構恆等式）。</li>
+      <li><span class="kb-term">Operating Leverage</span> 營運槓桿 / <span class="kb-term">Financial Leverage</span> 財務槓桿 — 固定營運成本、舉債對利益的放大效果。</li>
+      <li><span class="kb-term">Inventory Turnover</span> 存貨週轉率、<span class="kb-term">Current Ratio</span> 流動比率、<span class="kb-term">Quick Ratio</span> 速動比率（扣存貨與預付款項）。</li>
+      <li><span class="kb-term">Cash Conversion Cycle</span> — 從付錢進貨到收到客戶現金的天數。</li>
+      <li><span class="kb-term">ROE</span> = 稅後淨利/股東權益（股東報酬率）、<span class="kb-term">ROA</span> = 稅後淨利/總資產（資產報酬率）、<span class="kb-term">純利率</span> = 稅後淨利/銷貨收入。</li>
+      <li><span class="kb-term">P/E 本益比</span> = 每股價格 / <span class="correction" title="原記錄：每股淨值">每股盈餘(EPS)</span>、<span class="kb-term">P/B 市價淨值比</span> = 每股價格/每股淨值、<span class="kb-term">P/CF 市價現金流量比</span> = 每股價格/每股現金流量。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>待追 · Follow-ups</h2>
+    <ul>
+      <li><span class="correction">已修正</span>：速記「本益比 = 每股價格 / 每股淨值」→ 應為 <b>P/E = 每股價格 / 每股盈餘(EPS)</b>；「每股淨值」是 P/B 的分母。請確認。</li>
+      <li>補上 Ch1「資產負債表可看出的 4 個問題」— 速記只寫「上述4個問題」，內容沒記到（待對照課堂）。</li>
+      <li>用現金循環長度實際分析自己的科部（含 NHI 應收天數）與平台專案。</li>
+      <li>補上這堂課正確日期（目前暫用整理日 2026-06-11）。</li>
+    </ul>
+  </section>
+
+  <section class="note-section refs">
+    <h2>延伸 · References</h2>
+    <ul>
+      <li><a href="https://sunnyfge.pixnet.net/blog/posts/10352325767" target="_blank" rel="noopener">林明樟《用生活常識就能看懂財務報表》(商周, 2016) — 讀書筆記</a> — 老師講法的源頭；把應收帳款週轉率比喻成餐廳「翻桌率」，並用早餐店例子串起三大報表。</li>
+      <li><a href="https://rich01.com/what-is-cash-conversion-cycle/" target="_blank" rel="noopener">Mr.Market 市場先生：現金循環週期</a> — 清楚的中文定義、計算與數值高低判讀，可直接套到你的診斷練習。</li>
+    </ul>
+  </section>
+</div>
+</body>
+</html>

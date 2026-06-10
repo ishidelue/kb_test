@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{PREFIX}} · {{TITLE}}</title>
+
+<!--
+  note-template.html — source template for the mba-class-note skill.
+
+  Generation steps:
+  1. Replace every {{TOKEN}} below (and the kb-meta block) with real values.
+     id = <prefix-lower>-<YYYY-MM-DD>-<topic-slug>;  filename = <id>.html.
+  2. ALL body content in Traditional Chinese (Taiwan); tags[] stay in English.
+  3. Keep the inline critical-CSS <style> and the linked ../assets/kb.css below
+     VERBATIM — a note must render standalone (single-file rule).
+  4. Save into notes/<id>.html, then rebuild via the venv:
+        venv\Scripts\python.exe build_manifest.py
+  5. Drop or duplicate <li> items per section as the material needs; remove
+     sections that genuinely have no content (keep at least 核心概念 + 我的綜整).
+-->
+
+<script type="application/json" id="kb-meta">
+{
+  "id": "{{ID}}",
+  "prefix": "{{PREFIX}}",
+  "skill": "mba-class-note",
+  "type": "class-note",
+  "title": "{{TITLE}}",
+  "course": "{{COURSE}}",
+  "date": "{{DATE}}",
+  "topic": "{{TOPIC}}",
+  "tags": [{{TAGS}}],
+  "domains": [{{DOMAINS}}],
+  "created": "{{CREATED}}",
+  "file": "notes/{{ID}}.html"
+}
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root{--bg:#fafafa;--surface:#fff;--surface-2:#f4f4f5;--border:rgba(24,24,27,.08);--text:#18181b;--text-2:#52525b;--text-3:#71717a;--text-4:#a1a1aa;--accent:#18181b;--radius:12px;--hospital:#8fa6b0;--startup:#b79a86;--correction:#a16207;--sans:"Inter",system-ui,"PingFang TC","Noto Sans TC",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--serif:"Fraunces",Georgia,"Noto Serif TC",serif;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16.5px;line-height:1.78;-webkit-font-smoothing:antialiased;}
+.article-wrap{max-width:760px;margin:0 auto;padding:48px 28px 110px;}
+.article-eyebrow{font-family:var(--mono);font-size:12.5px;color:var(--text-3);display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:18px;}
+.badge{font-family:var(--mono);font-size:11.5px;padding:2px 8px;border-radius:6px;background:var(--surface-2);color:var(--text-2);}
+h1.article-title{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.15;letter-spacing:-.02em;margin-bottom:20px;}
+.tag{font-family:var(--mono);font-size:11.5px;color:var(--text-3);background:var(--surface-2);border-radius:6px;padding:2px 7px;}
+.article-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:8px;}
+.article-domains{display:flex;gap:10px;margin:14px 0 40px;padding-bottom:32px;border-bottom:1px solid var(--border);}
+.domain-pill{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12.5px;color:var(--text-2);}
+.dot{width:8px;height:8px;border-radius:50%;}.dot.hospital{background:var(--hospital);}.dot.startup{background:var(--startup);}
+section.note-section{margin-bottom:40px;}
+section.note-section>h2{font-family:var(--mono);font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--text-4);margin-bottom:16px;}
+.note-section ul{list-style:none;display:flex;flex-direction:column;gap:13px;}
+.note-section li{position:relative;padding-left:22px;line-height:1.85;}
+.note-section li::before{content:"";position:absolute;left:5px;top:12px;width:5px;height:5px;border-radius:50%;background:var(--text-4);}
+.note-section li ul{margin-top:10px;}
+.kb-term{font-family:var(--mono);font-size:.9em;background:var(--surface-2);border:1px solid var(--border);border-radius:5px;padding:.5px 5px;}
+.correction{color:var(--correction);border-bottom:1px dashed var(--correction);cursor:help;}
+section.synthesis{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:24px 26px;}
+.refs a{color:var(--text-2);border-bottom:1px solid rgba(24,24,27,.14);}
+.refs a:hover{color:var(--text);}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12.5px;color:var(--text-3);margin-bottom:28px;}
+</style>
+
+<link rel="stylesheet" href="../assets/kb.css">
+</head>
+<body>
+
+<div class="article-wrap">
+  <a class="back-link" href="../index.html">← 知識庫</a>
+
+  <div class="article-eyebrow">
+    <span class="badge">{{PREFIX}}</span>
+    <span>{{COURSE}}</span><span>·</span><span>{{DATE}}</span>
+  </div>
+
+  <h1 class="article-title">{{TITLE}}</h1>
+
+  <div class="article-meta">
+    <!-- one <span class="tag"> per English tag -->
+    <span class="tag">{{TAG_1}}</span>
+    <span class="tag">{{TAG_2}}</span>
+  </div>
+  <div class="article-domains">
+    <!-- keep only the domains that apply -->
+    <span class="domain-pill"><span class="dot hospital"></span>醫院/急診</span>
+    <span class="domain-pill"><span class="dot startup"></span>資訊新創</span>
+  </div>
+
+  <section class="note-section">
+    <h2>核心概念 · Frameworks &amp; Concepts</h2>
+    <ul>
+      <li><span class="kb-term">{{CONCEPT}}</span>（{{中文說明}}）— {{一句話定義或重點}}。</li>
+      <li>{{下一個核心概念；公式用 <b>…</b> 標、需要時用巢狀 <ul> 列舉例子}}。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>課堂討論 · Discussion</h2>
+    <ul>
+      <li><b>張力/爭點：</b>{{課堂上的對立觀點或核心問題}}。</li>
+      <li><b>老師重點：</b>{{老師強調的判斷或口頭禪}}。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>應用 · Application</h2>
+    <ul>
+      <li>{{此概念如何實際運用、如何診斷或決策}}。</li>
+    </ul>
+  </section>
+
+  <section class="note-section synthesis">
+    <h2>我的綜整 · My Synthesis（So what）</h2>
+    <ul>
+      <li><b>醫院：</b>{{把概念接到醫院/急診情境的個人綜整}}。</li>
+      <li><b>新創：</b>{{把概念接到資訊新創情境的個人綜整}}。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>關鍵詞 · Key terms</h2>
+    <ul>
+      <li><span class="kb-term">{{Term}}</span> {{中文}} — {{簡短定義或公式}}。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>待追 · Follow-ups</h2>
+    <ul>
+      <!-- 已修正的明確錯誤放這裡，內文用 <span class="correction"> 標記 -->
+      <li>{{需要回頭確認、補課或實作的事項}}。</li>
+    </ul>
+  </section>
+
+  <section class="note-section refs">
+    <h2>延伸 · References</h2>
+    <ul>
+      <li><a href="{{URL}}" target="_blank" rel="noopener">{{來源標題}}</a> — {{一句話摘要，尊重著作權，不長段引用}}。</li>
+    </ul>
+  </section>
+</div>
+</body>
+</html>

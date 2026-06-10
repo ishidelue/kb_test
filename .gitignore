@@ -1,0 +1,12 @@
+# Python virtual environment (recreate with: python -m venv venv)
+venv/
+.venv/
+
+# Python caches
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# OS cruft
+.DS_Store
+Thumbs.db

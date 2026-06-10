@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PMBA KB — 架構交班文件</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root{--bg:#fafafa;--surface:#fff;--surface-2:#f4f4f5;--surface-3:#ececee;--border:rgba(24,24,27,.08);--border-strong:rgba(24,24,27,.14);--text:#18181b;--text-2:#52525b;--text-3:#71717a;--text-4:#a1a1aa;--accent:#18181b;--hospital:#8fa6b0;--startup:#b79a86;--correction:#a16207;--radius:12px;--sans:"Inter",system-ui,"PingFang TC","Noto Sans TC",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--serif:"Fraunces",Georgia,"Noto Serif TC",serif;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16.5px;line-height:1.78;-webkit-font-smoothing:antialiased;}
+.doc{max-width:860px;margin:0 auto;padding:56px 32px 120px;}
+h1{font-family:var(--serif);font-weight:600;font-size:42px;line-height:1.12;letter-spacing:-.02em;margin:0 0 8px;}
+h2{font-family:var(--serif);font-weight:600;font-size:25px;letter-spacing:-.01em;margin:48px 0 16px;padding-top:24px;border-top:1px solid var(--border);}
+h1+*{color:var(--text-2);}
+p{margin:0 0 16px;}
+ul,ol{margin:0 0 18px;padding-left:24px;}
+li{margin-bottom:8px;line-height:1.78;}
+strong{font-weight:600;}
+a{color:var(--text-2);border-bottom:1px solid var(--border-strong);}
+a:hover{color:var(--text);}
+code{font-family:var(--mono);font-size:.86em;background:var(--surface-2);border:1px solid var(--border);border-radius:5px;padding:1px 6px;color:var(--text);}
+pre{background:var(--text);color:#e8e8ea;border-radius:var(--radius);padding:18px 20px;overflow-x:auto;margin:0 0 20px;}
+pre code{background:none;border:0;color:inherit;font-size:13.5px;padding:0;line-height:1.7;}
+table{width:100%;border-collapse:collapse;margin:0 0 22px;font-size:15px;}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top;}
+th{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);font-weight:500;}
+td code{white-space:nowrap;}
+hr{border:0;border-top:1px solid var(--border);margin:40px 0;}
+blockquote{border-left:3px solid var(--border-strong);padding-left:16px;color:var(--text-2);margin:0 0 18px;}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-4);margin-bottom:14px;}
+.amber{color:var(--correction);}
+@media(max-width:600px){.doc{padding:36px 18px 80px;}h1{font-size:32px;}}
+</style>
+</head>
+<body>
+<div class="doc">
+<div class="eyebrow">Handoff · for Claude Code</div>
+<h1 id="claudemd-pmba-knowledge-base-operating-guide">CLAUDE.md — PMBA Knowledge Base (operating guide / 交班文件)</h1>
+<p>A static, HTML-based personal knowledge base. <strong>Each note is a self-contained HTML file and is the source of truth</strong>; everything else is derived or presentational. Read this before editing anything.</p>
+<hr />
+<h2 id="what-lives-where">What lives where</h2>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>index.html</code></td>
+<td>Browser/portal. Client-side: fetches <code>notes.json</code>, renders cards, search + filter by <strong>family (prefix)</strong> and <strong>domain</strong>. KB-owned; not generated per note.</td>
+</tr>
+<tr>
+<td><code>notes.json</code></td>
+<td><strong>Derived</strong> manifest (array of note metadata). <strong>Never hand-edit.</strong> Rebuild with <code>build_manifest.py</code>.</td>
+</tr>
+<tr>
+<td><code>build_manifest.py</code></td>
+<td>Scans <code>notes/*.html</code>, extracts each note's embedded <code>kb-meta</code>, regenerates <code>notes.json</code>. Flags duplicate ids + missing fields. <code>--check</code> validates without writing.</td>
+</tr>
+<tr>
+<td><code>assets/kb.css</code></td>
+<td>Single source of truth for the theme. Change a token → whole KB restyles (in-repo rendering).</td>
+</tr>
+<tr>
+<td><code>notes/&lt;id&gt;.html</code></td>
+<td>One note per class. <strong>Source of truth.</strong> Self-contained: inline critical CSS + linked <code>../assets/kb.css</code> + embedded <code>kb-meta</code>.</td>
+</tr>
+<tr>
+<td><code>.claude/skills/&lt;name&gt;/</code></td>
+<td>Note-generating skills (e.g. <code>mba-class-note</code>). Claude Code auto-loads these.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="the-note-contract-every-note-every-skill">The note contract (every note, every skill)</h2>
+<p>Each note embeds its metadata so the manifest can be rebuilt from the notes themselves:</p>
+<pre><code class="language-html">&lt;script type=&quot;application/json&quot; id=&quot;kb-meta&quot;&gt;{ ...metadata... }&lt;/script&gt;
+</code></pre>
+<p>Schema — keys are <strong>stable and additive</strong>; never rename or repurpose them or the index breaks:</p>
+<p><code>id, prefix, skill, type, title, course, date, topic, tags[], domains[], created, file</code></p>
+<ul>
+<li><code>id</code> = <code>&lt;prefix-lower&gt;-&lt;YYYY-MM-DD&gt;-&lt;topic-slug&gt;</code>, deterministic. Filename = <code>&lt;id&gt;.html</code>.</li>
+<li><code>prefix</code> = family / namespace (<code>PMBA</code>; future <code>ER</code>, <code>ENG</code>, …). Lets many skills share one KB; the index filters by it.</li>
+<li><code>domains</code> ⊆ { <code>hospital</code>, <code>startup</code> }.</li>
+<li><code>tags</code> = framework / concept names (English) for cross-cutting search.</li>
+</ul>
+<hr />
+<h2 id="single-file-rule-do-not-break">Single-file rule (do not break)</h2>
+<p>A note must render correctly <strong>on its own</strong> (e.g. on iPad, before it's filed into the repo). Therefore:</p>
+<ol>
+<li>Keep the inline critical-CSS <code>&lt;style&gt;</code> block in <code>&lt;head&gt;</code> <strong>verbatim</strong> — never edit or strip it.</li>
+<li>Keep <code>&lt;link rel="stylesheet" href="../assets/kb.css"&gt;</code> immediately after it — overrides for full theming once in-repo.</li>
+</ol>
+<p>A note missing the inline critical CSS is a bug.</p>
+<hr />
+<h2 id="design-tokens-the-spridea-language">Design tokens (the "Spridea" language)</h2>
+<p>Zinc grayscale (<code>--g-0</code>…<code>--g-950</code>, accent <code>#18181b</code>). Fonts: <strong>Fraunces</strong> (serif display) / <strong>Inter</strong> (body) / <strong>IBM Plex Mono</strong> (mono + labels). Soft radii + shadows. Domain accents: hospital <code>#8fa6b0</code>, startup <code>#b79a86</code>. Corrections: amber <code>#a16207</code> (<strong>never red</strong>). Theme changes go in <code>kb.css</code>; never invent per-note colours.</p>
+<hr />
+<h2 id="editing-rules">Editing rules</h2>
+<ul>
+<li>Change to <code>kb-meta</code> (title / date / tags / domains / id) → <strong>rerun <code>python build_manifest.py</code></strong>.</li>
+<li>Body-text-only change → no rebuild needed; just commit/push.</li>
+<li><strong>Never</strong> hand-edit <code>notes.json</code> — always rebuild.</li>
+<li>Delete a note: <code>rm notes/&lt;id&gt;.html</code> then rebuild.</li>
+<li>Re-generating a class overwrites by <code>id</code> (deterministic) — intended.</li>
+</ul>
+<hr />
+<h2 id="skills">Skills</h2>
+<ul>
+<li><strong><code>mba-class-note</code></strong> — trigger <code>[PMBA] …</code>. Turns transcript + in-class shorthand into a structured note, builds <code>&lt;id&gt;.html</code> from <code>assets/note-template.html</code>, fixes clear errors inline in <strong>amber</strong> (<code>&lt;span class="correction"&gt;</code>), and adds web references under <code>延伸</code>. See its <code>SKILL.md</code>.</li>
+<li>Future sibling skills use their own <code>[PREFIX]</code> and the <strong>same</strong> note contract + template pattern, so they coexist in one KB.</li>
+</ul>
+<p>Install: drop the skill folder in repo <code>.claude/skills/&lt;name&gt;/</code> (auto-loaded by Claude Code) or in <code>~/.claude/skills/</code> (personal, all projects). The packaged <code>.skill</code> also installs in Claude.ai / Claude Desktop.</p>
+<hr />
+<h2 id="workflows">Workflows</h2>
+<ol>
+<li><strong>iPad (Claude app), in class:</strong> generate a single <code>&lt;id&gt;.html</code> → save → back at office, drop into <code>notes/</code> → <code>python build_manifest.py</code> → commit / push.</li>
+<li><strong>Office (Claude Code):</strong> edit notes / reorganize directly → rebuild → commit / push.</li>
+</ol>
+<p>The manifest is <strong>rebuilt, not merged</strong>, so notes coming from both sources never cause a <code>notes.json</code> conflict.</p>
+<hr />
+<h2 id="common-operations-claude-code">Common operations (Claude Code)</h2>
+<pre><code class="language-bash">python build_manifest.py            # rebuild notes.json from notes/
+python build_manifest.py --check    # validate only (CI-friendly)
+python -m http.server 8000          # serve locally (index fetch needs http://, not file://)
+</code></pre>
+<p>Bulk reorg (merge / split / retag / dedupe / add backlinks): edit the note files, then rebuild. Tell Claude Code the intent; it does file ops + rebuild + commit in one pass.</p>
+<hr />
+<h2 id="invariants-dont-violate">Invariants (don't violate)</h2>
+<ul>
+<li><code>notes/&lt;id&gt;.html</code> is the source of truth; <code>notes.json</code> is derived.</li>
+<li>Don't edit inline critical CSS in notes; theme via <code>kb.css</code>.</li>
+<li>Keep <code>kb-meta</code> keys stable; add fields, don't rename.</li>
+<li>Corrections in amber, never red; never "correct" the user's judgment, framing, or analogies — only clear factual/formula/arithmetic errors, and flag them under <code>待追</code>.</li>
+<li>References respect copyright: link + one-line summary, no long quotes.</li>
+</ul>
+<hr />
+<h2 id="deploy">Deploy</h2>
+<p>Static site → enable <strong>GitHub Pages</strong> for anywhere access (incl. iPad). Commit <code>notes.json</code> (always regenerated, never hand-edited).</p>
+</div>
+</body>
+</html>
