@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PMBA · 市場基本面比率評價：Seagate Technology Buyout</title>
+
+<!-- ============================================================
+     kb-meta — machine-readable metadata. build_manifest.py reads
+     THIS to regenerate notes.json. Keep the keys exactly; fill values.
+     domains: subset of ["hospital","startup"]. tags: framework names (EN).
+     ============================================================ -->
+<script type="application/json" id="kb-meta">
+{
+  "id": "pmba-2026-07-12-market-multiples-seagate",
+  "prefix": "PMBA",
+  "skill": "mba-class-note",
+  "type": "class-note",
+  "title": "市場基本面比率評價：Seagate Technology Buyout",
+  "course": "財務管理／評價",
+  "date": "2026-07-12",
+  "topic": "市場基本面比率與相對評價 (Market Multiples / Relative Valuation)",
+  "tags": ["Relative Valuation","Comparable Company Analysis","EV/EBITDA","EV/Sales","P/E","P/B","Sum-of-the-Parts","Stub Value","Normalized Earnings","LBO","Limits to Arbitrage"],
+  "domains": ["hospital","startup"],
+  "created": "2026-07-12T21:40:00+08:00",
+  "file": "notes/pmba-2026-07-12-market-multiples-seagate.html"
+}
+</script>
+
+<!-- ============================================================
+     CRITICAL CSS — DO NOT EDIT. Copy verbatim into every note.
+     Makes the note self-contained: it renders correctly on its own
+     (e.g. on iPad, before it is filed into the KB repo) without
+     depending on assets/kb.css. The shared sheet linked AFTER this
+     block overrides it for full theming once the note is in the KB.
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root{--bg:#fafafa;--surface:#fff;--surface-2:#f4f4f5;--border:rgba(24,24,27,.08);--text:#18181b;--text-2:#52525b;--text-3:#71717a;--text-4:#a1a1aa;--accent:#18181b;--radius:12px;--hospital:#8fa6b0;--startup:#b79a86;--correction:#a16207;--sans:"Inter",system-ui,"PingFang TC","Noto Sans TC",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--serif:"Fraunces",Georgia,"Noto Serif TC",serif;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16.5px;line-height:1.78;-webkit-font-smoothing:antialiased;}
+.article-wrap{max-width:760px;margin:0 auto;padding:48px 28px 110px;}
+.article-eyebrow{font-family:var(--mono);font-size:12.5px;color:var(--text-3);display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:18px;}
+.badge{font-family:var(--mono);font-size:11.5px;padding:2px 8px;border-radius:6px;background:var(--surface-2);color:var(--text-2);}
+h1.article-title{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.15;letter-spacing:-.02em;margin-bottom:20px;}
+.tag{font-family:var(--mono);font-size:11.5px;color:var(--text-3);background:var(--surface-2);border-radius:6px;padding:2px 7px;}
+.article-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:8px;}
+.article-domains{display:flex;gap:10px;margin:14px 0 40px;padding-bottom:32px;border-bottom:1px solid var(--border);}
+.domain-pill{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12.5px;color:var(--text-2);}
+.dot{width:8px;height:8px;border-radius:50%;}.dot.hospital{background:var(--hospital);}.dot.startup{background:var(--startup);}
+section.note-section{margin-bottom:40px;}
+section.note-section>h2{font-family:var(--mono);font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--text-4);margin-bottom:16px;}
+.note-section ul{list-style:none;display:flex;flex-direction:column;gap:13px;}
+.note-section li{position:relative;padding-left:22px;line-height:1.85;}
+.note-section li::before{content:"";position:absolute;left:5px;top:12px;width:5px;height:5px;border-radius:50%;background:var(--text-4);}
+.note-section li ul{margin-top:10px;}
+.kb-term{font-family:var(--mono);font-size:.9em;background:var(--surface-2);border:1px solid var(--border);border-radius:5px;padding:.5px 5px;}
+.correction{color:var(--correction);border-bottom:1px dashed var(--correction);cursor:help;}
+section.synthesis{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:24px 26px;}
+.refs a{color:var(--text-2);border-bottom:1px solid var(--border-strong,rgba(24,24,27,.14));}
+.refs a:hover{color:var(--text);}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12.5px;color:var(--text-3);margin-bottom:28px;}
+</style>
+
+<!-- full shared theme (palette, header). Overrides critical CSS in-repo. -->
+<link rel="stylesheet" href="../assets/kb.css">
+
+<!-- note-local additions: data tables only. Does not touch the critical CSS above. -->
+<style id="note-extra">
+.kb-figure{margin:20px 0 6px;}
+.kb-figure figcaption{font-family:var(--mono);font-size:12px;color:var(--text-4);margin-bottom:10px;letter-spacing:.03em;}
+.kb-table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);}
+table.kb-table{border-collapse:collapse;width:100%;min-width:600px;font-size:13.5px;line-height:1.5;}
+table.kb-table th,table.kb-table td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--border);white-space:nowrap;}
+table.kb-table thead th{font-family:var(--mono);font-size:11.5px;font-weight:500;color:var(--text-3);text-transform:none;letter-spacing:.02em;background:var(--surface-2);}
+table.kb-table th:first-child,table.kb-table td:first-child{text-align:left;white-space:normal;color:var(--text-2);}
+table.kb-table tbody tr:last-child td{border-bottom:none;}
+table.kb-table tr.kb-row-key td{font-weight:600;color:var(--text);background:rgba(24,24,27,.025);}
+table.kb-table tr.kb-row-total td{font-weight:600;border-top:1.5px solid rgba(24,24,27,.18);}
+table.kb-table td.num{font-family:var(--mono);font-size:12.5px;}
+table.kb-table .nm{color:var(--text-4);}
+.kb-note{font-size:13px;color:var(--text-3);margin-top:10px;line-height:1.65;}
+</style>
+</head>
+<body data-theme="grayscale">
+
+<div class="article-wrap">
+  <a class="back-link" href="../index.html">← 知識庫</a>
+
+  <div class="article-eyebrow">
+    <span class="badge">PMBA</span>
+    <span>財務管理／評價</span><span>·</span><span>2026-07-12</span>
+  </div>
+
+  <h1 class="article-title">市場基本面比率評價：Seagate Technology Buyout</h1>
+
+  <div class="article-meta">
+    <span class="tag">Relative Valuation</span>
+    <span class="tag">Comparable Company Analysis</span>
+    <span class="tag">EV/EBITDA</span>
+    <span class="tag">EV/Sales</span>
+    <span class="tag">P/E</span>
+    <span class="tag">P/B</span>
+    <span class="tag">Sum-of-the-Parts</span>
+    <span class="tag">Stub Value</span>
+    <span class="tag">Normalized Earnings</span>
+    <span class="tag">LBO</span>
+    <span class="tag">Limits to Arbitrage</span>
+  </div>
+
+  <div class="article-domains">
+    <span class="domain-pill"><span class="dot hospital"></span>醫院/急診</span>
+    <span class="domain-pill"><span class="dot startup"></span>資訊新創</span>
+  </div>
+
+  <section class="note-section">
+    <h2>核心概念 · Frameworks &amp; Concepts</h2>
+    <ul>
+      <li><span class="kb-term">Relative Valuation</span>（相對評價）— 不直接算內在價值，而是用可比公司的價格倍數乘上本公司的基本面（earnings、EBITDA、sales、book value）快速推估價值。優點是快、貼近市場；缺點是<b>會把市場當下的錯價一起繼承進來</b>。</li>
+      <li><b>分子分母一致性（numerator–denominator matching）</b>— 整堂課最容易錯的地方。
+        <ul>
+          <li><b>Equity multiple</b>（<span class="kb-term">P/E</span>、<span class="kb-term">P/B</span>、<span class="kb-term">P/S</span>）：分子是 market cap，分母必須是股東可分配的量（net income、book equity）。</li>
+          <li><b>EV multiple</b>（<span class="kb-term">EV/Sales</span>、<span class="kb-term">EV/EBITDA</span>、<span class="kb-term">EV/EBIT</span>）：分子是 <span class="kb-term">EV</span>（Enterprise Value，企業價值）＝ 市值 ＋ 淨負債 − 非營業資產；分母必須是還債之前的量。</li>
+          <li>常見錯誤：P/EBITDA、EV/Net Income —— 兩邊求償順位不對齊，數字沒有意義。</li>
+        </ul>
+      </li>
+      <li><b>倍數的基本面驅動因子</b>（由 Gordon Growth 推導）— 倍數只是 <span class="kb-term">DCF</span>（Discounted Cash Flow，折現現金流）的簡化式：
+        <ul>
+          <li><code>P/E = payout × (1+g) / (r − g)</code> → 高成長、低風險、低再投資需求 ⇒ 高 P/E</li>
+          <li><code>P/B = (ROE − g) / (r − g)</code> → P/B 的靈魂是 <span class="kb-term">ROE</span>（Return on Equity，股東權益報酬率）；ROE &lt; r ⇒ P/B 必然 &lt; 1</li>
+          <li><code>P/S ≈ net margin × payout × (1+g)/(r − g)</code> → P/S 的靈魂是<b>淨利率</b></li>
+          <li>EV/EBITDA 隨 WACC ↓、g ↑、<span class="kb-term">ROIC</span>（Return on Invested Capital，投入資本報酬率）↑、資本密集度 ↓ 而上升</li>
+          <li><b>So what：</b>兩家公司倍數不同，先問是哪個 driver 不同（成長？風險？ROIC？），而不是直接喊「便宜／貴」。</li>
+        </ul>
+      </li>
+      <li><b>Non-operating assets（非營業資產）必須剝離</b> — 現金、交叉持股、投資部位不屬於本業：算 EV 時要扣掉，評價時分開加回（並扣掉隱含稅負）。<b>Seagate 案整個 fail 在這一條。</b></li>
+      <li><span class="kb-term">Sum-of-the-Parts</span>（SOTP，分部加總評價）與 <span class="kb-term">Stub Value</span> — 集團價值 = Σ 各部門價值 ＋ 非營業資產 − 負債 − 隱含稅負；<code>Stub = 市值 − 已知資產價值</code>。<b>Stub 為負</b>＝市場給本業負的價值，理論上不該發生。</li>
+      <li><span class="kb-term">Normalized Earnings</span>（景氣循環正常化）— 循環性產業（disk drive 是教科書級的循環股）谷底 E 極小 ⇒ P/E 假性爆高；頂峰 E 極大 ⇒ P/E 假性便宜。要用 mid-cycle EBITDA（Earnings Before Interest, Taxes, Depreciation and Amortization，稅息折舊攤銷前盈餘）或 EV/Sales。</li>
+      <li><b>一次性項目要調整</b> — Seagate FY1999 淨利 $1,176M 內含 VERITAS 交易的資本利得；拿它算 <span class="kb-term">P/E</span>（Price-to-Earnings，本益比）等於自欺欺人。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>個案 · Case：Seagate Technology Buyout (HBS 201-063)</h2>
+    <ul>
+      <li><b>公司/背景（截至 2000/3）：</b>Seagate 是全球最大硬碟廠 —— 1999 年全球出貨市占 21.1%（enterprise 市場 41%），年營收約 65–70 億美元，是唯一垂直整合、也是 1999 年唯一還賺錢的獨立硬碟廠。</li>
+      <li><b>事件起點：</b>1999/5 Seagate 將 NSMG（軟體事業）售予 VERITAS Software，換得 VERITAS 股票。其後半年 VERITAS 股價漲逾 200%，Seagate 只漲 25%。</li>
+      <li><b>價值缺口：</b>Seagate 手上 128,059,966 股 VERITAS，一度超過 Seagate 全公司股權市值。對帳：128.06M × $168.69（2000/3/10）≈ <b>$21.6B 稅前</b>；若直接出售須繳 34% 公司稅，<b>稅後僅約 $14.3B</b>。市場等於給硬碟本業「零、甚至負」的價值。</li>
+      <li><b>管理層歸因：</b>(1) 賣股的隱含稅負被資本化進股價；(2) 市場當時只愛網路與軟體，硬碟被當成 commodity。</li>
+      <li><b>決策問題：</b>Silver Lake 該出多少錢買下 Seagate 的硬碟本業？這個價格對 Seagate 股東是不是「公平價格」？</li>
+      <li><b>交易結構（兩段式）：</b>
+        <ul>
+          <li>Step 1：Silver Lake 主導的 Suez Acquisition Co. 以現金買下全部硬碟營運資產（含約 $765M 現金）—— 即 <span class="kb-term">LBO</span>（Leveraged Buyout，槓桿收購）。實際成交約 <b>20 億美元現金</b>。</li>
+          <li>Step 2：剩下的 Seagate 空殼（128M 股 VERITAS ＋ 現金）與 VERITAS 換股合併，依 IRC §368(a) 屬 tax-free reorganization，公司與個人層次皆免稅。VERITAS 只用 109,330,300 股即換回自己的 128M 股。</li>
+          <li>Seagate 股東總對價約 $77.50／股（約 0.467 股 VERITAS ＋ 約 $5 現金，以 2000/3/28 收盤價計）。2000/11/22 完成，為當時史上最大科技業 buyout，整包交易約 200 億美元。</li>
+          <li>融資結構是 1:1 的債:股，而非傳統 LBO 的 4:1 —— 因為硬碟現金流波動太大（1998 虧 $690M、1999 賺 $260M、2000 又轉虧）。</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>當期同業比率比較 · Comparables（2000/3/10）</h2>
+
+    <figure class="kb-figure">
+      <figcaption>表 1 — 硬碟四強：基本面與市場基本面比率（US$M；財報取自 HBS Exhibit 3，市場資料為 2000/3/10）</figcaption>
+      <div class="kb-table-scroll">
+        <table class="kb-table">
+          <thead>
+            <tr>
+              <th>項目</th>
+              <th>Seagate<br>FY Jun-99</th>
+              <th>Quantum HDD<br>FY Mar-99</th>
+              <th>Western Digital<br>FY Jun-99</th>
+              <th>Maxtor<br>FY Dec-98</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>全球市占（1999 出貨量）</td><td class="num">21.1%</td><td class="num">17.1%</td><td class="num">11.1%</td><td class="num">13.3%</td></tr>
+            <tr><td>Sales</td><td class="num">6,802</td><td class="num">3,599</td><td class="num">2,767</td><td class="num">2,409</td></tr>
+            <tr><td>Gross margin %</td><td class="num">22.8%</td><td class="num">8.1%</td><td class="num">7.4%</td><td class="num">15.6%</td></tr>
+            <tr class="kb-row-key"><td>EBITDA</td><td class="num">1,011</td><td class="num">(61)</td><td class="num">(188)</td><td class="num">134</td></tr>
+            <tr class="kb-row-key"><td>EBITDA margin</td><td class="num">14.9%</td><td class="num nm">n.m.</td><td class="num nm">n.m.</td><td class="num">5.6%</td></tr>
+            <tr><td>EBIT</td><td class="num">398</td><td class="num">(133)</td><td class="num">(319)</td><td class="num">60</td></tr>
+            <tr><td>Net income</td><td class="num">1,176 ⚠</td><td class="num">(153)</td><td class="num">(493)</td><td class="num">31</td></tr>
+            <tr><td>Cash</td><td class="num">1,623</td><td class="num">524</td><td class="num">226</td><td class="num">258</td></tr>
+            <tr><td>Book debt (3/10/00)</td><td class="num">704</td><td class="num">110</td><td class="num">236</td><td class="num">114</td></tr>
+            <tr><td>Book equity</td><td class="num">3,563</td><td class="num">791</td><td class="num">(154)</td><td class="num">169</td></tr>
+            <tr><td>股價／股數 (3/10/00)</td><td class="num nm">見註</td><td class="num">$8.875 / 82.6M</td><td class="num">$5.1875 / 129.1M</td><td class="num">$11.625 / 113.2M</td></tr>
+            <tr><td>Market cap</td><td class="num nm">被 VERITAS 汙染</td><td class="num">733</td><td class="num">670</td><td class="num">1,316</td></tr>
+            <tr class="kb-row-key"><td>EV（市值＋負債−現金）</td><td class="num nm">—</td><td class="num">319</td><td class="num">680</td><td class="num">1,172</td></tr>
+            <tr class="kb-row-total"><td>EV / Sales</td><td class="num nm">—</td><td class="num">0.09x</td><td class="num">0.25x</td><td class="num">0.49x</td></tr>
+            <tr class="kb-row-total"><td>EV / EBITDA</td><td class="num nm">—</td><td class="num nm">n.m.（負）</td><td class="num nm">n.m.（負）</td><td class="num">8.7x</td></tr>
+            <tr class="kb-row-total"><td>P/E</td><td class="num nm">n.m. ⚠</td><td class="num nm">n.m.</td><td class="num nm">n.m.</td><td class="num">42.5x</td></tr>
+            <tr class="kb-row-total"><td>P/B</td><td class="num nm">—</td><td class="num">0.93x</td><td class="num nm">n.m.（負淨值）</td><td class="num">7.8x</td></tr>
+            <tr><td>Equity beta</td><td class="num nm">—</td><td class="num">0.8</td><td class="num">0.6</td><td class="num">1.0</td></tr>
+            <tr><td>Debt rating</td><td class="num">目標 BBB</td><td class="num">B2</td><td class="num">B2</td><td class="num">B1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="kb-note">⚠ Seagate FY1999 淨利 $1,176M <b>不能</b>用來算 P/E —— 內含 VERITAS 相關一次性資本利得，本業 EBIT 只有 $398M。同理，Seagate 的 market cap <b>不能</b>直接除以本業獲利，因為市值裡藏著 $21.6B 的 VERITAS 部位。<b>這正是整個案子的價值來源。</b></p>
+    </figure>
+
+    <ul>
+      <li><b>能用的倍數只剩 EV/Sales。</b>三家同業中兩家 EBITDA 為負、一家（WD）淨值為負 —— P/E、P/B、EV/EBITDA 全部 n.m.。循環股谷底時，倍數表會自我毀滅。</li>
+      <li><b>同業倍數離散度極大：</b>EV/Sales 從 Quantum 0.09x 到 Maxtor 0.49x，<b>相差 5 倍</b>。選哪一個當 benchmark，答案就差 5 倍 —— 這是相對評價最大的軟肋。</li>
+      <li><b>會計期間不對齊：</b>Seagate Jun-99、Quantum Mar-99、WD Jun-99、Maxtor <b>Dec-98</b>（Maxtor 那年剛好是難得的獲利年）。Maxtor 的 8.7x 是拿「相對好年」的 E 去比「已下跌」的 P —— 表面便宜、實際失真。<b>Comparables hygiene：期間、會計政策、資本結構都要先對齊。</b></li>
+      <li><b>Seagate 是唯一正 EBITDA（14.9% margin）、市占第一，卻被市場當成同一堆廢鐵定價。</b></li>
+    </ul>
+
+    <figure class="kb-figure">
+      <figcaption>表 2 — 用同業倍數回推 Seagate 硬碟本業價值（基礎：FY Jun-99 Sales 6,802 / EBITDA 1,011）</figcaption>
+      <div class="kb-table-scroll">
+        <table class="kb-table">
+          <thead>
+            <tr><th>方法</th><th>倍數</th><th>隱含硬碟本業價值</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Quantum EV/Sales</td><td class="num">0.09x</td><td class="num">$0.6B</td></tr>
+            <tr><td>Western Digital EV/Sales</td><td class="num">0.25x</td><td class="num">$1.7B</td></tr>
+            <tr><td>Maxtor EV/Sales</td><td class="num">0.49x</td><td class="num">$3.3B</td></tr>
+            <tr><td>Maxtor EV/EBITDA</td><td class="num">8.7x</td><td class="num">$8.8B</td></tr>
+            <tr><td>Morgan Stanley DCF（CY2006 EBITA 6.0x–9.0x、折現率 15%）</td><td class="num">—</td><td class="num">約 $2–3B+</td></tr>
+            <tr class="kb-row-total"><td><b>實際成交價（Silver Lake）</b></td><td class="num">—</td><td class="num"><b>$2.0B</b>（含隨附現金 $765M ⇒ ex-cash ≈ $1.2B）</td></tr>
+            <tr class="kb-row-key"><td>成交價換算倍數（FY99）</td><td class="num">—</td><td class="num">EV/Sales 0.18–0.29x｜EV/EBITDA 1.2–2.0x</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="kb-note"><b>震撼對照組：</b>VERITAS 於 2000/3/10 市值 ＝ $168.69 × 393.6M ≈ <b>$66B</b>，年營收約 $0.6B ⇒ <b>EV/Sales 約 100x</b>。同一個 storage 產業，<b>軟體 100x sales、硬體 0.2x sales，相差約 500 倍</b>。<b>倍數反映的是商業模式與市場情緒，不是規模或市占。</b></p>
+    </figure>
+  </section>
+
+  <section class="note-section">
+    <h2>課堂討論 · Discussion</h2>
+    <ul>
+      <li><b>張力/爭點 ①　市場錯了，還是市場對了？</b>負 stub 派（Lamont &amp; Thaler；Mitchell–Pulvino–Stafford）認為這是明顯 mispricing，<span class="kb-term">Limits to Arbitrage</span>（放空成本、時間風險、稅）讓它持續。理性派認為：隱含稅負 ＋ 資本密集 ＋ 零定價權 ＋ 現金流劇烈波動 ⇒ 低倍數本來就合理。</li>
+      <li><b>張力/爭點 ②　相對評價 vs. DCF：</b>若整個 comparable set 本身被錯價（2000 年硬碟全被打入冷宮），倍數法只會把錯價<b>複製</b>進來。DCF 是唯一能逆市場的工具 —— 但假設一調，答案就變。</li>
+      <li><b>張力/爭點 ③　Fiduciary duty：</b>Luczo 因利益衝突被排除於董事會審議與表決之外，但 $2B 公不公平？交易宣布後有 17 件股東訴訟，最後以極小代價和解。而且<b>沒有競價 ＝ 沒有市場檢驗</b>，這是「公平價格」最大的破口。</li>
+      <li><b>老師重點：</b>倍數法只能回答「相對於現在的市場，這個資產是貴還是便宜」，<b>不能</b>回答「它值多少」。當整個產業被情緒定價時，倍數法會系統性地給你錯的答案。而且 —— <b>先問這家公司的市值裡有沒有非營業資產；沒剝乾淨，後面所有倍數都是垃圾。</b></li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>決策與依據 · Decision &amp; Rationale</h2>
+    <ul>
+      <li><b>若我是 Seagate 董事：$2B 我不會直接簽</b> —— 至少要求 fairness opinion 補上 normalized-EBITDA 的分部評價，並公開做 market check（go-shop）。</li>
+      <li><b>依據 ① Non-operating assets 剝離後：</b>硬碟本業本身有 FY99 EBITDA $1,011M、margin 14.9%、市占 21%、是產業唯一獲利者。$2B ⇒ EV/EBITDA 僅 2.0x；同期 Maxtor（規模僅 1/3、margin 5.6%）拿到 8.7x。<b>這個倍數差距無法用 fundamentals 解釋</b>，只能用「市場不想碰硬體」解釋 —— 而那是<b>買方的機會，不是賣方的公平價格</b>。</li>
+      <li><b>依據 ② Normalized earnings：</b>以 FY2000E EBITDA ≈ $766M（Exhibit 8：revenue $6,619M、EBITA $141M、D&amp;A $625M）配保守的 mid-cycle 4–5x ⇒ <b>$3.1–3.8B</b>，仍遠高於 $2B。</li>
+      <li><b>誠實的 counter-argument：</b>谷底循環股 ＋ 無其他買家 ＋ 需巨額 capex/R&amp;D ＋ 高收益債市對硬體不友善 ⇒ 董事會可能真的沒有更好的 <span class="kb-term">BATNA</span>（Best Alternative to a Negotiated Agreement，最佳替代方案）。所以正確動作不是「拒絕」，而是<b>先做 market check 再簽</b>。</li>
+      <li><b>事後驗證（ex post，非事前資訊）：</b>2002/12/10 Seagate 重新 IPO，開盤 $12／股，是 2001 年 Accenture 之後最大的科技 IPO。硬碟本業活得很好 —— <b>市場當時真的錯了。</b></li>
+    </ul>
+  </section>
+
+  <section class="note-section synthesis">
+    <h2>我的綜整 · My Synthesis（So what）</h2>
+    <ul>
+      <li><b>醫院 ①　「Seagate 陷阱」在醫院天天發生：</b>用「每點值／健保申報總額」看一個科部，看到的是合併後的表象。SKHER 急診也有自己的 "VERITAS stake"（高倍數成長資產：ART Center、PSA、ICU intervention）與 "disk drive business"（低倍數 commodity：一般急診 volume）。合併看，整個科部就是一堆硬碟；<b>做 SOTP，才看得到 ART Center 的真實價值 —— 拆出來才有倍數。</b>這直接支持「PSA 當成獨立 business unit」的定位。</li>
+      <li><b>醫院 ②　不要用錯的倍數談判：</b>跟宏仁的雙向支援、社區網絡的分潤，如果用「每人次收入」（≈ P/S）談，就把自己定價在 commodity 端。要談就談 <b>EBITDA margin 與 ROIC</b> —— 因為 <code>P/S = net margin × …</code>，<b>淨利率才是分子</b>。PSA 與 POCUS-intervention 的 margin 遠高於一般急診，這是唯一撐得起高倍數的論述。</li>
+      <li><b>醫院 ③　循環正常化 ＝ 急診的季節性：</b>用單一季（流感高峰 or 淡季）的量去談任何合約，就是拿 peak/trough earnings 算 P/E。<b>永遠用 mid-cycle。</b>另外，他院的「每床產值」不能直接比 —— case-mix、支付制度、會計期間都不同，這跟 Maxtor 用 Dec-98 比 Seagate 用 Jun-99 是同一個錯。</li>
+      <li><b>新創 ①　最大的教訓就在那 500 倍：</b>VERITAS 100x sales、Seagate 0.2x sales。<b>商業模式決定倍數，規模與市占不決定倍數。</b>Spridea 若被理解成「內容平台（網路效應、邊際成本近零、經常性收入）」，倍數落在軟體區；若被理解成「內容代工／流量買賣」，倍數落在硬體區。<b>這件事要在 pitch deck 第一頁就決定，不是在 exit 時才辯論。</b></li>
+      <li><b>新創 ②　Ag/Au coin wallet 是 non-operating asset 還是 core？</b>若只是站內點數，投資人會像處理那筆隱含稅負一樣把它折現打折；若它是交易／清算層的核心引擎，它就是本業。<b>你必須主動決定它在 SOTP 表裡站哪一格，否則市場會替你決定 —— 而市場預設會給它折價。</b></li>
+      <li><b>新創 ③　看得懂 stub 的人才有超額報酬：</b>Silver Lake 賺的不是營運改善，是<b>別人不會做加減法</b>。對新創的意涵：去找那些被錯誤歸類的資產（人才、資料、通路），而不是跟大家搶同一個高倍數賽道。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>關鍵詞 · Key terms</h2>
+    <ul>
+      <li><span class="kb-term">EV</span>（Enterprise Value，企業價值）— 市值 ＋ 有息負債 − 現金與非營業資產；代表整個營運事業的價值</li>
+      <li><span class="kb-term">EV/EBITDA</span> — 跨資本結構、跨稅制可比；資本密集業要小心（忽略 capex）</li>
+      <li><span class="kb-term">EV/Sales</span> — 當 E、EBITDA 為負時唯一可用的倍數；隱含 driver 是 net margin</li>
+      <li><span class="kb-term">P/E</span>（本益比）— <code>payout(1+g)/(r−g)</code>；一次性損益與循環谷底會使其失真</li>
+      <li><span class="kb-term">P/B</span>（Price-to-Book，股價淨值比）— <code>(ROE − g)/(r − g)</code>；ROE &lt; r ⇒ P/B &lt; 1</li>
+      <li><span class="kb-term">PEG</span>（P/E to Growth，本益成長比）— P/E ÷ 盈餘成長率；粗略校正成長差異</li>
+      <li><span class="kb-term">Stub Value</span>（殘值）— 母公司市值扣除已知持股價值後，市場隱含給本業的價值；為負代表明顯錯價</li>
+      <li><span class="kb-term">SOTP</span>（Sum-of-the-Parts，分部加總評價）— 各業務／資產分開評價再加總，扣除負債與隱含稅負</li>
+      <li><span class="kb-term">Embedded Tax Liability</span>（隱含稅負）— 未實現增值一旦變現須繳的稅；SOTP 必須扣除</li>
+      <li><span class="kb-term">Limits to Arbitrage</span>（套利限制）— 放空成本、追繳保證金、時間風險，使明顯錯價得以持續</li>
+      <li><span class="kb-term">Normalized Earnings</span>（正常化盈餘）— 循環產業取 mid-cycle 而非單一年度</li>
+      <li><span class="kb-term">LBO</span>（Leveraged Buyout，槓桿收購）— 以標的資產與現金流為擔保、高負債比例的收購</li>
+      <li><span class="kb-term">Tax-free Reorganization</span>（IRC §368(a)）— 換股合併符合條件則公司與股東層次皆遞延課稅</li>
+      <li><span class="kb-term">Conglomerate Discount</span>（集團／控股公司折價）— 多角化或持股型公司常以低於分部加總的價格交易</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>待追 · Follow-ups</h2>
+    <ul>
+      <li>⚠ 表 1 的財務數字取自公開流通的 case PDF（OCR）。<b>上課前用課本正本核對 Seagate 2000/3/10 的股價與流通股數</b> —— 手上這份 Seagate 市值欄位缺漏，因此 Seagate 的 P/E、P/B 刻意留白未硬算。</li>
+      <li>讀 <b>Lamont &amp; Thaler (2003), "Can the Market Add and Subtract? Mispricing in Tech Stock Carve-outs"</b> —— 3Com/Palm 的負 stub 就發生在 <b>2000 年 3 月</b>，與 Seagate 同一個月。</li>
+      <li>讀 <b>Mitchell, Pulvino &amp; Stafford (2002), "Limited Arbitrage in Equity Markets"</b> —— 作者 Todd Pulvino 正是本案作者之一，兩者要對讀。</li>
+      <li>自己動手：用 FY2000E EBITDA $766M（Exhibit 8）× 3–6x 做一張敏感度矩陣，與 $2B 對照。</li>
+      <li>拉 SKHER 自己的數字做一次 SOTP：把急診拆成「一般急診／PSA／POCUS-intervention／ART Center」四塊，各算 contribution margin，看哪一塊是我的 VERITAS、哪一塊是我的 disk drive。</li>
+      <li>課堂上問老師：<b>當整個 comparable set 都被錯價時，相對評價還有存在價值嗎？</b>還是它只是在替市場情緒背書？</li>
+    </ul>
+  </section>
+
+  <section class="note-section refs">
+    <h2>延伸 · References</h2>
+    <ul>
+      <li><a href="https://store.hbr.org/product/seagate-technology-buyout/201063" target="_blank" rel="noopener">Seagate Technology Buyout (HBS 201-063)</a> — Andrade, Gilson &amp; Pulvino 原案。</li>
+      <li><a href="https://www.sec.gov/Archives/edgar/data/0000354952/000095014900001945/ex1-a.txt" target="_blank" rel="noopener">Seagate SC 13E-3 / Joint Proxy (SEC EDGAR)</a> — Morgan Stanley 與 Lehman 的 fairness opinion 原文，倍數區間與 DCF 假設比案例摘要更完整。</li>
+      <li><a href="https://www.forbes.com/forbes/2001/0514/222.html" target="_blank" rel="noopener">Forbes: "Giving Wall Street the Cold Shoulder" (2001)</a> — Silver Lake 為何用 1:1 而非 4:1 的債股比。</li>
+    </ul>
+  </section>
+</div>
+</body>
+</html>
