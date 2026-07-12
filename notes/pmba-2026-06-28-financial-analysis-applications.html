@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PMBA · 財務分析的三大應用：股票評價、財務危機預測、信用風險預測</title>
+
+<!-- ============================================================
+     kb-meta — machine-readable metadata. build_manifest.py reads
+     THIS to regenerate notes.json. Keep the keys exactly; fill values.
+     domains: subset of ["hospital","startup"]. tags: framework names (EN).
+     ============================================================ -->
+<script type="application/json" id="kb-meta">
+{
+  "id": "pmba-2026-06-28-financial-analysis-applications",
+  "prefix": "PMBA",
+  "skill": "mba-class-note",
+  "type": "class-note",
+  "title": "財務分析的三大應用：股票評價、財務危機預測、信用風險預測",
+  "course": "財務報表分析",
+  "date": "2026-06-28",
+  "topic": "財務分析的應用：valuation / distress / credit risk",
+  "tags": ["DCF","Gordon Growth Model","Residual Income Model","DuPont Analysis","Altman Z-Score","Ohlson O-Score","Merton Model","KMV"],
+  "domains": ["hospital","startup"],
+  "created": "2026-06-28T11:30:00+08:00",
+  "file": "notes/pmba-2026-06-28-financial-analysis-applications.html"
+}
+</script>
+
+<!-- ============================================================
+     CRITICAL CSS — DO NOT EDIT. Copy verbatim into every note.
+     Makes the note self-contained: it renders correctly on its own
+     (e.g. on iPad, before it is filed into the KB repo) without
+     depending on assets/kb.css. The shared sheet linked AFTER this
+     block overrides it for full theming once the note is in the KB.
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root{--bg:#fafafa;--surface:#fff;--surface-2:#f4f4f5;--border:rgba(24,24,27,.08);--text:#18181b;--text-2:#52525b;--text-3:#71717a;--text-4:#a1a1aa;--accent:#18181b;--radius:12px;--hospital:#8fa6b0;--startup:#b79a86;--correction:#a16207;--sans:"Inter",system-ui,"PingFang TC","Noto Sans TC",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--serif:"Fraunces",Georgia,"Noto Serif TC",serif;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16.5px;line-height:1.78;-webkit-font-smoothing:antialiased;}
+.article-wrap{max-width:760px;margin:0 auto;padding:48px 28px 110px;}
+.article-eyebrow{font-family:var(--mono);font-size:12.5px;color:var(--text-3);display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:18px;}
+.badge{font-family:var(--mono);font-size:11.5px;padding:2px 8px;border-radius:6px;background:var(--surface-2);color:var(--text-2);}
+h1.article-title{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.15;letter-spacing:-.02em;margin-bottom:20px;}
+.tag{font-family:var(--mono);font-size:11.5px;color:var(--text-3);background:var(--surface-2);border-radius:6px;padding:2px 7px;}
+.article-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:8px;}
+.article-domains{display:flex;gap:10px;margin:14px 0 40px;padding-bottom:32px;border-bottom:1px solid var(--border);}
+.domain-pill{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12.5px;color:var(--text-2);}
+.dot{width:8px;height:8px;border-radius:50%;}.dot.hospital{background:var(--hospital);}.dot.startup{background:var(--startup);}
+section.note-section{margin-bottom:40px;}
+section.note-section>h2{font-family:var(--mono);font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--text-4);margin-bottom:16px;}
+.note-section ul{list-style:none;display:flex;flex-direction:column;gap:13px;}
+.note-section li{position:relative;padding-left:22px;line-height:1.85;}
+.note-section li::before{content:"";position:absolute;left:5px;top:12px;width:5px;height:5px;border-radius:50%;background:var(--text-4);}
+.note-section li ul{margin-top:10px;}
+.kb-term{font-family:var(--mono);font-size:.9em;background:var(--surface-2);border:1px solid var(--border);border-radius:5px;padding:.5px 5px;}
+.correction{color:var(--correction);border-bottom:1px dashed var(--correction);cursor:help;}
+section.synthesis{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:24px 26px;}
+.refs a{color:var(--text-2);border-bottom:1px solid var(--border-strong,rgba(24,24,27,.14));}
+.refs a:hover{color:var(--text);}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12.5px;color:var(--text-3);margin-bottom:28px;}
+</style>
+
+<!-- full shared theme (palette, header). Overrides critical CSS in-repo. -->
+<link rel="stylesheet" href="../assets/kb.css">
+</head>
+<body data-theme="grayscale">
+
+<div class="article-wrap">
+  <a class="back-link" href="../index.html">← 知識庫</a>
+
+  <div class="article-eyebrow">
+    <span class="badge">PMBA</span>
+    <span>財務報表分析</span><span>·</span><span>2026-06-28</span>
+  </div>
+
+  <h1 class="article-title">財務分析的三大應用：股票評價、財務危機預測、信用風險預測</h1>
+
+  <div class="article-meta">
+    <span class="tag">DCF</span>
+    <span class="tag">Gordon Growth Model</span>
+    <span class="tag">Residual Income Model</span>
+    <span class="tag">DuPont Analysis</span>
+    <span class="tag">Altman Z-Score</span>
+    <span class="tag">Ohlson O-Score</span>
+    <span class="tag">Merton Model</span>
+    <span class="tag">KMV</span>
+  </div>
+
+  <div class="article-domains">
+    <span class="domain-pill"><span class="dot hospital"></span>醫院/急診</span>
+    <span class="domain-pill"><span class="dot startup"></span>資訊新創</span>
+  </div>
+
+  <section class="note-section">
+    <h2>核心概念 · Frameworks &amp; Concepts</h2>
+    <ul>
+      <li><b>(A) 股票評價 Equity Valuation</b> — 把財報分析轉成「內在價值 vs 市價」的買賣訊號
+        <ul>
+          <li><span class="kb-term">DCF (FCFF / FCFE)</span> — 預測未來自由現金流再折現；財報分析負責推估成長、利潤率、再投資率</li>
+          <li><span class="kb-term">Gordon Growth Model (DDM)</span> — V = D₁ / (r − g)，其中 g 常用 sustainable growth = ROE × retention ratio</li>
+          <li><span class="kb-term">Residual Income Model (Ohlson)</span> — V = 帳面價值 + Σ 折現後的 abnormal earnings；直接吃會計數字，對不發股利公司也適用</li>
+          <li><span class="kb-term">DuPont Analysis</span> — ROE = 淨利率 × 資產周轉 × 權益乘數；拆解獲利來源、餵進成長預測</li>
+          <li><span class="kb-term">Relative Valuation</span> — P/E、P/B、EV/EBITDA，用同業倍數反推合理價</li>
+        </ul>
+      </li>
+      <li><b>(B) 財務危機預測 Distress Prediction</b> — 把多個財報比率壓成一個「會不會倒」的分數
+        <ul>
+          <li><span class="kb-term">Altman Z-Score (1968)</span> — Z = 1.2X₁ + 1.4X₂ + 3.3X₃ + 0.6X₄ + 1.0X₅；&gt;2.99 安全、1.81–2.99 灰色、&lt;1.81 危機（預測兩年內破產）。X₁ 營運資金/總資產、X₂ 保留盈餘/總資產、X₃ EBIT/總資產、X₄ 權益市值/總負債、X₅ 營收/總資產</li>
+          <li><span class="kb-term">Z' / Z''</span> 變體 — 私人公司（Z'）、非製造業與新興市場（Z''，去掉 X₅、X₄ 改用帳面值）</li>
+          <li><span class="kb-term">Beaver (1966) univariate</span> — 單一比率預測，cash flow / total debt 最有效</li>
+          <li><span class="kb-term">Ohlson O-Score (1980)</span> — logit 模型，輸出破產機率而非分數</li>
+        </ul>
+      </li>
+      <li><b>(C) 信用風險預測 Credit Risk</b> — 估「借款人會不會違約」、為利差定價
+        <ul>
+          <li><span class="kb-term">Merton Model (1974)</span> — 把 equity 看成對公司資產的 call option，資產跌破負債面額即違約</li>
+          <li><span class="kb-term">KMV (Moody's)</span> — 把 Merton 操作化：算 Distance to Default → 對應 EDF（預期違約頻率）</li>
+          <li><span class="kb-term">Credit Scoring</span> — 用財報比率（利息保障倍數、Debt/EBITDA、流動比）跑 logistic regression → 內部評等</li>
+          <li><span class="kb-term">評等映射</span> — Moody's/S&amp;P 用財報比率對應信用評等 → 決定債券利差；CreditMetrics (JP Morgan, 1997)</li>
+        </ul>
+      </li>
+      <li><b>(D) 財務比率體系 Financial Ratio Families</b> — 三大應用共用的原料層
+        <ul>
+          <li><b>償債/流動性 Liquidity &amp; Solvency：</b>短期 — <span class="kb-term">Current Ratio</span> 流動比＝流動資產/流動負債、<span class="kb-term">Quick Ratio</span> 速動比（扣存貨）、<span class="kb-term">Cash Ratio</span>；長期 — <span class="kb-term">Debt Ratio</span> 負債/資產、<span class="kb-term">D/E</span> 負債/權益、<span class="kb-term">Interest Coverage</span> 利息保障＝EBIT/利息費用、<span class="kb-term">Debt/EBITDA</span></li>
+          <li><b>獲利能力 Profitability：</b><span class="kb-term">Gross / Operating / Net Margin</span>、<span class="kb-term">ROA</span> 淨利/總資產、<span class="kb-term">ROE</span> 淨利/權益、<span class="kb-term">ROIC</span></li>
+          <li><b>效率/活動 Efficiency：</b><span class="kb-term">Asset Turnover</span> 資產周轉、<span class="kb-term">Inventory Turnover</span> 存貨周轉、<span class="kb-term">Receivables Turnover</span>（DSO）</li>
+          <li><b>市場基本面 Market / Valuation：</b><span class="kb-term">P/E</span> 本益比、<span class="kb-term">P/B</span> 股價淨值比、<span class="kb-term">EV/EBITDA</span>、<span class="kb-term">Dividend Yield</span> 股息殖利率、<span class="kb-term">PEG</span>、<span class="kb-term">Earnings Yield</span></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>比率 × 應用 對應 · Ratio-to-Application Map</h2>
+    <ul>
+      <li><b>股票評價 ← 獲利 + 效率 + 市場基本面：</b>ROE/margins 看賺錢能力、turnover 看效率、P/E、P/B、EV/EBITDA 給相對訂價。<span class="kb-term">DuPont</span> 把「獲利率 × 周轉 × 槓桿」串成 ROE，再推 g 餵進 valuation。</li>
+      <li><b>財務危機預測 ← 流動性 + 槓桿（綜合）：</b><span class="kb-term">Altman Z</span> 五項就是各比率家族的加權混血 — X₁ 流動性、X₂/X₃ 獲利（X₃ 權重最高 3.3，獲利最關鍵）、X₄ 槓桿/市場、X₅ 效率周轉。Z-score 本身就是「比率體系壓成一個分數」的範例。</li>
+      <li><b>信用風險預測 ← 償債/覆蓋 + 槓桿：</b><span class="kb-term">Interest Coverage</span>、<span class="kb-term">Debt/EBITDA</span>、leverage 是評等與 credit scoring 的核心輸入；市場面再靠 <span class="kb-term">Merton/KMV</span> 從股價波動補進前瞻訊號。</li>
+    </ul>
+  </section>
+
+  <!-- scoped styling for the cheat-sheet tables; separate from the head
+       critical CSS (which is copied verbatim). Uses KB CSS vars so kb.css
+       can still theme it once filed; renders fine standalone on iPad too. -->
+  <style>
+  .cheat-group{margin-bottom:28px;}
+  .cheat-group h3{font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.04em;color:var(--text-2);margin-bottom:10px;}
+  .cheat-note{color:var(--text-2);font-size:14.5px;line-height:1.7;margin-bottom:24px;}
+  .cheat-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  table.ratios{width:100%;border-collapse:collapse;font-size:14px;line-height:1.55;}
+  table.ratios th,table.ratios td{text-align:left;vertical-align:top;padding:8px 14px 8px 0;border-bottom:1px solid var(--border);}
+  table.ratios th{font-family:var(--mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);}
+  table.ratios td:first-child{font-family:var(--mono);font-size:12.5px;color:var(--text);white-space:nowrap;}
+  table.ratios td:nth-child(2){font-family:var(--mono);font-size:12px;color:var(--text-3);white-space:nowrap;}
+  table.ratios td.band{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--text);}
+  </style>
+
+  <section class="note-section">
+    <h2>比率速查表 · Ratio Cheat-Sheet</h2>
+    <p class="cheat-note">⚠ 區間為 <b>rule of thumb</b>，非 universal 標準 — 高度依產業、商業模式、資本結構而定（零售 current ratio 1.0 已健康、軟體毛利 70%+ 是常態）。判讀永遠是「<b>跟同業比 + 看趨勢</b>」，不是死記一個數字。</p>
+
+    <div class="cheat-group">
+      <h3>流動性 · Liquidity（短期能不能周轉）</h3>
+      <div class="cheat-scroll">
+        <table class="ratios">
+          <thead><tr><th>Ratio</th><th>公式</th><th>健康區間</th><th>代表意義</th></tr></thead>
+          <tbody>
+            <tr><td>Current Ratio</td><td>流動資產/流動負債</td><td class="band">1.5–3</td><td>短期償債力；&lt;1 吃緊、&gt;3 恐營運資金閒置</td></tr>
+            <tr><td>Quick Ratio</td><td>(流動資產−存貨)/流動負債</td><td class="band">≥1</td><td>不靠賣存貨還短債；存貨重的產業更該看</td></tr>
+            <tr><td>Cash Ratio</td><td>(現金+約當)/流動負債</td><td class="band">0.2–0.5</td><td>最嚴格的流動性壓力測試；&gt;1 多半太保守</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="cheat-group">
+      <h3>償債/槓桿 · Solvency &amp; Leverage（長期會不會被債壓垮）</h3>
+      <div class="cheat-scroll">
+        <table class="ratios">
+          <thead><tr><th>Ratio</th><th>公式</th><th>健康區間</th><th>代表意義</th></tr></thead>
+          <tbody>
+            <tr><td>Debt Ratio</td><td>總負債/總資產</td><td class="band">&lt;0.5–0.6</td><td>資產有多少靠借的；越高風險越大</td></tr>
+            <tr><td>D/E</td><td>總負債/股東權益</td><td class="band">&lt;1–2</td><td>股東 vs 債權人資金結構（資本密集業可更高）</td></tr>
+            <tr><td>Interest Coverage</td><td>EBIT/利息費用</td><td class="band">&gt;3；&lt;1 危險</td><td>本業利益夠不夠付息；信用分析核心</td></tr>
+            <tr><td>Debt/EBITDA</td><td>淨負債/EBITDA</td><td class="band">&lt;3 穩、&gt;4–5 高</td><td>幾年現金流能還清；聯貸/評等常用</td></tr>
+            <tr><td>DSCR</td><td>營運現金流/(本金+利息)</td><td class="band">&gt;1.2</td><td>含本金的覆蓋；專案融資、醫院常用</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="cheat-group">
+      <h3>獲利能力 · Profitability（賺錢的質與量）</h3>
+      <div class="cheat-scroll">
+        <table class="ratios">
+          <thead><tr><th>Ratio</th><th>公式</th><th>判讀基準</th><th>代表意義</th></tr></thead>
+          <tbody>
+            <tr><td>Gross Margin</td><td>毛利/營收</td><td class="band">產業別</td><td>定價力與直接成本結構</td></tr>
+            <tr><td>Operating Margin</td><td>營業利益/營收</td><td class="band">同業比</td><td>本業經營效率（剔除業外與財務）</td></tr>
+            <tr><td>Net Margin</td><td>淨利/營收</td><td class="band">同業比</td><td>每塊營收最終留下多少</td></tr>
+            <tr><td>ROA</td><td>淨利/總資產</td><td class="band">&gt;5% 尚可</td><td>資產創造獲利的效率</td></tr>
+            <tr><td>ROE</td><td>淨利/股東權益</td><td class="band">&gt;15% 佳</td><td>股東報酬；須 DuPont 拆解看是否靠高槓桿</td></tr>
+            <tr><td>ROIC</td><td>NOPAT/投入資本</td><td class="band">&gt; WACC</td><td>資本配置是否真正創造價值</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="cheat-group">
+      <h3>效率/活動 · Efficiency（資產轉得快不快）</h3>
+      <div class="cheat-scroll">
+        <table class="ratios">
+          <thead><tr><th>Ratio</th><th>公式</th><th>判讀基準</th><th>代表意義</th></tr></thead>
+          <tbody>
+            <tr><td>Asset Turnover</td><td>營收/總資產</td><td class="band">越高越好</td><td>資產利用效率（資本密集業偏低）</td></tr>
+            <tr><td>Inventory Turnover</td><td>銷貨成本/平均存貨</td><td class="band">越高越好</td><td>存貨變現速度；DSI = 365/周轉</td></tr>
+            <tr><td>DSO</td><td>365/應收周轉</td><td class="band">越短越好</td><td>收現速度與賒帳品質</td></tr>
+            <tr><td>CCC 現金循環</td><td>DSI+DSO−DPO</td><td class="band">越短越好</td><td>營運資金綁多久；負值=供應商幫你融資（如 Apple）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="cheat-group">
+      <h3>市場基本面 · Market / Valuation（市場願意付多少）</h3>
+      <div class="cheat-scroll">
+        <table class="ratios">
+          <thead><tr><th>Ratio</th><th>公式</th><th>rule of thumb</th><th>代表意義</th></tr></thead>
+          <tbody>
+            <tr><td>P/E</td><td>股價/EPS</td><td class="band">~15–20</td><td>每塊盈餘市場付多少；高=成長期待或偏貴</td></tr>
+            <tr><td>P/B</td><td>股價/每股淨值</td><td class="band">~1–3</td><td>相對帳面值；&lt;1 可能低估或有隱憂</td></tr>
+            <tr><td>EV/EBITDA</td><td>企業價值/EBITDA</td><td class="band">~8–12</td><td>排除資本結構與折舊；併購最常用</td></tr>
+            <tr><td>PEG</td><td>P/E ÷ 盈餘成長率</td><td class="band">≈1</td><td>把成長納進本益比；&lt;1 可能便宜</td></tr>
+            <tr><td>Dividend Yield</td><td>每股股利/股價</td><td class="band">~3–6%</td><td>現金回報；過高要查股價暴跌或股利不可持續</td></tr>
+            <tr><td>Earnings Yield</td><td>EPS/股價（=1/PE）</td><td class="band">對比公債</td><td>股票相對債券的吸引力</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="cheat-note" style="margin-top:6px;margin-bottom:0;">三個判讀紀律：① <b>同業比＋看趨勢</b>（惡化方向比水位更早示警）② <b>比率互相牽制</b>（高 ROE 可能是高槓桿換來、高 current ratio 可能是存貨堆積）③ <b>換方言</b>（醫院 → DSCR、days cash on hand、每床產值；平台 → LTV/CAC、burn multiple、revenue multiple）。複合分數：Altman Z &gt;2.99 安全／&lt;1.81 危機；Sustainable Growth g = ROE × 保留率。</p>
+  </section>
+
+  <section class="note-section">
+    <h2>應用實例 · Worked Examples</h2>
+    <ul>
+      <li><b>股票評價（DuPont → Gordon）：</b>某公司 ROE 15%、保留率 60% → g = 9%。預估 D₁ = $2、要求報酬 r = 12% → V = 2 / (0.12 − 0.09) = <b>$66.7</b>。市價 $50 → 低估、買進訊號。（數字為示範）</li>
+      <li><b>財務危機（Altman Z）：</b>拿一家公司財報算五個比率加權得 Z = 1.5 → 落在 &lt;1.81 危機區 → 列入警示／going-concern 疑慮。實務上會計師查核、銀行貸款 covenant、主管機關都用它做早期警訊。</li>
+      <li><b>信用風險（KMV／比率評等）：</b>銀行承作企業聯貸，先算 EBIT/利息、Debt/EBITDA、流動比 → 對應內部評等 → 訂利差。或用 KMV：由股價 + 波動 + 負債推出 Distance to Default，DD 越小、EDF 越高、利差越貴。</li>
+      <li><b>共同主線：</b>三者都是「把財報比率轉成一個前瞻訊號」。distress 與 credit risk 高度重疊（Altman Z 兩邊都用）；valuation 看上檔（值多少），distress/credit 看下檔（會不會倒/違約）。</li>
+      <li><b>比率速讀（同一組比率，三個應用各取所需）：</b>某公司 Current Ratio 0.8（&lt;1 流動性吃緊）、Interest Coverage 1.5x（償債吃力）、Debt/EBITDA 6x（高槓桿）→ 同時觸發 distress 與 credit 警訊；雖然 ROE 看似不錯，但 DuPont 拆開發現是高槓桿撐起來的 ROE → valuation 要對品質打折。</li>
+    </ul>
+  </section>
+
+  <section class="note-section synthesis">
+    <h2>我的綜整 · My Synthesis（So what）</h2>
+    <ul>
+      <li><b>醫院（資本預算）：</b>DCF 的紀律可直接搬到院區投資評估 — 評 Intelligent ICU 或社區網絡值不值得投，就是預估增量自由現金流（NHI 收入、增量營收）再折現。DuPont 對應急診營運拆解：收入 = 量(turnover) × 單價/利潤(margin) × 槓桿。</li>
+      <li><b>醫院（社區網絡早期警訊）：</b>把 Altman Z 的精神做成「分院財務儀表板」— 營業利益率、days cash on hand、debt service coverage 壓成一個 distress 分數。Hub-spoke 轉診網絡裡，任一 spoke 財務惡化會拖垮整個網絡；雙向支援承諾等於承擔 counterparty risk，事前應做這套信用評估。</li>
+      <li><b>新創（Spridea 估值）：</b>平台早期沒有正自由現金流，DCF 難套 → 投資人改用 revenue multiple / GMV 倍數（平台版的 P/E）。Ag/Au coin wallet 本質是金融商品，信用風險邏輯（用戶 float 有沒有準備金擔保）要先想清楚。</li>
+      <li><b>新創（distress 儀表板）：</b>startup 版的 Z-score 就是 runway/burn dashboard — 現金、燒錢速度、可撐月數壓成一個早期警訊，與 Altman 同精神。若 coin wallet 將來帶準信用性質，違約建模就是消費信用 scoring。</li>
+      <li><b>醫院（比率對照）：</b>企業比率在醫院都有對應的「方言」— 流動性 → days cash on hand、償債 → DSCR（debt service coverage）、獲利 → operating margin、效率 → 每床/每診次產值（醫院版 asset turnover）；醫院評鑑與健保財務分析其實就在看這套。市場基本面（P/E、P/B）對非上市醫院不直接適用，是醫院財務分析與一般企業最大的落差。</li>
+      <li><b>新創（比率對照）：</b>平台早期傳統獲利比率失靈 → 改看 unit economics（LTV/CAC、gross margin、burn multiple）；市場基本面換成 revenue multiple / GMV 倍數；償債類多半不適用（無債）但 runway 是流動性的類比。重點：選對「這個商業模式真正的償債/獲利/估值比率」，不要硬套製造業那套。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>關鍵詞 · Key terms</h2>
+    <ul>
+      <li><span class="kb-term">DCF / FCFF / FCFE</span> — 折現現金流估值</li>
+      <li><span class="kb-term">Gordon Growth Model</span> — V = D₁/(r−g) 的固定成長股利折現</li>
+      <li><span class="kb-term">Sustainable Growth Rate</span> — g = ROE × 保留率</li>
+      <li><span class="kb-term">Residual Income Model</span> — 帳面價值 + 折現後超額盈餘</li>
+      <li><span class="kb-term">DuPont Analysis</span> — ROE = 淨利率 × 資產周轉 × 權益乘數</li>
+      <li><span class="kb-term">Altman Z-Score</span> — 五比率加權的破產預測分數</li>
+      <li><span class="kb-term">Ohlson O-Score</span> — logit 破產機率模型</li>
+      <li><span class="kb-term">Merton Model</span> — equity 為資產 call option 的結構式信用模型</li>
+      <li><span class="kb-term">Distance to Default / EDF</span> — 資產距違約點的標準差數 / 預期違約頻率</li>
+      <li><span class="kb-term">Interest Coverage Ratio</span> — EBIT/利息費用，償債能力指標</li>
+      <li><span class="kb-term">Current / Quick Ratio</span> — 流動比/速動比，短期償債（流動性）</li>
+      <li><span class="kb-term">Debt/EBITDA · D/E</span> — 槓桿與長期償債負擔</li>
+      <li><span class="kb-term">ROA / ROIC</span> — 資產/投入資本的獲利效率</li>
+      <li><span class="kb-term">Asset Turnover</span> — 營收/總資產，資產使用效率</li>
+      <li><span class="kb-term">P/E · P/B · EV/EBITDA</span> — 市場基本面/相對估值倍數</li>
+      <li><span class="kb-term">Dividend Yield</span> — 每股股利/股價，股息殖利率</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>待追 · Follow-ups</h2>
+    <ul>
+      <li>用自己科部的 NHI 財報資料，試算一個「急診版 distress dashboard」（仿 Z-score 的複合警訊）</li>
+      <li>讀 Altman (1968) 原文；Penman《Financial Statement Analysis and Security Valuation》看 Residual Income Model 的權威推導</li>
+      <li>比較 structural（Merton/KMV）vs reduced-form 信用模型的差異與適用情境</li>
+      <li>做一張「企業比率 → 醫院方言」對照表：current ratio→days cash on hand、interest coverage→DSCR、ROA→operating margin、asset turnover→每床產值</li>
+      <li>盤點 Spridea 的 unit-economics 比率（LTV/CAC、gross margin、burn multiple），定義平台版的「償債/獲利/估值」三類指標</li>
+    </ul>
+  </section>
+
+  <section class="note-section refs">
+    <h2>延伸 · References</h2>
+    <ul>
+      <li><a href="https://en.wikipedia.org/wiki/Altman_Z-score" target="_blank" rel="noopener">Altman Z-score（Wikipedia）</a> — 公式、Z'/Z'' 變體與適用範圍、三段門檻</li>
+      <li><a href="https://corporatefinanceinstitute.com/resources/commercial-lending/altmans-z-score-model/" target="_blank" rel="noopener">Altman's Z-Score Model（CFI）</a> — 五個比率與破產預測的逐項說明</li>
+    </ul>
+  </section>
+</div>
+</body>
+</html>

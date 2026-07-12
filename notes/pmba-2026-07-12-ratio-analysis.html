@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PMBA · 財務分析工具：Ratio Analysis（比率分析）</title>
+
+<!-- ============================================================
+     kb-meta — machine-readable metadata. build_manifest.py reads
+     THIS to regenerate notes.json. Keep the keys exactly; fill values.
+     domains: subset of ["hospital","startup"]. tags: framework names (EN).
+     ============================================================ -->
+<script type="application/json" id="kb-meta">
+{
+  "id": "pmba-2026-07-12-ratio-analysis",
+  "prefix": "PMBA",
+  "skill": "mba-class-note",
+  "type": "class-note",
+  "title": "財務分析工具：Ratio Analysis（比率分析）",
+  "course": "財務管理",
+  "date": "2026-07-12",
+  "topic": "財務分析工具：比率分析",
+  "tags": ["Ratio Analysis","DuPont Analysis","Turnover Rate","Cash Conversion Cycle","Liquidity Analysis","Common-Size Statements","ROIC"],
+  "domains": ["hospital","startup"],
+  "created": "2026-07-12T21:30:00+08:00",
+  "file": "notes/pmba-2026-07-12-ratio-analysis.html"
+}
+</script>
+
+<!-- ============================================================
+     CRITICAL CSS — DO NOT EDIT. Copy verbatim into every note.
+     Makes the note self-contained: it renders correctly on its own
+     (e.g. on iPad, before it is filed into the KB repo) without
+     depending on assets/kb.css. The shared sheet linked AFTER this
+     block overrides it for full theming once the note is in the KB.
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root{--bg:#fafafa;--surface:#fff;--surface-2:#f4f4f5;--border:rgba(24,24,27,.08);--text:#18181b;--text-2:#52525b;--text-3:#71717a;--text-4:#a1a1aa;--accent:#18181b;--radius:12px;--hospital:#8fa6b0;--startup:#b79a86;--correction:#a16207;--sans:"Inter",system-ui,"PingFang TC","Noto Sans TC",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--serif:"Fraunces",Georgia,"Noto Serif TC",serif;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16.5px;line-height:1.78;-webkit-font-smoothing:antialiased;}
+.article-wrap{max-width:760px;margin:0 auto;padding:48px 28px 110px;}
+.article-eyebrow{font-family:var(--mono);font-size:12.5px;color:var(--text-3);display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:18px;}
+.badge{font-family:var(--mono);font-size:11.5px;padding:2px 8px;border-radius:6px;background:var(--surface-2);color:var(--text-2);}
+h1.article-title{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.15;letter-spacing:-.02em;margin-bottom:20px;}
+.tag{font-family:var(--mono);font-size:11.5px;color:var(--text-3);background:var(--surface-2);border-radius:6px;padding:2px 7px;}
+.article-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:8px;}
+.article-domains{display:flex;gap:10px;margin:14px 0 40px;padding-bottom:32px;border-bottom:1px solid var(--border);}
+.domain-pill{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12.5px;color:var(--text-2);}
+.dot{width:8px;height:8px;border-radius:50%;}.dot.hospital{background:var(--hospital);}.dot.startup{background:var(--startup);}
+section.note-section{margin-bottom:40px;}
+section.note-section>h2{font-family:var(--mono);font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--text-4);margin-bottom:16px;}
+.note-section ul{list-style:none;display:flex;flex-direction:column;gap:13px;}
+.note-section li{position:relative;padding-left:22px;line-height:1.85;}
+.note-section li::before{content:"";position:absolute;left:5px;top:12px;width:5px;height:5px;border-radius:50%;background:var(--text-4);}
+.note-section li ul{margin-top:10px;}
+.kb-term{font-family:var(--mono);font-size:.9em;background:var(--surface-2);border:1px solid var(--border);border-radius:5px;padding:.5px 5px;}
+.correction{color:var(--correction);border-bottom:1px dashed var(--correction);cursor:help;}
+section.synthesis{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:24px 26px;}
+.refs a{color:var(--text-2);border-bottom:1px solid var(--border-strong,rgba(24,24,27,.14));}
+.refs a:hover{color:var(--text);}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12.5px;color:var(--text-3);margin-bottom:28px;}
+</style>
+
+<!-- full shared theme (palette, header). Overrides critical CSS in-repo. -->
+<link rel="stylesheet" href="../assets/kb.css">
+</head>
+<body data-theme="grayscale">
+
+<div class="article-wrap">
+  <a class="back-link" href="../index.html">← 知識庫</a>
+
+  <div class="article-eyebrow">
+    <span class="badge">PMBA</span>
+    <span>財務管理</span><span>·</span><span>2026-07-12</span>
+  </div>
+
+  <h1 class="article-title">財務分析工具：Ratio Analysis（比率分析）</h1>
+
+  <div class="article-meta"><span class="tag">Ratio Analysis</span><span class="tag">DuPont Analysis</span><span class="tag">Turnover Rate</span><span class="tag">Cash Conversion Cycle</span><span class="tag">Liquidity Analysis</span><span class="tag">Common-Size Statements</span><span class="tag">ROIC</span></div>
+
+  <div class="article-domains"><span class="domain-pill"><span class="dot hospital"></span>醫院/急診</span><span class="domain-pill"><span class="dot startup"></span>資訊新創</span></div>
+
+  <section class="note-section">
+    <h2>核心概念 · Frameworks &amp; Concepts</h2>
+    <ul>
+      <li><span class="kb-term">Ratio Analysis</span> — 把財報上的絕對數字轉成「相對關係」，讓不同規模、不同期間的公司可比。<b>比率不產生答案，它產生問題</b>：告訴你「哪裡不對」，不告訴你「為什麼」。</li>
+
+      <li><b>五大類比率（Five families）</b>
+        <ul>
+          <li><span class="kb-term">Liquidity</span> — 短期還得出錢嗎</li>
+          <li><span class="kb-term">Activity / Turnover</span> — 資產轉得快嗎</li>
+          <li><span class="kb-term">Leverage / Solvency</span> — 撐得住嗎</li>
+          <li><span class="kb-term">Profitability</span> — 賺得到錢嗎</li>
+          <li><span class="kb-term">Market Value</span> — 市場怎麼看</li>
+        </ul>
+      </li>
+
+      <li><span class="kb-term">Common-Size Statements</span>（共同比財報）— 損益表各項 ÷ 營收；資產負債表各項 ÷ 總資產。跨規模、跨年度比較的前置動作。</li>
+
+      <li><b>Stock vs Flow 配對原則</b> — 損益表是期間數（flow），資產負債表是時點數（stock）。分子分母混用時，分母要用<b>期初期末平均</b>，否則季節性會扭曲結果。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>一 · Liquidity Analysis 流動性分析</h2>
+    <ul>
+      <li><b>本質：</b>在<b>不被迫賤賣（fire sale）</b>的前提下，把資產轉成現金、支應到期義務的能力。取決於兩件事：資產的<b>變現性</b>（速度與折價）＋負債的<b>到期結構</b>。</li>
+
+      <li><b>⚠ Liquidity ≠ Solvency（考點）</b>
+        <ul>
+          <li><span class="kb-term">Liquidity</span> — 短期、現金流問題（付不出這個月的錢）</li>
+          <li><span class="kb-term">Solvency</span> — 長期、資本結構問題（淨值為負）</li>
+          <li><b>企業絕大多數死於 liquidity，不是 insolvency。帳上有利潤卻倒閉是常態 —— Profit ≠ Cash。</b>這是整堂財務分析最該記住的一句話。</li>
+        </ul>
+      </li>
+
+      <li><b>層次一：靜態流動性（Static / Stock-based）— 資產負債表的「照片」</b>
+        <ul>
+          <li><span class="kb-term">Current Ratio</span> ＝ 流動資產 ÷ 流動負債</li>
+          <li><span class="kb-term">Quick Ratio (Acid-Test)</span> ＝ (流動資產 − 存貨 − 預付費用) ÷ 流動負債 <i>（剝掉存貨、預付）</i></li>
+          <li><span class="kb-term">Cash Ratio</span> ＝ (現金 + 約當現金 + 短期投資) ÷ 流動負債 <i>（再剝掉應收）</i></li>
+          <li><span class="kb-term">NWC</span>（Net Working Capital，淨營運資金）＝ 流動資產 − 流動負債；規模中立化用 NWC ÷ 總資產</li>
+          <li><span class="kb-term">DIR</span>（Defensive Interval Ratio，防禦區間）＝ (現金 + 短投 + 應收) ÷ 每日營運現金支出 → <b>「完全沒有新進帳，我能撐幾天？」這就是新創講的 runway，同一個東西。</b></li>
+          <li><b>階梯的「落差」本身就是資訊：</b>Current 高、Quick 低 → <b>存貨積壓</b>；Quick 高、Cash 低 → <b>應收堆積</b>。</li>
+        </ul>
+      </li>
+
+      <li><b>層次二：動態流動性（Dynamic / Flow-based）— 現金流量表的「影片」</b>
+        <ul>
+          <li><span class="kb-term">Operating Cash Flow Ratio</span> ＝ <span class="kb-term">CFO</span>（Cash Flow from Operations，營業現金流）÷ 流動負債</li>
+          <li><span class="kb-term">FCF</span>（Free Cash Flow，自由現金流）＝ CFO − <span class="kb-term">CapEx</span>（Capital Expenditure，資本支出）</li>
+          <li><span class="kb-term">Earnings Quality</span> — CFO 與 Net Income 的背離程度。CFO 長期低於淨利 → 盈餘沒變成現金 → 應收/存貨在膨脹 → <b>財報造假最早的裂縫</b>。</li>
+          <li><b>靜態是照片，動態是影片。銀行看靜態，經營者看動態。</b>Current Ratio ＝ 2.0 但 CFO 連續為負，照樣會倒；Current Ratio ＝ 0.8 但 CFO 強勁、CCC 為負（超商、Amazon），非常健康。</li>
+        </ul>
+      </li>
+
+      <li><b>⚠ Liquidity–Profitability Trade-off（核心張力）</b> — 現金是<b>零報酬資產</b>。持有越多越安全 → 但 ROA 分母膨脹 → 報酬率被拖低。<b>「流動性越高越好」是錯的；正確的問題是「多少才夠」</b> —— 這正是 DIR / runway 存在的理由。</li>
+
+      <li><b>Limitations</b>
+        <ul>
+          <li><b>Window Dressing 的數學（經典考題）：</b>期末用現金償還短期負債，CA 與 CL 同減同一個數。若原本 Current Ratio &gt; 1 → <b>比率反而上升</b>。一筆什麼都沒改善的還款，可以憑空「美化」流動比率 → 要看<b>平均數與季度趨勢</b>，別只信期末快照。</li>
+          <li><b>存貨與應收的「品質」不在比率裡</b> — 呆滯存貨、逾期兩年的應收，在 Current Ratio 裡跟現金一樣是 1 塊錢 → 必須搭配 <span class="kb-term">aging analysis</span>（存貨齡、應收帳齡）。</li>
+          <li><b>表外流動性被低估</b> — <span class="kb-term">undrawn credit line</span>（未動用信用額度）不在資產負債表上；反之，或有負債、營運租賃、擔保則是被低估的義務。</li>
+          <li><b>產業差異決定一切</b> — 超商、餐飲 Current Ratio &lt; 1 是常態（現金銷售 + 負 CCC）。<b>跨產業比較 Current Ratio 是沒有意義的。</b></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>二 · Turnover Rate 週轉率</h2>
+    <ul>
+      <li><b>核心原則：</b><span class="kb-term">Turnover = 流量 ÷ 平均存量</span>。分子取自損益表（期間數），分母取自資產負債表（期初+期末）÷2。單位是「次」；倒數 × 365 ＝ <b>週轉天數</b>。意義：<b>一塊錢的某項資產，一年能推動多少營收。</b></li>
+
+      <li><b>⚠ 分子分母必須「同語言」（最常見的計算錯誤）</b>
+        <ul>
+          <li>存貨 → 分子用 <span class="kb-term">COGS</span>（Cost of Goods Sold，銷貨成本），因為存貨以<b>成本</b>入帳</li>
+          <li>應收 → 分子用<b>賒銷淨額</b>（Net Credit Sales），因為現銷不產生應收</li>
+          <li>應付 → 分子用 COGS 或進貨額</li>
+          <li>資產類（流動/固定/總/淨值）→ 分子用<b>營收</b></li>
+          <li><b>成本配成本、售價配售價。</b></li>
+        </ul>
+      </li>
+
+      <li><b>完整清單</b>
+        <ul>
+          <li><span class="kb-term">Inventory Turnover</span> ＝ COGS ÷ 平均存貨 → <span class="kb-term">DIO</span>（Days Inventory Outstanding，存貨天數）＝ 365 ÷ IT</li>
+          <li><span class="kb-term">Receivables Turnover</span> ＝ 賒銷淨額 ÷ 平均應收 → <span class="kb-term">DSO</span>（Days Sales Outstanding，應收天數）</li>
+          <li><span class="kb-term">Payables Turnover</span> ＝ COGS ÷ 平均應付 → <span class="kb-term">DPO</span>（Days Payable Outstanding，應付天數）</li>
+          <li><span class="kb-term">Working Capital Turnover</span> ＝ 營收 ÷ 平均 NWC（NWC 為負時此比率無意義）</li>
+          <li><span class="kb-term">Fixed Asset Turnover</span> ＝ 營收 ÷ 平均淨固定資產 — <b>重資產產業核心</b></li>
+          <li><span class="kb-term">Total Asset Turnover</span> ＝ 營收 ÷ 平均總資產 — <b>DuPont 的中間項</b></li>
+          <li><span class="kb-term">Equity Turnover</span> ＝ 營收 ÷ 平均股東權益</li>
+          <li><span class="kb-term">Share Turnover</span> ＝ 成交股數 ÷ 流通在外股數 — <b>市場流動性指標，不是營運指標，別混進來</b></li>
+        </ul>
+      </li>
+
+      <li><b>與 DuPont 的橋接（會考）：</b><span class="kb-term">Equity Turnover = Total Asset Turnover × Equity Multiplier</span>，代回三階 DuPont 可收斂為 <b>2-step：ROE = Net Profit Margin × Equity Turnover</b>。→ <b>淨值週轉率本身已內含槓桿</b>。看到 equity turnover 特別高，要先問：是效率好，還是只是負債高？</li>
+
+      <li><b>解讀原則</b>
+        <ul>
+          <li><b>高不必然好。</b>存貨週轉率過高 → 可能是 <span class="kb-term">stockout</span>（缺貨），用斷貨換帳面效率；應收週轉率過高 → 可能是信用政策過嚴，犧牲營收。</li>
+          <li><b>營收成長但週轉率下降</b> → 資產膨脹快過營收，資本效率正在惡化（併購/擴廠後最該盯的訊號）。</li>
+          <li><b>跨產業絕不可比。</b>超商 total asset turnover 可能 &gt; 2；醫院、電廠 &lt; 0.5。</li>
+          <li><b>Margin ↔ Turnover 是策略取捨：</b>ROA ＝ Margin × Turnover。Walmart 選 turnover，LVMH 選 margin。<b>兩者都低 ＝ stuck in the middle 的財務版。</b></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>三 · Cash Conversion Cycle 現金循環週期【核心】</h2>
+    <ul>
+      <li><b>定義：</b>從「付錢給供應商」到「收到客戶的錢」之間，<b>現金離開你手上的天數</b>。
+        <ul>
+          <li><span class="kb-term">CCC = DIO + DSO − DPO</span></li>
+          <li><span class="kb-term">Operating Cycle</span>（營業週期）＝ DIO + DSO — 從進貨到收現的<b>實體</b>時間</li>
+          <li><b>DPO 是供應商給你的無息貸款。</b>CCC 就是「營業週期 − 供應商替我出的錢」。</li>
+        </ul>
+      </li>
+
+      <li><b>樞紐地位：</b>CCC → Cash Gap → 營運資金需求 → 融資需求 / Liquidity 壓力。
+        <ul>
+          <li><b>營運資金需求 ≈ CCC × 日均營收</b></li>
+          <li>⚠ 這是<b>近似值</b>，不是恆等式。嚴格說 <span class="kb-term">OWC = 存貨 + 應收 − 應付</span>。CCC 三段用不同分母（COGS 配存貨/應付、營收配應收），所以只在毛利率穩定時近似成立。<b>課堂可用，真實資金規劃要直接算 OWC。</b></li>
+        </ul>
+      </li>
+
+      <li><b>【最重要】CCC 是「成長的稅」</b>
+        <ul>
+          <li><b>正 CCC 的公司，每成長一塊錢營收，就必須先掏出 (CCC ÷ 365) 塊錢的現金。</b>新增營運資金需求 ＝ 營收增額 × (CCC ÷ 365)。</li>
+          <li><b>Worked example（自建數字）：</b>年營收 3.65 億（日均 100 萬）、DIO 60、DSO 75、DPO 45 → <b>CCC ＝ 90 天</b>，現金缺口 ＝ 100 萬 × 90 ＝ <b>9,000 萬</b>。若營收成長 30%（+1.095 億）→ 新增現金需求 ＝ 1.095 億 × (90/365) ＝ <b>2,700 萬</b>，<b>在收到任何一毛新增利潤之前就得先付出去</b>。</li>
+          <li>→ <span class="kb-term">Overtrading</span>（超額交易）：高成長 + 正 CCC + 沒有融資 ＝ <b>賺錢卻倒閉</b>。損益表一片大好，現金流失血而死。</li>
+          <li>反過來：CCC 從 90 天壓到 60 天 → 一次性釋放 100 萬 × 30 ＝ <b>3,000 萬現金</b>。<b>不用跟銀行借、不用稀釋股權、不用課稅</b> —— 資產負債表裡最便宜的資金來源。營運資金管理是 CFO 最被低估的工作。</li>
+        </ul>
+      </li>
+
+      <li><b>負 CCC：用別人的錢做生意</b>
+        <ul>
+          <li>先收客戶的錢、後付供應商 → <b>成長本身會產生現金</b>。超商/餐飲（DSO≈0 + 短 DIO + 長 DPO）、Amazon/Dell、<b>儲值/會員費模式（float 浮存金）</b>。</li>
+          <li><b>⚠ 致命的不對稱：負 CCC 是「成長依賴型」的融資來源。</b>成長時 float 持續膨脹，免費的錢一直進來；<b>成長一停，float 停止增長，但應付款照樣要付 → 現金流瞬間反轉</b>。負 CCC 的公司在成長期看起來現金滿手，衰退期會<b>斷崖式崩塌</b>。<b>負 CCC 不是護城河，是槓桿。</b></li>
+        </ul>
+      </li>
+
+      <li><b>三個槓桿與它們的真實代價</b>
+        <ul>
+          <li><b>壓 DIO</b>（JIT、<span class="kb-term">VMI</span>（Vendor Managed Inventory，供應商管理存貨）、<span class="kb-term">consignment</span> 寄售）→ 代價是 <b>stockout 風險</b>。</li>
+          <li><b>壓 DSO</b>（收緊信用、預收訂金、<span class="kb-term">factoring</span> 應收帳款讓售）→ 代價是<b>犧牲營收</b>與折價成本。</li>
+          <li><b>拉 DPO</b>（談判延長帳期）→ 代價是<b>供應商把成本加回售價</b>，或抽走優先供貨權。</li>
+        </ul>
+      </li>
+
+      <li><b>【DPO 的陷阱】放棄現金折扣的隱含年利率（經典考題）</b>
+        <ul>
+          <li>供應商條件 <span class="kb-term">2/10, net 30</span>（10 天內付款折 2%，否則 30 天全額）。拖到第 30 天付 → 多借 20 天的錢，代價 2%：<b>隱含年化成本 ＝ (2 ÷ 98) × (365 ÷ 20) ≈ 37.2%</b>。</li>
+          <li>→ <b>為了「改善 CCC」而放棄 2% 折扣，等於去借年息 37% 的高利貸。CCC 不是越低越好 —— 它必須跟資金成本（WACC）比。</b></li>
+        </ul>
+      </li>
+
+      <li><b>操縱與限制</b>
+        <ul>
+          <li><b>Reverse Factoring / 供應鏈金融</b> — 銀行代付供應商、公司延後還銀行 → DPO 帳面拉長、CCC 變漂亮，但實質是<b>借款</b>，卻可能不列入負債。<b>Carillion（2018 破產）就是這樣藏債的。</b>看到 DPO 異常拉長 → 翻附註查供應鏈金融。</li>
+          <li><b>期末快照失真</b> → 用平均值與季度趨勢。</li>
+          <li><b>平均值掩蓋分布</b> — DSO ＝ 60 天，可能是「全部客戶 60 天」，也可能是「八成 30 天 + 兩成 180 天呆帳」→ <b>必須做 aging 分析</b>。</li>
+          <li><b>混合業務不可加總</b> — 合併 CCC 是無意義的平均數，要按 segment 拆。</li>
+          <li><b>CCC 是天數、不是金額</b> — 兩家 CCC 都 90 天，日均營收差 10 倍，現金缺口就差 10 倍。<b>決策要換算回錢。</b></li>
+        </ul>
+      </li>
+
+      <li><b>診斷訊號組合</b>
+        <ul>
+          <li><b>營收 ↑ + DSO ↑ + CCC ↑ → 用賒帳買營收，損益表好看、現金在流血。最危險的組合。</b></li>
+          <li>CCC ↓ 但 DIO ↓ 過猛 → 可能是缺貨換來的假效率</li>
+          <li>CCC ↓ 但全靠 DPO ↑ → 把壓力轉嫁供應商，不可持續，且可能在放高利貸</li>
+          <li>CCC 穩 + CFO ↑ → 真實的營運改善</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>四 · Leverage 財務槓桿與償債能力</h2>
+    <ul>
+      <li><span class="kb-term">Debt Ratio</span> ＝ 總負債 ÷ 總資產</li>
+      <li><span class="kb-term">D/E</span>（Debt-to-Equity）＝ 總負債 ÷ 股東權益</li>
+      <li><span class="kb-term">Equity Multiplier</span> ＝ 總資產 ÷ 股東權益 ＝ 1 + D/E</li>
+      <li><span class="kb-term">TIE</span>（Times Interest Earned，利息保障倍數）＝ <span class="kb-term">EBIT</span>（Earnings Before Interest and Taxes，營業利益）÷ 利息費用</li>
+      <li><span class="kb-term">Cash Coverage</span> ＝ (EBIT + 折舊攤銷) ÷ 利息費用</li>
+      <li><span class="kb-term">Net Debt / EBITDA</span> — 實務（銀行 covenant）最常用</li>
+      <li><b>存量 vs 流量要一起看：</b>Debt ratio 看資產負債表（借了多少），TIE 看損益表（付不付得出利息）。<b>負債率高但 TIE 8 倍 → 安全；負債率中等但 TIE 1.2 倍 → 危險。</b></li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>五 · Profitability 獲利能力</h2>
+    <ul>
+      <li><span class="kb-term">Gross Margin</span> ＝ 毛利 ÷ 營收 — 定價力、產品力</li>
+      <li><span class="kb-term">Operating Margin</span> ＝ EBIT ÷ 營收 — <b>本業</b>經營效率（排除財務與業外）</li>
+      <li><span class="kb-term">Net Profit Margin</span> ＝ 稅後淨利 ÷ 營收 — 含業外，雜訊多</li>
+      <li><span class="kb-term">EBITDA Margin</span> — <span class="kb-term">EBITDA</span>（Earnings Before Interest, Taxes, Depreciation and Amortization，稅前息前折舊攤銷前利益）÷ 營收；重資產產業跨公司比較用</li>
+      <li><span class="kb-term">ROA</span>（Return on Assets，資產報酬率）＝ 稅後淨利 ÷ 平均總資產</li>
+      <li><span class="kb-term">ROE</span>（Return on Equity，股東權益報酬率）＝ 稅後淨利 ÷ 平均股東權益</li>
+      <li><span class="kb-term">ROIC</span>（Return on Invested Capital，投入資本報酬率）＝ <span class="kb-term">NOPAT</span>（Net Operating Profit After Tax，稅後營業利益）÷ Invested Capital；NOPAT ＝ EBIT × (1 − t)</li>
+      <li><b>ROIC 必須跟 <span class="kb-term">WACC</span>（Weighted Average Cost of Capital，加權平均資金成本）比。ROIC &gt; WACC 才創造價值；長期 ROIC &lt; WACC 的成長是毀滅價值的成長。</b></li>
+      <li><b>Margin 與 Turnover 是獲利的兩條路：</b>Walmart 走 turnover（薄利多銷），LVMH 走 margin（高價低量）。兩條路都能到高 ROA —— 這正是 DuPont 要講的事。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>六 · Market Value 市場評價</h2>
+    <ul>
+      <li><span class="kb-term">EPS</span>（Earnings Per Share，每股盈餘）＝ (稅後淨利 − 特別股股利) ÷ 加權平均流通股數</li>
+      <li><span class="kb-term">P/E</span>（Price-to-Earnings，本益比）＝ 每股市價 ÷ EPS</li>
+      <li><span class="kb-term">P/B</span>（Price-to-Book，股價淨值比）＝ 每股市價 ÷ 每股淨值</li>
+      <li><span class="kb-term">Dividend Yield</span> ＝ 每股股利 ÷ 市價；<span class="kb-term">Payout Ratio</span> ＝ 每股股利 ÷ EPS</li>
+      <li><span class="kb-term">EV/EBITDA</span>；<span class="kb-term">EV</span>（Enterprise Value，企業價值）＝ 市值 + 負債 − 現金</li>
+      <li><span class="kb-term">Sustainable Growth Rate</span> g ＝ ROE × b，b ＝ 保留盈餘率（1 − payout）</li>
+      <li><b>⚠ 這一類對非上市公司與財團法人醫院直接失效</b>（沒有市價、不分配盈餘）→ 改用 ROIC、operating margin、<span class="kb-term">DSCR</span>（Debt Service Coverage Ratio，償債覆蓋率）。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>七 · DuPont Analysis（收斂框架）</h2>
+    <ul>
+      <li><b>3-step：</b><span class="kb-term">ROE = Net Profit Margin × Total Asset Turnover × Equity Multiplier</span> ＝ (NI/Sales) × (Sales/Assets) × (Assets/Equity) ＝ <b>獲利力 × 效率 × 槓桿</b></li>
+      <li><b>5-step：</b>ROE ＝ Tax Burden (NI/EBT) × Interest Burden (EBT/EBIT) × Operating Margin (EBIT/Sales) × Asset Turnover × Equity Multiplier</li>
+      <li><b>2-step（由 Equity Turnover 收斂）：</b>ROE ＝ Net Profit Margin × Equity Turnover</li>
+      <li><b>為什麼重要：</b>兩家公司 ROE 都是 15%，一家靠 40% 的 margin，一家靠 5 倍的 leverage —— <b>風險完全不同</b>。DuPont 是 ROE 的體檢報告，把「一個好看的數字」拆回三個可管理的營運槓桿。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>八 · 比較基準與整體限制</h2>
+    <ul>
+      <li><b>四種比較基準（沒有基準的比率沒有意義）：</b>Time-series / Trend（自己跟自己比，看方向）、Cross-sectional / Peer（同業比較，comparable 要選對）、Industry Average（產業標竿）、Budget vs Actual（內部管理）。</li>
+      <li><b>會計政策差異</b> — 存貨 FIFO vs 加權平均、折舊年限、租賃是否資本化 → 比率根本不可比。</li>
+      <li><b>歷史成本 vs 市價</b> — 20 年前買的土地帳面值失真，ROA 被高估。</li>
+      <li><b>季節性</b> — 期末時點數失真（用期初期末平均緩解）。</li>
+      <li><b>Window dressing</b> — 期末美化資產負債表。</li>
+      <li><b>沒有絕對「好」的標準值</b> — 脫離產業脈絡的比率是噪音。</li>
+      <li><b>比率是診斷、不是處方</b> — 它指出異常，解釋要回到營運現場。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>應用 · Application</h2>
+    <ul>
+      <li><b>讀一份財報的順序：</b>① Common-size 看結構 → ② Profitability（先看 operating margin，不是 net margin）→ ③ Activity / CCC（效率、現金鎖多久）→ ④ Leverage（TIE + Net Debt/EBITDA）→ ⑤ Liquidity（CFO + DIR）→ ⑥ DuPont 收斂成一個故事。</li>
+      <li><b>流動性診斷六步：</b>① Current → Quick → Cash 看階梯落差（問題在存貨還是應收）→ ② 拆解流動負債結構（短借 / 應付 / 一年內到期長期負債，性質完全不同）→ ③ CCC 算現金缺口 → ④ <b>CFO 檢驗（真正的裁決者）</b> → ⑤ DIR / runway → ⑥ 查未動用額度與到期牆（maturity wall）。</li>
+      <li><b>四塊的接線：</b>Turnover 決定資產轉多快 → CCC 決定現金鎖多久 → Liquidity 決定撐不撐得過那段鎖定期 → DuPont 收斂成一個故事。<b>CCC 是 turnover 與 liquidity 的接點，這兩章是同一件事的兩面。</b></li>
+    </ul>
+  </section>
+
+  <section class="note-section synthesis">
+    <h2>我的綜整 · My Synthesis（So what）</h2>
+    <ul>
+      <li><b>醫院：重資產 + 長應收 ＝ 教科書級的結構。</b>真正的槓桿是 <span class="kb-term">Fixed Asset Turnover</span> 與 <span class="kb-term">DSO</span>，不是 net margin。<b>醫院的 DSO 是外生變數</b> —— 單一支付者、規則固定，無法靠收緊信用政策或催收改善，這是一般 CCC 教科書完全沒有的約束。<b>所以醫院能動的只剩 DIO 和 DPO 兩根槓桿。</b></li>
+
+      <li><b>醫院：帳面 AR 是名目值，必須做「點值調整」。</b>健保申報→撥款 2–3 個月，再經過<b>核刪</b>與<b>點值 &lt; 1</b> 的折價，才是實質可回收金額。直接用帳面 AR 算 Quick Ratio 與 DSO → <b>系統性高估流動性</b>。而且醫院存貨佔比小、應收佔比極高 → <b>Current 與 Quick 幾乎一樣，這條流動性階梯在醫院身上是失靈的</b>；該剝的是應收的品質，不是存貨。這是教科書不會教、必須自己動手調整的地方。</li>
+
+      <li><b>醫院：DIO 的解法是「把存貨風險推回廠商」。</b>高值耗材走 <span class="kb-term">consignment</span> / VMI → 帳上 DIO ≈ 0，用了才計價（心導管、骨科植入物已是常態）。<b>ART Center 的設備耗材、PSA 的藥品備量，值得系統性檢視有多少能轉寄售 —— 這是不花一毛錢的 CCC 改善。</b>⚠ <b>但醫院的 stockout 是臨床風險，不是財務風險</b>：急救藥品、ECMO 套組的安全庫存不可談判，<b>JIT 在急診是禁區</b>。這條界線要在提案裡寫明，否則財務部門會壓過頭。</li>
+
+      <li><b>醫院【最重要】：自費業務的 DSO ≈ 0 → PSA / ART Center 是 CCC 的解藥，不只是 margin 的解藥。</b>健保業務 DSO 60–90 天 + 核刪 + 點值折價；自費業務（PSA、ART、健檢）<b>當場收現、金額確定、沒有核刪風險</b>。→ <b>每增加一單位自費營收，同時做到三件事：提高 margin、縮短 CCC、消除收款不確定性。</b>過去談自費多半只談「毛利高」—— 但真正的殺傷力在現金流：<b>自費營收是醫院唯一的負 CCC 業務。對現金流吃緊的醫院，自費比重不是選項，是生存工具。</b>這應該直接寫進 ART Center 的財務論證。</li>
+
+      <li><b>醫院：ED 的 LOS 就是 asset turnover 的臨床版。</b>分母是固定資產（床、儀器、班表），分子是收入。<b>降 LOS ＝ 提高週轉率 ＝ 在不增加任何資產下拉高 ROA。</b>延伸：病床週轉率（出院人次 ÷ 平均開放床數）就是醫院版 fixed asset turnover → <b>ED boarding 不是急診科的問題，是全院資本效率的問題</b>。這是跟院方要資源時該用的財務語言，比「急診很擠」有效一個量級。而<b>員工流動率</b>（HR 指標）會透過「留不住人 → 關床 → 固定資產週轉率 ↓ → ROIC ↓」進到財報 —— <b>這條因果鏈就是 ED 留才投資案的核心論證：把留才從成本項重新定義為資產效率投資。</b></li>
+
+      <li><b>醫院：CapEx 與流動性是兩個獨立的關卡。</b>買設備不能只看 ROIC vs WACC（那是<b>報酬</b>問題），還要看 FCF 與 DIR（那是<b>存活</b>問題）。「這台機器會賺錢」和「買了之後我還撐得住幾個月」都要過關。財團法人醫院不能發股募資 → 流動性只有 CFO + 銀行借款兩條腿，<b>liquidity discipline 比上市公司更嚴苛，不是更寬鬆</b>。</li>
+
+      <li><b>醫院：宏仁 MOU 的結算條款就是小院的 CCC。</b>支援方先出人（成本立即發生 ＝ 現金流出），若結算拖 60–90 天 → <b>小院被迫替大院墊資</b>。→ <b>付款週期條款不是行政細節，它是財務條款。</b>建議明訂<b>月結 30 天</b>，並考慮<b>預付制</b>（大院預付一季支援費）—— 對小院是 CCC 改善，對大院成本不變（只是時點）。<b>這是一個零成本的談判籌碼。</b></li>
+
+      <li><b>醫院：社區網絡的 DuPont 意涵。</b>各院 margin 差異有限（健保給付一樣），ROIC 的差距幾乎全部來自 <b>turnover</b>（病人量 × 設備使用率）。DuPont 直接告訴你：<b>網絡的價值在提升週轉，不在提升定價</b> —— 這是網絡策略的財務依據。</li>
+
+      <li><b>新創（Spridea）：Ag/Au coin wallet 是教科書級的負 CCC 結構。</b>DSO ≈ 0（儲值是<b>預收</b>）、DIO ＝ 0（無實體存貨）、DPO &gt; 0（創作者拆帳月結）→ <b>CCC 顯著為負。使用者每儲值一次，就是給你一筆無息、無到期日的貸款。</b>會計上儲值是 deferred revenue（流動負債），<b>會壓低 Current Ratio、讓報表看起來變糟</b> —— 但現金已入袋，這是<b>無息浮存金（float）</b>，與 Starbucks 儲值卡、Costco 會員費同構。<b>→ 用 Current Ratio 看 Spridea，會把最強的財務優勢誤判為最大的風險。</b>這是「比率必須放回商業模式脈絡」最好的自身案例。</li>
+
+      <li><b>新創：但 float 是有條件的（別自我陶醉）。</b>回到上面那條不對稱 —— <b>負 CCC 是成長依賴型融資</b>。成長期儲值 &gt; 提領 → float 膨脹、體質看似極佳；<b>成長一停，新儲值停滯但創作者提領照常 → 現金流瞬間由正轉負</b>，本質上就是 <b>bank run 型風險</b>。<b>絕對不能把 float 當自有資金去做 CapEx 或長期投入</b>；正確做法是<b>分離保管、只動用 breakage 的部分</b>。這是儲值/預付/平台餘額模式最常見的死法。<i>(speculative — 待與實際 wallet 規則與會計處理對齊)</i></li>
+
+      <li><b>新創：該追的 KPI 不是 Current Ratio，是 float 的四個參數 ——</b> <span class="kb-term">Float 規模</span>（未使用幣總餘額）、<span class="kb-term">Breakage</span>（永不使用的沉澱比例 ＝ float 中真正屬於你的部分）、<span class="kb-term">Payout Lag</span>（儲值→創作者提領天數 ＝ 你的 DPO）、<span class="kb-term">餘額集中度</span>（前 1% 用戶持幣佔比 ＝ 擠兌風險）。另外，<b>新創沒有 Current Ratio 文化，只有 Runway</b>（現金 ÷ 月淨燒錢率）—— <b>那就是 DIR，換了個名字</b>；配 <span class="kb-term">Burn Multiple</span>（淨燒錢 ÷ 淨新增 <span class="kb-term">ARR</span>（Annual Recurring Revenue，年度經常性收入））看流動性的「效率」。</li>
+
+      <li><b>新創：創作者拆帳條款 ＝ 你的 DPO 政策。</b>拉長提領週期能改善 CCC，<b>但代價是創作者流失（供給側 churn）</b> —— 這和「拉 DPO 會被供應商加價」<b>完全同構：平台的供給側就是你的供應商</b>。早期別為了 CCC 去壓創作者，那是拿網路效應換現金流，划不來。同理，DuPont 邏輯在輕資產平台仍成立：<b>平台的 ROE 引擎是 turnover 而非 margin</b>，這決定你該優化哪一端。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>關鍵詞 · Key terms</h2>
+    <ul>
+      <li><span class="kb-term">Liquidity vs Solvency</span> — 短期現金流 vs 長期資本結構；企業多死於前者</li>
+      <li><span class="kb-term">Acid-Test Ratio</span> — Quick Ratio 別名，剝掉存貨</li>
+      <li><span class="kb-term">DIR</span> — 無新進帳可撐天數；＝ 新創的 runway</li>
+      <li><span class="kb-term">CFO</span> — 營業現金流；流動性的最終裁決者</li>
+      <li><span class="kb-term">FCF</span> — CFO − CapEx；擴張後真正剩下的錢</li>
+      <li><span class="kb-term">Earnings Quality</span> — CFO 與淨利的背離；造假的最早裂縫</li>
+      <li><span class="kb-term">Liquidity–Profitability Trade-off</span> — 現金是零報酬資產；流動性不是越高越好</li>
+      <li><span class="kb-term">Undrawn Credit Line</span> — 未動用額度；表外流動性，比率看不到</li>
+      <li><span class="kb-term">Turnover Rate</span> — 流量 ÷ 平均存量；一元資產推動多少營收</li>
+      <li><span class="kb-term">Equity Turnover</span> — 營收 ÷ 平均股東權益；＝ 資產週轉率 × Equity Multiplier，<b>內含槓桿</b></li>
+      <li><span class="kb-term">Share Turnover</span> — 市場流動性指標，與營運週轉率無關</li>
+      <li><span class="kb-term">Operating Cycle</span> — DIO + DSO；不扣供應商墊付</li>
+      <li><span class="kb-term">Cash Gap</span> — CCC × 日均支出；必須融資的營運資金</li>
+      <li><span class="kb-term">Overtrading</span> — 高成長 + 正 CCC + 無融資 ＝ 賺錢倒閉</li>
+      <li><span class="kb-term">Float</span> — 預收但未交付的資金；<b>成長依賴型</b>融資</li>
+      <li><span class="kb-term">Breakage</span> — 預收後永不使用的沉澱比例</li>
+      <li><span class="kb-term">Consignment / VMI</span> — 寄售、供應商管理存貨；把 DIO 推回廠商</li>
+      <li><span class="kb-term">Factoring</span> — 應收帳款讓售；用折價換 DSO</li>
+      <li><span class="kb-term">Reverse Factoring</span> — 供應鏈金融；拉長 DPO 的工具，也是<b>隱藏負債</b>的工具（Carillion 案）</li>
+      <li><span class="kb-term">2/10 net 30</span> — 現金折扣條件；放棄折扣的隱含年利率約 37%</li>
+      <li><span class="kb-term">Stockout</span> — 缺貨；<b>醫院的 stockout 是臨床風險，不是財務風險</b></li>
+      <li><span class="kb-term">Window Dressing</span> — 期末同時減 CA 與 CL，可憑空推高 Current Ratio（&gt;1 時）</li>
+      <li><span class="kb-term">NOPAT</span> — 稅後營業利益；ROIC 的分子</li>
+      <li><span class="kb-term">WACC</span> — 加權平均資金成本；ROIC 的及格線</li>
+      <li><span class="kb-term">Contribution Margin</span> — 收入 − 變動成本；短期營運決策用</li>
+      <li><span class="kb-term">Bed Turnover Rate</span> — 出院人次 ÷ 平均開放床數；醫院版 fixed asset turnover</li>
+      <li><span class="kb-term">Churn Rate</span> — 用戶流失率；平台版的 turnover</li>
+      <li><span class="kb-term">Coin Velocity</span> — 交易量 ÷ 流通幣量；平台版的 asset turnover</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>待追 · Follow-ups</h2>
+    <ul>
+      <li><b>算 SKHER 的三段 CCC：</b>DIO（藥品/耗材）、DSO（<b>點值與核刪調整後，且要看分布不是平均</b>）、DPO（藥商帳期）→ 得出真實現金缺口金額；並與帳面版本並列，看高估了多少。</li>
+      <li><b>盤點高值耗材可轉 consignment 的品項比例</b> → 估算 DIO 可壓縮天數與釋放現金（同時劃出急救藥品/ECMO 套組的不可壓縮底線）。</li>
+      <li><b>量化「自費營收比重 → CCC 改善」的敏感度：</b>自費佔比每 +5%，全院 CCC 縮短幾天、釋放多少現金 → <b>寫進 ART Center / PSA 提案的財務章節</b>。</li>
+      <li><b>宏仁 MOU：</b>把支援費用<b>結算週期明文化</b>（建議月結 30 天或預付制），試算不同週期對小院 CCC 的影響。</li>
+      <li>查醫院採購合約是否存在<b>現金折扣條款</b> → 若有，檢查目前是否在「為了拖帳而付 37% 隱含利息」。</li>
+      <li>算 SKHER <b>病床週轉率 + 週轉間隔</b>，量化 <b>ED boarding hours → 全院病床週轉率損失</b> 的關係；抓護理/主治年離職率，查<b>台灣</b>醫護替換成本的實證數字（別直接引用美國估計值）。</li>
+      <li><b>ART Center 設備 CapEx：</b>除了 ROIC vs WACC，補做 <b>FCF 與 DIR 情境分析</b>（買了之後的最壞情況 runway）。</li>
+      <li><b>Spridea：</b>定義並開始追 float / breakage / payout lag / 餘額集中度，取代無意義的 Current Ratio；<b>做一次「成長停滯」的 float 壓力測試</b>。</li>
+      <li><b>課堂定義確認（考試用）：</b>① Quick Ratio 是減法版還是加法版？② 存貨週轉率分子用 COGS 還是營收？③ CCC 三段的分母慣例？④ ROIC 的 Invested Capital 定義（是否扣現金、租賃/R&amp;D 是否資本化）？⑤ 考 3-step 還是 5-step DuPont？—— <b>五個都會改變答案。</b></li>
+      <li>補算 <b>Equity Turnover</b>，驗證 2-step 與 3-step DuPont 是否一致（自我檢查計算）。</li>
+    </ul>
+  </section>
+
+  <section class="note-section refs">
+    <h2>延伸 · References</h2>
+    <ul>
+      <li><a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datacurrent.html" target="_blank" rel="noopener">Damodaran Online — Current Data (NYU Stern)</a> — 依產業別的 margin、ROE、ROIC 平均值資料集，2026 年 1 月更新，做 cross-sectional benchmark 最方便的免費來源。</li>
+      <li><a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/margin.html" target="_blank" rel="noopener">Operating and Net Margins by Sector</a> — 直接查產業別 operating / net margin 標竿。</li>
+      <li><a href="https://mops.twse.com.tw/" target="_blank" rel="noopener">公開資訊觀測站 (MOPS)</a> — 台灣上市櫃公司財報原始資料，做同業比較的資料來源。</li>
+    </ul>
+  </section>
+</div>
+</body>
+</html>
