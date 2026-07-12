@@ -120,6 +120,57 @@
     "file": "notes/pmba-2026-07-12-financial-accounting-foundations.html"
   },
   {
+    "id": "pmba-2026-07-12-ratio-analysis",
+    "prefix": "PMBA",
+    "skill": "mba-class-note",
+    "type": "class-note",
+    "title": "財務分析工具：Ratio Analysis（比率分析）",
+    "course": "財務管理",
+    "date": "2026-07-12",
+    "topic": "財務分析工具：比率分析",
+    "tags": [
+      "Ratio Analysis",
+      "DuPont Analysis",
+      "Turnover Rate",
+      "Cash Conversion Cycle",
+      "Liquidity Analysis",
+      "Common-Size Statements",
+      "ROIC"
+    ],
+    "domains": [
+      "hospital",
+      "startup"
+    ],
+    "created": "2026-07-12T21:30:00+08:00",
+    "file": "notes/pmba-2026-07-12-ratio-analysis.html"
+  },
+  {
+    "id": "pmba-2026-06-28-financial-analysis-applications",
+    "prefix": "PMBA",
+    "skill": "mba-class-note",
+    "type": "class-note",
+    "title": "財務分析的三大應用：股票評價、財務危機預測、信用風險預測",
+    "course": "財務報表分析",
+    "date": "2026-06-28",
+    "topic": "財務分析的應用：valuation / distress / credit risk",
+    "tags": [
+      "DCF",
+      "Gordon Growth Model",
+      "Residual Income Model",
+      "DuPont Analysis",
+      "Altman Z-Score",
+      "Ohlson O-Score",
+      "Merton Model",
+      "KMV"
+    ],
+    "domains": [
+      "hospital",
+      "startup"
+    ],
+    "created": "2026-06-28T11:30:00+08:00",
+    "file": "notes/pmba-2026-06-28-financial-analysis-applications.html"
+  },
+  {
     "id": "pmba-2026-06-11-financial-statement-analysis",
     "prefix": "PMBA",
     "skill": "mba-class-note",
