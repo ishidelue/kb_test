@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PMBA · 折現率：一切估值的那顆旋鈕</title>
+
+<!-- ============================================================
+     kb-meta — machine-readable metadata. build_manifest.py reads
+     THIS to regenerate notes.json. Keep the keys exactly; fill values.
+     domains: subset of ["hospital","startup"]. tags: framework names (EN).
+     ============================================================ -->
+<script type="application/json" id="kb-meta">
+{
+  "id": "pmba-2026-07-12-discount-rate",
+  "prefix": "PMBA",
+  "skill": "mba-class-note",
+  "type": "class-note",
+  "title": "折現率：一切估值的那顆旋鈕",
+  "course": "財務管理／財務會計延伸",
+  "date": "2026-07-12",
+  "topic": "折現率、時間價值、WACC、CAPM、PVIFA、NPV/IRR",
+  "tags": ["Discount Rate", "Time Value of Money", "Opportunity Cost of Capital", "WACC", "CAPM", "PVIFA (Annuity Factor)", "NPV", "IRR", "Hurdle Rate", "Sensitivity Analysis"],
+  "domains": ["hospital", "startup"],
+  "created": "2026-07-12T22:10:00+08:00",
+  "file": "notes/pmba-2026-07-12-discount-rate.html"
+}
+</script>
+
+<!-- ============================================================
+     CRITICAL CSS — DO NOT EDIT. Copy verbatim into every note.
+     Makes the note self-contained: it renders correctly on its own
+     (e.g. on iPad, before it is filed into the KB repo) without
+     depending on assets/kb.css. The shared sheet linked AFTER this
+     block overrides it for full theming once the note is in the KB.
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root{--bg:#fafafa;--surface:#fff;--surface-2:#f4f4f5;--border:rgba(24,24,27,.08);--text:#18181b;--text-2:#52525b;--text-3:#71717a;--text-4:#a1a1aa;--accent:#18181b;--radius:12px;--hospital:#8fa6b0;--startup:#b79a86;--correction:#a16207;--sans:"Inter",system-ui,"PingFang TC","Noto Sans TC",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--serif:"Fraunces",Georgia,"Noto Serif TC",serif;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16.5px;line-height:1.78;-webkit-font-smoothing:antialiased;}
+.article-wrap{max-width:760px;margin:0 auto;padding:48px 28px 110px;}
+.article-eyebrow{font-family:var(--mono);font-size:12.5px;color:var(--text-3);display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:18px;}
+.badge{font-family:var(--mono);font-size:11.5px;padding:2px 8px;border-radius:6px;background:var(--surface-2);color:var(--text-2);}
+h1.article-title{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.15;letter-spacing:-.02em;margin-bottom:20px;}
+.tag{font-family:var(--mono);font-size:11.5px;color:var(--text-3);background:var(--surface-2);border-radius:6px;padding:2px 7px;}
+.article-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:8px;}
+.article-domains{display:flex;gap:10px;margin:14px 0 40px;padding-bottom:32px;border-bottom:1px solid var(--border);}
+.domain-pill{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12.5px;color:var(--text-2);}
+.dot{width:8px;height:8px;border-radius:50%;}.dot.hospital{background:var(--hospital);}.dot.startup{background:var(--startup);}
+section.note-section{margin-bottom:40px;}
+section.note-section>h2{font-family:var(--mono);font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--text-4);margin-bottom:16px;}
+.note-section ul{list-style:none;display:flex;flex-direction:column;gap:13px;}
+.note-section li{position:relative;padding-left:22px;line-height:1.85;}
+.note-section li::before{content:"";position:absolute;left:5px;top:12px;width:5px;height:5px;border-radius:50%;background:var(--text-4);}
+.note-section li ul{margin-top:10px;}
+.kb-term{font-family:var(--mono);font-size:.9em;background:var(--surface-2);border:1px solid var(--border);border-radius:5px;padding:.5px 5px;}
+.correction{color:var(--correction);border-bottom:1px dashed var(--correction);cursor:help;}
+section.synthesis{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:24px 26px;}
+.refs a{color:var(--text-2);border-bottom:1px solid var(--border-strong,rgba(24,24,27,.14));}
+.refs a:hover{color:var(--text);}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12.5px;color:var(--text-3);margin-bottom:28px;}
+</style>
+
+<!-- full shared theme (palette, header). Overrides critical CSS in-repo. -->
+<link rel="stylesheet" href="../assets/kb.css">
+</head>
+<body data-theme="grayscale">
+
+<div class="article-wrap">
+  <a class="back-link" href="../index.html">← 知識庫</a>
+
+  <div class="article-eyebrow">
+    <span class="badge">PMBA</span>
+    <span>財務管理／財務會計延伸</span><span>·</span><span>2026-07-12</span>
+  </div>
+
+  <h1 class="article-title">折現率：一切估值的那顆旋鈕</h1>
+
+  <div class="article-meta"><span class="tag">Discount Rate</span><span class="tag">Time Value of Money</span><span class="tag">Opportunity Cost of Capital</span><span class="tag">WACC</span><span class="tag">CAPM</span><span class="tag">PVIFA</span><span class="tag">NPV</span><span class="tag">IRR</span><span class="tag">Sensitivity Analysis</span></div>
+
+  <div class="article-domains"><span class="domain-pill"><span class="dot hospital"></span>醫院/急診</span><span class="domain-pill"><span class="dot startup"></span>資訊新創</span></div>
+
+  <section class="note-section">
+    <h2>核心概念 · Frameworks &amp; Concepts</h2>
+    <ul>
+      <li><b>一句話定義：<span class="kb-term">Discount Rate</span> = <span class="kb-term">Opportunity Cost of Capital</span>（機會成本）。</b>折現率不是「未來的錢會縮水多少」，而是「這筆錢<b>不投這個案子</b>、拿去做別的事能賺多少」。這是唯一需要記住的定義；其餘都是它的推論。</li>
+      <li><b>基本式：</b><span class="kb-term">PV = CF<sub>n</sub> / (1 + r)<sup>n</sup></span> — 未來第 n 年的 1 元，今天值多少。</li>
+      <li><b>未來的錢比較不值錢，來自三個來源：</b>
+        <ul>
+          <li><b>① 機會成本</b> — 今天的 100 元可以拿去投資，一年後變 110 元 → 一年後的 110 元 ≡ 今天的 100 元</li>
+          <li><b>② 通貨膨脹</b> — 購買力隨時間下降</li>
+          <li><b>③ 風險／不確定性</b> — 「明年會收到 120 萬」只是<b>預期</b>，不是保證。愈不確定，折得愈兇</li>
+        </ul>
+      </li>
+      <li><b>折現率的結構：</b><span class="kb-term">r = Risk-free Rate + Risk Premium</span>（無風險利率＋風險溢酬）。無風險利率在台灣通常取 10 年期公債殖利率；風險溢酬回答「這個案子比公債危險多少」。<b>專案風險愈高 → r 愈高 → 未來現金流被折得愈狠 → NPV 愈低。</b>這就是折現率「懲罰風險」的機制。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>折現率從哪來 · WACC 與 CAPM</h2>
+    <ul>
+      <li><b><span class="kb-term">WACC</span>（加權平均資金成本）</b>：企業評估自身專案時最常用的 r。
+        <div style="font-family:var(--mono);font-size:14px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-top:10px;line-height:1.7;">WACC = (E/V) × R<sub>e</sub> + (D/V) × R<sub>d</sub> × (1 − t)</div>
+        <ul>
+          <li><b>E</b> = 權益市值、<b>D</b> = 有息負債、<b>V</b> = E + D</li>
+          <li><b>R<sub>e</sub></b>（權益成本）通常以 <span class="kb-term">CAPM</span> 估：<span class="kb-term">R<sub>e</sub> = R<sub>f</sub> + β × (市場風險溢酬)</span></li>
+          <li><b>R<sub>d</sub> × (1 − t)</b> 中的 (1 − t) 即<b>利息可抵稅的稅盾</b> → 債的實際成本低於票面利率</li>
+        </ul>
+      </li>
+      <li><b>直覺：</b>WACC 是「你為了拿到這筆錢，平均每年要付給出資者（銀行＋股東）多少」。專案報酬若打不過 WACC，等於<b>替出資者虧錢</b>。</li>
+      <li><b>與價值創造判準的關係（同一件事的三種說法）：</b>
+        <div style="font-family:var(--mono);font-size:14px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-top:10px;line-height:1.9;">ROIC &gt; WACC　→　創造價值<br>NPV &gt; 0　　 →　同一件事<br>IRR &gt; WACC　→　同一件事</div>
+        <b>NPV &gt; 0 的意思是：這個案子在付完所有資金提供者的要求報酬之後，還有剩。</b>
+      </li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>折現的機制 · Discount Factor 與年金因子</h2>
+    <ul>
+      <li><b>折現因子 (discount factor)</b> = 1 / (1 + r)<sup>n</sup>。把每年的現金流各自乘上自己的折現因子，再加總，就是現值。</li>
+      <li><b>當每年金額相同（<span class="kb-term">annuity</span>／年金）時，可把金額提出來，只加總折現因子</b> — 這個總和就是<b>年金現值因子 <span class="kb-term">PVIFA</span></b>，它有封閉解（等比級數求和）：
+        <div style="font-family:var(--mono);font-size:14px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-top:10px;line-height:1.7;">PVIFA(r, n) = [1 − (1 + r)<sup>−n</sup>] / r</div>
+      </li>
+      <li><b>以 r = 10%、n = 5 為例：</b>
+        <table style="width:100%;border-collapse:collapse;margin-top:12px;font-size:15px;">
+          <thead>
+            <tr>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">年 n</th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">折現因子 1/(1.1)ⁿ</th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">每 1 元的現值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">1</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">0.9091</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">0.91</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">2</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">0.8264</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">0.83</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">3</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">0.7513</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">0.75</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">4</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">0.6830</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">0.68</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">5</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">0.6209</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">0.62</td></tr>
+            <tr><td style="padding:8px 10px;border-top:1px solid rgba(24,24,27,.14);"><b>合計</b></td><td style="padding:8px 10px;border-top:1px solid rgba(24,24,27,.14);font-family:var(--mono);"><b>3.7908</b></td><td style="padding:8px 10px;border-top:1px solid rgba(24,24,27,.14);"><b>= PVIFA</b></td></tr>
+          </tbody>
+        </table>
+      </li>
+      <li><b>驗算封閉解：</b>1.1⁵ = 1.61051 → (1.1)⁻⁵ = 0.62092 → PVIFA = (1 − 0.62092) / 0.10 = <b>3.7908</b>　✓</li>
+      <li><b>直覺解讀：</b>未來 5 年、每年 1 元，在 10% 折現下，今天只值 <b>3.79 元</b>，不是 5 元。<b>少掉的 1.21 元就是時間價值。</b></li>
+      <li><b>Excel：</b><span class="kb-term">=PV(10%, 5, -120)</span> → 454.9；<span class="kb-term">=NPV(10%, 120,120,120,120,120)</span> → 454.9（注意 Excel 的 NPV 函數<b>不含</b> t=0 的期初投資，要自己另外相減）</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>折現率的槓桿效應 · 為什麼它最該被質疑</h2>
+    <ul>
+      <li><b>同一組現金流（t=0 投入 −320，其後 5 年每年 +120），只換折現率：</b>
+        <table style="width:100%;border-collapse:collapse;margin-top:12px;font-size:15px;">
+          <thead>
+            <tr>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">折現率 r</th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">PVIFA(r,5)</th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">NPV（萬元）</th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">結論</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">5%</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">4.329</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">+199</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">大好</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);"><b>10%</b></td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);"><b>3.791</b></td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);"><b>+135</b></td><td style="padding:8px 10px;border-bottom:1px solid var(--border);"><b>好</b></td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">20%</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">2.991</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">+39</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">勉強</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">25%</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">2.689</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">+3</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">幾乎打平</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">30%</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">2.436</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);">−28</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);"><b>不該做</b></td></tr>
+          </tbody>
+        </table>
+      </li>
+      <li><b>同一組現金流，只換折現率，結論可以完全相反。</b>那個讓 NPV = 0 的折現率（此例約 <b>25.4%</b>）就是 <span class="kb-term">IRR</span> — 這個案子本身的年化報酬率。決策規則：<b>IRR &gt; WACC 就做</b>。</li>
+      <li><b>⚠ 財務模型裡最容易被操縱的參數就是折現率。</b>想讓案子過關，只要把 r 從 12% 調成 8%，NPV 就轉正。<b>看別人的 NPV，第一件事是問「r 從哪來、為什麼是這個數字」</b>，並要求 <span class="kb-term">sensitivity analysis</span>（至少三檔 r 的 NPV）。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>怎麼挑 r · 原則與三個常見錯誤</h2>
+    <ul>
+      <li><b>核心原則：折現率要匹配「現金流的風險」，不是匹配「錢從哪借來的」。</b></li>
+      <li><b>錯誤一：用借款利率當折現率。</b>「我跟銀行借 3%，所以 r = 3%」→ 錯。資金來源與專案風險無關；股東承擔的風險不會因為你借到便宜的債而消失。</li>
+      <li><b>錯誤二：全公司只用一個 r。</b>買一台超音波（低風險、可預測）與開一個新事業體（高風險）不該用同一個折現率。<b>風險不同 → r 不同。</b></li>
+      <li><b>錯誤三：用 ROI／ROA 當 r。</b>那是會計績效指標，不是資金成本。</li>
+    </ul>
+  </section>
+
+  <section class="note-section synthesis">
+    <h2>我的綜整 · My Synthesis（So what）</h2>
+    <ul>
+      <li><b>醫院（財團法人）沒有市場定義的 R<sub>e</sub>，WACC 不能直接套。</b>沒有股東、不能分配盈餘 → 實務上折現率取「借款利率＋風險加碼」，或更正確地，取<b>院內真正的機會成本</b>：這筆錢若投到另一個科部的案子能賺多少。台灣醫院的設備投資常見落在 <b>5–10%</b>。</li>
+      <li><b>關鍵洞察：醫院的資本稀缺且封閉</b>（不能增資，只能靠盈餘與捐贈）→ <b>內部機會成本其實很高</b>。若 ART Center 的擴充能有 20% 報酬，那其他科部的案子折現率就該用 20%，而不是銀行的 3%。<b>很多醫院投資決策失準，正是因為把資金成本設得太低 → 什麼案子看起來都可行 → 稀缺資本被「雨露均霑」地平均分掉，而不是集中投在報酬最高的地方。</b>把院內 hurdle rate 明確化，本身就是一個策略工具。</li>
+      <li><b>新創的折現率是災難級的高。</b>VC 對 seed 階段的隱含折現率常在 <b>40–70%</b>（這個 r 內含的其實是<b>存活機率</b>）。5 年後的 1 元用 50% 折現只剩約 0.13 元 → <b>新創的未來現金流在 DCF 下幾乎一文不值</b>，這正是 VC 根本不用 DCF 估值、改用 comparables／ARR multiple／「這輪能不能在下一輪 10x」邏輯的原因。</li>
+      <li><b>Spridea 的實體折現率是 runway，不是 WACC。</b>新創真正稀缺的資源是<b>時間與工程人力</b>，不是錢。內部資源配置該問的是：「這個 sprint 若投到 A 功能而非 B 功能，能多帶進多少留存／營收？」—— 這才是真正的機會成本，套一個學院派的 WACC 反而失真。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>關鍵詞 · Key terms</h2>
+    <ul>
+      <li><span class="kb-term">Discount Rate</span> — 折現率；本質是資金的機會成本</li>
+      <li><span class="kb-term">Time Value of Money</span> — 貨幣的時間價值；今天的 1 元 &gt; 未來的 1 元</li>
+      <li><span class="kb-term">Discount Factor</span> — 折現因子，1/(1+r)ⁿ</li>
+      <li><span class="kb-term">PVIFA (Annuity Factor)</span> — 年金現值因子，[1−(1+r)⁻ⁿ]/r</li>
+      <li><span class="kb-term">WACC</span> — 加權平均資金成本；債與權益成本的加權，債的部分含稅盾</li>
+      <li><span class="kb-term">CAPM</span> — R<sub>e</sub> = R<sub>f</sub> + β × 市場風險溢酬，用來估權益成本</li>
+      <li><span class="kb-term">Risk Premium</span> — 風險溢酬；折現率高於無風險利率的部分</li>
+      <li><span class="kb-term">Hurdle Rate</span> — 門檻報酬率；組織要求專案至少要打敗的 r</li>
+      <li><span class="kb-term">IRR</span> — 內部報酬率；使 NPV = 0 的折現率</li>
+      <li><span class="kb-term">Sensitivity Analysis</span> — 敏感度分析；檢驗結論對假設（尤其是 r）的穩健性</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>待追 · Follow-ups</h2>
+    <ul>
+      <li>訂出 SKHER 設備／新業務投資的<b>院內 hurdle rate</b>：以「次佳用途的報酬」倒推，而非用借款利率。把它寫進 ART Center 的投資提案範本。</li>
+      <li>確認 SKHER 的稅務身分（財團法人免稅？）→ 決定 NPV 模型中要不要納入折舊稅盾與處分損失稅盾。</li>
+      <li>對 ART Center 擴充案做 sensitivity table（r = 5% / 10% / 15%）與 IRR，作為送簽核的標準附件。</li>
+      <li>Spridea：把「工程人力機會成本」量化成可比較的單位（每 sprint 的預期留存增量），取代直覺式的 roadmap 排序。</li>
+      <li>讀 CAPM 與 β 的原始推導，補齊 R<sub>e</sub> 估計的理論基礎與其在非上市／非營利機構的失效點。</li>
+    </ul>
+  </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PMBA · 帳面價值的陷阱：資本預算、ROA/ROI 與儲值 float 的會計處理</title>
+
+<!-- ============================================================
+     kb-meta — machine-readable metadata. build_manifest.py reads
+     THIS to regenerate notes.json. Keep the keys exactly; fill values.
+     domains: subset of ["hospital","startup"]. tags: framework names (EN).
+     ============================================================ -->
+<script type="application/json" id="kb-meta">
+{
+  "id": "pmba-2026-07-12-capital-budgeting-roi-float",
+  "prefix": "PMBA",
+  "skill": "mba-class-note",
+  "type": "class-note",
+  "title": "帳面價值的陷阱：資本預算、ROA/ROI 與儲值 float 的會計處理",
+  "course": "財務會計延伸",
+  "date": "2026-07-12",
+  "topic": "帳面價值誤判、資本預算與 sunk cost、ROA/ROI/ROIC 與 DuPont、儲值 float 的會計與監理",
+  "tags": ["Capital Budgeting", "Sunk Cost", "Incremental Cash Flow", "Tax Shield", "NPV", "ROA", "ROE", "ROIC", "DuPont Analysis", "EVA / Residual Income", "Contract Liability", "Float", "LTV/CAC"],
+  "domains": ["hospital", "startup"],
+  "created": "2026-07-12T22:10:00+08:00",
+  "file": "notes/pmba-2026-07-12-capital-budgeting-roi-float.html"
+}
+</script>
+
+<!-- ============================================================
+     CRITICAL CSS — DO NOT EDIT. Copy verbatim into every note.
+     Makes the note self-contained: it renders correctly on its own
+     (e.g. on iPad, before it is filed into the KB repo) without
+     depending on assets/kb.css. The shared sheet linked AFTER this
+     block overrides it for full theming once the note is in the KB.
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root{--bg:#fafafa;--surface:#fff;--surface-2:#f4f4f5;--border:rgba(24,24,27,.08);--text:#18181b;--text-2:#52525b;--text-3:#71717a;--text-4:#a1a1aa;--accent:#18181b;--radius:12px;--hospital:#8fa6b0;--startup:#b79a86;--correction:#a16207;--sans:"Inter",system-ui,"PingFang TC","Noto Sans TC",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--serif:"Fraunces",Georgia,"Noto Serif TC",serif;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16.5px;line-height:1.78;-webkit-font-smoothing:antialiased;}
+.article-wrap{max-width:760px;margin:0 auto;padding:48px 28px 110px;}
+.article-eyebrow{font-family:var(--mono);font-size:12.5px;color:var(--text-3);display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:18px;}
+.badge{font-family:var(--mono);font-size:11.5px;padding:2px 8px;border-radius:6px;background:var(--surface-2);color:var(--text-2);}
+h1.article-title{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.15;letter-spacing:-.02em;margin-bottom:20px;}
+.tag{font-family:var(--mono);font-size:11.5px;color:var(--text-3);background:var(--surface-2);border-radius:6px;padding:2px 7px;}
+.article-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:8px;}
+.article-domains{display:flex;gap:10px;margin:14px 0 40px;padding-bottom:32px;border-bottom:1px solid var(--border);}
+.domain-pill{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12.5px;color:var(--text-2);}
+.dot{width:8px;height:8px;border-radius:50%;}.dot.hospital{background:var(--hospital);}.dot.startup{background:var(--startup);}
+section.note-section{margin-bottom:40px;}
+section.note-section>h2{font-family:var(--mono);font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--text-4);margin-bottom:16px;}
+.note-section ul{list-style:none;display:flex;flex-direction:column;gap:13px;}
+.note-section li{position:relative;padding-left:22px;line-height:1.85;}
+.note-section li::before{content:"";position:absolute;left:5px;top:12px;width:5px;height:5px;border-radius:50%;background:var(--text-4);}
+.note-section li ul{margin-top:10px;}
+.kb-term{font-family:var(--mono);font-size:.9em;background:var(--surface-2);border:1px solid var(--border);border-radius:5px;padding:.5px 5px;}
+.correction{color:var(--correction);border-bottom:1px dashed var(--correction);cursor:help;}
+section.synthesis{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:24px 26px;}
+.refs a{color:var(--text-2);border-bottom:1px solid var(--border-strong,rgba(24,24,27,.14));}
+.refs a:hover{color:var(--text);}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12.5px;color:var(--text-3);margin-bottom:28px;}
+</style>
+
+<!-- full shared theme (palette, header). Overrides critical CSS in-repo. -->
+<link rel="stylesheet" href="../assets/kb.css">
+</head>
+<body data-theme="grayscale">
+
+<div class="article-wrap">
+  <a class="back-link" href="../index.html">← 知識庫</a>
+
+  <div class="article-eyebrow">
+    <span class="badge">PMBA</span>
+    <span>財務會計延伸</span><span>·</span><span>2026-07-12</span>
+  </div>
+
+  <h1 class="article-title">帳面價值的陷阱：資本預算、ROA/ROI 與儲值 float 的會計處理</h1>
+
+  <div class="article-meta"><span class="tag">Capital Budgeting</span><span class="tag">Sunk Cost</span><span class="tag">NPV</span><span class="tag">Replacement Decision</span><span class="tag">ROA</span><span class="tag">ROE</span><span class="tag">ROIC</span><span class="tag">DuPont Analysis</span><span class="tag">EVA / Residual Income</span><span class="tag">Contract Liability</span><span class="tag">Float</span><span class="tag">LTV/CAC</span></div>
+
+  <div class="article-domains"><span class="domain-pill"><span class="dot hospital"></span>醫院/急診</span><span class="domain-pill"><span class="dot startup"></span>資訊新創</span></div>
+
+  <section class="note-section">
+    <h2>一、帳面價值誤導資本預算 · 三個例子</h2>
+    <ul>
+      <li><b>核心命題：</b><span class="kb-term">Book Value</span> 回答的是「當初花了多少」；資本預算問的是「<b>現在放棄什麼、未來得到什麼</b>」。<b>兩個問題不同，用錯數字就會系統性選錯。</b></li>
+
+      <li><b>例一：ROI 分母被折舊侵蝕 → 資源配置反向</b>（最隱形、傷害最大）
+        <table style="width:100%;border-collapse:collapse;margin-top:12px;font-size:15px;">
+          <thead>
+            <tr>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);"></th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">舊 ICU</th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">ART Center（新建）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);">資產<b>帳面</b>價值</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">200 萬（快折舊完）</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">2,000 萬</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);">年營運利益</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">100 萬</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">400 萬</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);"><b>帳面 ROA</b></td><td style="padding:8px 10px;border-bottom:1px solid var(--border);"><b>50%</b></td><td style="padding:8px 10px;border-bottom:1px solid var(--border);"><b>20%</b></td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);">設備<b>重置成本</b></td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">1,500 萬</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">2,000 萬</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);"><b>重置基礎 ROA</b></td><td style="padding:8px 10px;border-bottom:1px solid var(--border);"><b>6.7%</b></td><td style="padding:8px 10px;border-bottom:1px solid var(--border);"><b>20%</b></td></tr>
+          </tbody>
+        </table>
+        <ul>
+          <li>董事會看帳面 → 「舊 ICU 效率是新中心的 2.5 倍，錢給 ICU。」<b>用重置成本重算，結論完全反過來。</b></li>
+          <li><b>折舊只縮小分母，不改變資產的真實經濟價值</b> → 資產愈舊，帳面 ROI 愈虛胖。<b>醫院裡最老、最該汰換的單位，在報表上永遠「績效最好」；最需要投資的新業務永遠「投報率最差」。</b></li>
+        </ul>
+      </li>
+
+      <li><b>例二：處分損失綁架汰換決策</b>（sunk cost 的財務版）
+        <ul>
+          <li>舊超音波：<b>帳面 180 萬</b>，二手市價 <b>60 萬</b>；新機 <b>380 萬</b>，可支撐 POCUS／PSA 導引穿刺，年增量現金流 <b>120 萬 × 5 年</b></li>
+          <li>常見反應：「換掉要一次認列 120 萬處分損失（180 − 60），今年損益太難看，等折舊完再說。」</li>
+          <li><b>正確算法：180 萬是 <span class="kb-term">sunk cost</span>，與決策無關。</b>
+            <div style="font-family:var(--mono);font-size:14px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-top:10px;line-height:1.8;">淨投資 = −380 + 60（舊機變現）= −320<br>NPV @10% = −320 + 120 × PVIFA(10%,5)<br>　　　　 = −320 + 120 × 3.791<br>　　　　 = −320 + 455 = <b>+135 萬 → 該換</b></div>
+            （PVIFA 3.791 的由來見另一則筆記 <span class="kb-term">pmba-2026-07-12-discount-rate</span>）
+          </li>
+          <li>用 <b>60（市價）</b>而不是 180（帳面），因為 NPV <b>只認現金</b>。帳面 180 是歷史成本的殘影，沒有人會付你這個數字。</li>
+          <li>更諷刺的是：對<b>課稅個體</b>而言，那筆處分損失是<b>稅盾</b>，讓「換」在現金流上<b>更</b>划算，卻在會計上讓決策者卻步。</li>
+          <li><b>這叫 accounting-driven decision，不是 value-driven decision。</b></li>
+        </ul>
+      </li>
+
+      <li><b>例三：空間／土地的機會成本被帳面抹掉。</b>三十年前入帳的院區土地，帳面接近零 → 大家覺得「拿來當倉庫又不花錢」。但重置價值／市價租金可能是每年數百萬。<b>帳面價值讓最貴的資產看起來免費。</b></li>
+
+      <li><b>⚠ 上面的 NPV 為求邏輯乾淨而簡化，實務送簽核前必須補三塊（三者都會讓「換」更划算）：</b>
+        <ul>
+          <li><b>處分損失稅盾</b>：(180 − 60) × 稅率 → t=0 多回收現金（醫院若為免稅財團法人則不適用，須先確認 SKHER 稅務身分）</li>
+          <li><b>折舊稅盾</b>：新機每年折舊 × 稅率 = 現金流入</li>
+          <li><b>新機第 5 年殘值</b>：t=5 應加一筆現金流入</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>二、ROA / ROI / ROE / ROIC · 定義與拆解</h2>
+    <ul>
+      <li><b><span class="kb-term">ROI</span> = 報酬 ÷ 投入</b> — 最寬鬆的一個詞，「投入」沒有標準定義（一台機器、一個專案、一次行銷）→ <b>最容易被操弄的指標</b>。有人講 ROI，第一句該問：<b>分子是誰的報酬？分母是誰的錢？</b></li>
+      <li><b><span class="kb-term">ROA</span> = 淨利 ÷ 總資產</b> — 「不管錢從哪來（借的或股東的），我用這堆資產賺錢的效率如何？」</li>
+      <li><b><span class="kb-term">ROE</span> = 淨利 ÷ 股東權益</b> — 「<b>股東自己的錢</b>賺了多少？」</li>
+      <li><b><span class="kb-term">ROIC</span> = NOPAT ÷（有息負債 + 權益）</b> — 投入營運的<b>資本</b>所產生的報酬。<b>評估價值創造時最該用的那一個。</b></li>
+      <li><b>技術細節（常考、常錯）：ROA 的分子分母必須配對。</b>分母「總資產」由債權人＋股東共同出資；分子若用「淨利」，那是<b>已扣利息</b>、只屬於股東的數字 → 分子分母不對稱。嚴謹版：
+        <div style="font-family:var(--mono);font-size:14px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-top:10px;line-height:1.7;">ROA = [淨利 + 利息費用 × (1 − t)] ÷ <b>平均</b>總資產　（或 EBIT×(1−t) ÷ 平均總資產）</div>
+        分母要用<b>平均</b>總資產（期初＋期末）÷2 —— 因為分子是「期間 (flow)」、分母是「時點 (stock)」，這正是損益表與資產負債表的勾稽問題。
+      </li>
+      <li><b><span class="kb-term">DuPont Analysis</span> — ROA/ROE 真正的價值所在：</b>
+        <div style="font-family:var(--mono);font-size:14px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-top:10px;line-height:1.9;">ROA = 淨利率 × 資產週轉率<br>　　 = (淨利/營收) × (營收/總資產)<br><br>ROE = 淨利率 × 資產週轉率 × 權益乘數<br>　　 = ROA × 財務槓桿</div>
+        <table style="width:100%;border-collapse:collapse;margin-top:12px;font-size:15px;">
+          <thead>
+            <tr>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">兩條賺錢的路</th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">淨利率</th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">資產週轉率</th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">例子</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);"><b>賺價差</b></td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">高</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">低</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">精品、高階醫療、ART Center</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);"><b>賺週轉</b></td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">低</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">高</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">超商、量體型門診／急診</td></tr>
+          </tbody>
+        </table>
+      </li>
+      <li><b>ROE 高不代表經營好</b> — 可能只是<b>槓桿開很大</b>（權益乘數高）。這就是銀行 ROE 好看的原因：ROA 僅約 1%，但槓桿 10–15 倍。<b>ROE 拆開才知道錢是「賺來的」還是「借來的」。</b></li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>三、ROA/ROI 的三個陷阱</h2>
+    <ul>
+      <li><b>陷阱一：分母被折舊侵蝕 → 老資產虛胖。</b>資產愈舊、帳面愈低 → ROA/ROI 自動變高。<b>這不是效率提升，是分母消失。</b>→ 用重置成本或 gross asset（未扣折舊）重算，才看得到真實效率。</li>
+      <li><b>陷阱二：短視偏誤。</b>新投資的第一年：分母 100% 進來、分子（效益）還沒出來 → <b>ROA 必然先掉</b>。若管理層獎金綁 ROA，他理性的選擇就是<b>不投資</b>。這是會計指標最著名的組織性副作用。
+        <ul>
+          <li>解方：<span class="kb-term">EVA / Residual Income</span> — <b>EVA = NOPAT − (投入資本 × WACC)</b>。只要 NPV &gt; 0 就會讓 EVA 上升，<b>不會懲罰擴張</b>。</li>
+        </ul>
+      </li>
+      <li><b>陷阱三：ROA/ROI 是會計指標，不是決策工具。</b>
+        <table style="width:100%;border-collapse:collapse;margin-top:12px;font-size:15px;">
+          <thead>
+            <tr>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);"></th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">ROA / ROI</th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">NPV / IRR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);font-size:12px;color:var(--text-3);">基礎</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);"><b>會計利潤</b>（accrual）</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);"><b>現金流</b>（cash）</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);font-size:12px;color:var(--text-3);">方向</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">回顧（已發生）</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">前瞻（將發生）</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);font-size:12px;color:var(--text-3);">時間價值</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);"><b>不考慮</b></td><td style="padding:8px 10px;border-bottom:1px solid var(--border);">考慮（折現）</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);font-family:var(--mono);font-size:12px;color:var(--text-3);">用途</td><td style="padding:8px 10px;border-bottom:1px solid var(--border);"><b>績效衡量</b></td><td style="padding:8px 10px;border-bottom:1px solid var(--border);"><b>投資決策</b></td></tr>
+          </tbody>
+        </table>
+        <b>要決定「投不投」→ NPV；要檢討「做得好不好」→ ROA/ROIC。搞混就是本篇第一節的災難。</b>
+      </li>
+      <li><b>判斷有沒有創造價值的那條線：</b>
+        <div style="font-family:var(--mono);font-size:14px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-top:10px;line-height:1.8;">ROIC &gt; WACC → 創造價值<br>ROIC &lt; WACC → 營收愈大、虧愈多（成長反而毀滅價值）</div>
+        ROA 15% 聽起來很棒，但若 WACC 是 18%，你其實在<b>燒股東的錢</b>。<b>沒有比較資金成本的報酬率，是沒有意義的數字。</b>
+      </li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>四、儲值 float 的會計與監理 · Ag/Au Coin</h2>
+    <ul>
+      <li><b>問題：「已儲值未使用」的 coin，可以拿去做短天期定存嗎？利息可否記為收益？</b>→ <b>會計上很單純，法律上能不能動才是真問題。</b></li>
+
+      <li><b>(A) 會計處理</b>
+        <div style="font-family:var(--mono);font-size:14px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-top:10px;line-height:1.9;">① 用戶儲值：Dr 現金　　 / Cr <b>合約負債</b>（不是收入）<br>② 拿去定存：Dr 定期存款 / Cr 現金　（資產科目間移轉，<b>負債不動</b>）<br>③ 定存利息：Dr 應收利息 / Cr <b>利息收入</b></div>
+        <ul>
+          <li><b>利息收入 ≠ 營業收入。</b>它與 IFRS 15 無關（那是「與客戶之合約」的收入），應列於<b>營業外／財務收入</b>，<b>不得拉進 top line 美化營收</b>。</li>
+          <li>若定存受信託或法令限制 → 應列為<b>受限制資產</b>，不屬 cash and cash equivalents；超過三個月的定存本來也不是約當現金。這會影響<b>流動比率</b>與<b>現金流量表</b>（歸屬投資活動）。</li>
+          <li><b>Float 是負債的對價，不是自有資金。</b></li>
+        </ul>
+      </li>
+
+      <li><b>(B) 法律：取決於 Au coin 落在哪個監理框架（台灣）</b>
+        <ul>
+          <li><b>情況一：單用途</b>（只能兌換 Spridea 自家的內容／服務，不可提現、不可轉予第三方）→ 電支條例對「多用途支付使用」的定義<b>明文排除</b>「僅得向發行人所指定之人請求交付或提供商品或服務之商品（服務）禮券」→ 不落入電支條例。這筆預收款法律上是你的，放定存、利息歸你，OK。<br>⚠️ 但仍可能被認定為<b>商品（服務）禮券</b>，受消保法定型化契約規範（履約保證／信託）—— <b>須請律師確認，勿自行判斷</b>。</li>
+          <li><b>情況二：多用途</b>（可付給平台上的創作者／第三方，或可提現）—— <b>內容網路平台幾乎都想這樣做</b> → 屬「收受儲值款項」業務，為電子支付機構業務，須經主管機關許可。一旦進入此框架：
+            <ul>
+              <li><b>儲值款項不能隨意動用</b>，僅得於「<b>一定比率內</b>」為：銀行存款、購買政府債券、購買國庫券或銀行可轉讓定期存單、購買經主管機關核准之其他金融商品。→ <b>定存確實在允許清單內，但有比率上限</b>。</li>
+              <li><b>剩餘部分必須被鎖住</b>：儲值款項扣除應提列準備金後之餘額，應<b>全部交付信託或取得銀行十足之履約保證</b>。</li>
+              <li><b>利息不完全是你的</b>：運用支付款項所得之孳息或其他收益，應<b>計提一定比率金額</b>以專戶儲存，作為<b>回饋使用者</b>或主管機關規定用途使用。</li>
+              <li><b>代理收付款項（代收後要撥給創作者的錢）完全不能運用</b> —— 限以專用存款帳戶儲存及保管。</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li><b>⚠ 這是會計與監理架構的分析，不是法律意見。</b>Au coin 的定性建議在 wallet 設計凍結前，先取得熟悉電支條例的律師 memo —— 這個成本遠低於事後重建帳務與系統。</li>
+    </ul>
+  </section>
+
+  <section class="note-section synthesis">
+    <h2>我的綜整 · My Synthesis（So what）</h2>
+    <ul>
+      <li><b>醫院：把「重置基礎 ROA」做成一張表，是一個政治工具。</b>ART Center 的擴充案在帳面 ROA 上永遠輸給快折舊完的老單位。與其在會議上辯論，不如直接提供一張<b>重置成本基礎的 ROA 對照表</b>，讓分母的真相自己說話。這是財會知識在組織政治裡的實際用途。</li>
+      <li><b>醫院：健保點值封頂壓縮淨利率 → SKHER 的 ROA 幾乎只能靠「資產週轉率」。</b>這正是 <b>PSA / POCUS 這類「用既有人力與設備、提高單位時間產出」的業務對 ROA 特別友善</b>的結構原因 —— 它拉高的是週轉率，不需要增購資產。<b>反過來說，任何需要大額設備、又不能顯著提高週轉的提案，在 DuPont 拆解下都會很難看。</b>寫提案時要先想清楚自己在打哪一格。</li>
+      <li><b>醫院：如果 KPI 綁 ROA，就等於制度性地反對投資。</b>新設備第一年 ROA 必掉 → 主管理性選擇不投。若要推動 ART Center 與 Intelligent ICU 這類長週期投資，<b>必須在績效制度上改用 EVA / residual income 的概念，或明確把「投資年度」豁免於 ROA 考核</b>，否則制度會自己殺死策略。</li>
+      <li><b>新創（Spridea）：ROA 對平台基本上失真。</b>研發立即費用化、用戶與網路效應不入帳 → 分母極小 → ROA 可能漂亮到荒謬，或因虧損而為負，兩者都不能看。<b>平台真正的「ROI」是 LTV / CAC 與 payback period</b> —— 這才是平台版的資本報酬率，因為<b>你真正的資產是用戶，而它不在資產負債表上</b>。</li>
+      <li><b>新創：Ag 與 Au 在帳上與法律上都必須是兩種東西。</b>只有「用真錢買的」才產生 float 與合約負債；賺來／贈送的 Ag 是行銷成本，不是儲值負債。<b>Wallet ledger 從 day 1 就要分「已儲值未使用」與「已消耗」兩個狀態</b> —— 事後補不回來，且直接影響稅務與募資時的財報可信度。</li>
+      <li><b>新創：把 Au 設計成「單用途」是一個產品決策，但監理後果是量級差異。</b>不可提現、不可 P2P 轉移、創作者不以 Au 收款 → 留在電支條例之外。<b>創作者分潤請走法幣、串接持照金流業者，不要用自家幣。</b>這條線一旦跨過去，就是「要不要申請電支執照、要不要實收資本額與信託」的問題。</li>
+      <li><b>新創：別把利差當商業模式。</b>Float 利息是 Buffett 的保險浮存金邏輯，但在支付／儲值領域，靠 float 賺錢會直接引來監理注意，而且它<b>不隨產品價值成長、不可持續</b>。另：<b>幣是「隨時可兌換」的負債、定存是有到期日的資產 → 這是銀行的 liquidity gap 問題</b>，需做 30/60/90 天梯式（laddering）並保留以最壞情境贖回率算出的 buffer。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>關鍵詞 · Key terms</h2>
+    <ul>
+      <li><span class="kb-term">Sunk Cost</span> — 沉沒成本；已發生、不因決策改變 → 與決策無關</li>
+      <li><span class="kb-term">Incremental Cash Flow</span> — 增量現金流；資本預算唯一該看的東西</li>
+      <li><span class="kb-term">Tax Shield</span> — 稅盾；折舊、利息、處分損失帶來的抵稅現金利益</li>
+      <li><span class="kb-term">ROA</span> — 淨利 ÷ 平均總資產（嚴謹版分子須加回稅後利息）</li>
+      <li><span class="kb-term">ROE</span> — 淨利 ÷ 股東權益 = ROA × 財務槓桿</li>
+      <li><span class="kb-term">ROIC</span> — NOPAT ÷ 投入資本；判斷價值創造的主指標</li>
+      <li><span class="kb-term">DuPont Analysis</span> — 把 ROA/ROE 拆成淨利率 × 週轉率 × 槓桿</li>
+      <li><span class="kb-term">Asset Turnover</span> — 資產週轉率；營收 ÷ 總資產</li>
+      <li><span class="kb-term">Equity Multiplier</span> — 權益乘數；總資產 ÷ 權益，即財務槓桿</li>
+      <li><span class="kb-term">EVA / Residual Income</span> — NOPAT −（投入資本 × WACC）；不懲罰擴張的績效指標</li>
+      <li><span class="kb-term">Contract Liability</span> — 合約負債（預收）；已收現、尚未履約 → 不是收入</li>
+      <li><span class="kb-term">Float</span> — 浮存金；持有他人資金所形成的可運用餘額</li>
+      <li><span class="kb-term">Restricted Cash</span> — 受限制資產；不得列為約當現金</li>
+      <li><span class="kb-term">Liquidity Gap</span> — 流動性缺口；隨時可贖回的負債 vs 有到期日的資產</li>
+      <li><span class="kb-term">LTV / CAC</span> — 用戶終身價值 ÷ 取得成本；平台真正的資本報酬指標</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>待追 · Follow-ups</h2>
+    <ul>
+      <li>做一張 SKHER 各單位的「<b>帳面 ROA vs 重置基礎 ROA</b>」對照表，作為資本預算會議的標準附件。</li>
+      <li>確認 SKHER 的稅務身分（免稅財團法人？）→ 決定 NPV 模型中是否納入折舊稅盾與處分損失稅盾。</li>
+      <li>檢視現行科部績效考核指標，確認是否存在「投資即扣分」的 ROA 陷阱；評估導入 residual income 概念的可行性。</li>
+      <li>Spridea：定義 Au coin 的可用範圍（可否提現／P2P／付給創作者），並在 wallet schema 凍結前取得電支條例律師 memo。</li>
+      <li>Spridea：建立 LTV / CAC 與 payback period 的量測基礎，取代任何以 ROA 為主的內部報告。</li>
+      <li>查 breakage（未兌換餘額）的認列實務與台灣稅務處理；在沒有歷史資料前不得認列。</li>
+    </ul>
+  </section>
+
+  <section class="note-section refs">
+    <h2>延伸 · References</h2>
+    <ul>
+      <li><a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0380237" target="_blank" rel="noopener">電子支付機構管理條例（全國法規資料庫）</a> — 儲值款項的動用限制、允許運用標的、信託／履約保證要求，以及孳息計提回饋使用者之規定，均在第 21、22 條。</li>
+      <li><a href="https://law.fsc.gov.tw/LawContent.aspx?id=GL001488" target="_blank" rel="noopener">電子支付機構管理條例（金管會法規系統）</a> — 條文全文，含「多用途支付使用」定義及其對商品（服務）禮券之排除。</li>
+      <li><a href="https://www.ifrs.org/issued-standards/list-of-standards/ifrs-15-revenue-from-contracts-with-customers/" target="_blank" rel="noopener">IFRS 15 — Revenue from Contracts with Customers</a> — 合約負債與收入認列時點的權威出處。</li>
+    </ul>
+  </section>
+</div>
+</body>
+</html>

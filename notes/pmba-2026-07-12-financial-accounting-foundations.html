@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PMBA · 價值、假設、原則與四大報表：財務會計的地基</title>
+
+<!-- ============================================================
+     kb-meta — machine-readable metadata. build_manifest.py reads
+     THIS to regenerate notes.json. Keep the keys exactly; fill values.
+     domains: subset of ["hospital","startup"]. tags: framework names (EN).
+     ============================================================ -->
+<script type="application/json" id="kb-meta">
+{
+  "id": "pmba-2026-07-12-financial-accounting-foundations",
+  "prefix": "PMBA",
+  "skill": "mba-class-note",
+  "type": "class-note",
+  "title": "價值、假設、原則與四大報表：財務會計的地基",
+  "course": "財務會計",
+  "date": "2026-07-12",
+  "topic": "營運/帳面/重置價值、基本假設與原則、財務報表比較",
+  "tags": ["Going-Concern Value", "Book Value", "Replacement Cost", "Liquidation Value", "Tobin's Q", "Economic Entity Assumption", "Monetary Unit Assumption", "Periodicity Assumption", "Going Concern Assumption", "Cost Principle", "Revenue Recognition Principle (IFRS 15)", "Matching Principle", "Full Disclosure Principle", "Financial Statements Articulation"],
+  "domains": ["hospital", "startup"],
+  "created": "2026-07-12T21:30:00+08:00",
+  "file": "notes/pmba-2026-07-12-financial-accounting-foundations.html"
+}
+</script>
+
+<!-- ============================================================
+     CRITICAL CSS — DO NOT EDIT. Copy verbatim into every note.
+     Makes the note self-contained: it renders correctly on its own
+     (e.g. on iPad, before it is filed into the KB repo) without
+     depending on assets/kb.css. The shared sheet linked AFTER this
+     block overrides it for full theming once the note is in the KB.
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root{--bg:#fafafa;--surface:#fff;--surface-2:#f4f4f5;--border:rgba(24,24,27,.08);--text:#18181b;--text-2:#52525b;--text-3:#71717a;--text-4:#a1a1aa;--accent:#18181b;--radius:12px;--hospital:#8fa6b0;--startup:#b79a86;--correction:#a16207;--sans:"Inter",system-ui,"PingFang TC","Noto Sans TC",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--serif:"Fraunces",Georgia,"Noto Serif TC",serif;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16.5px;line-height:1.78;-webkit-font-smoothing:antialiased;}
+.article-wrap{max-width:760px;margin:0 auto;padding:48px 28px 110px;}
+.article-eyebrow{font-family:var(--mono);font-size:12.5px;color:var(--text-3);display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:18px;}
+.badge{font-family:var(--mono);font-size:11.5px;padding:2px 8px;border-radius:6px;background:var(--surface-2);color:var(--text-2);}
+h1.article-title{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.15;letter-spacing:-.02em;margin-bottom:20px;}
+.tag{font-family:var(--mono);font-size:11.5px;color:var(--text-3);background:var(--surface-2);border-radius:6px;padding:2px 7px;}
+.article-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:8px;}
+.article-domains{display:flex;gap:10px;margin:14px 0 40px;padding-bottom:32px;border-bottom:1px solid var(--border);}
+.domain-pill{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12.5px;color:var(--text-2);}
+.dot{width:8px;height:8px;border-radius:50%;}.dot.hospital{background:var(--hospital);}.dot.startup{background:var(--startup);}
+section.note-section{margin-bottom:40px;}
+section.note-section>h2{font-family:var(--mono);font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--text-4);margin-bottom:16px;}
+.note-section ul{list-style:none;display:flex;flex-direction:column;gap:13px;}
+.note-section li{position:relative;padding-left:22px;line-height:1.85;}
+.note-section li::before{content:"";position:absolute;left:5px;top:12px;width:5px;height:5px;border-radius:50%;background:var(--text-4);}
+.note-section li ul{margin-top:10px;}
+.kb-term{font-family:var(--mono);font-size:.9em;background:var(--surface-2);border:1px solid var(--border);border-radius:5px;padding:.5px 5px;}
+.correction{color:var(--correction);border-bottom:1px dashed var(--correction);cursor:help;}
+section.synthesis{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:24px 26px;}
+.refs a{color:var(--text-2);border-bottom:1px solid var(--border-strong,rgba(24,24,27,.14));}
+.refs a:hover{color:var(--text);}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12.5px;color:var(--text-3);margin-bottom:28px;}
+</style>
+
+<!-- full shared theme (palette, header). Overrides critical CSS in-repo. -->
+<link rel="stylesheet" href="../assets/kb.css">
+</head>
+<body data-theme="grayscale">
+
+<div class="article-wrap">
+  <a class="back-link" href="../index.html">← 知識庫</a>
+
+  <div class="article-eyebrow">
+    <span class="badge">PMBA</span>
+    <span>財務會計</span><span>·</span><span>2026-07-12</span>
+  </div>
+
+  <h1 class="article-title">價值、假設、原則與四大報表：財務會計的地基</h1>
+
+  <div class="article-meta"><span class="tag">Going-Concern Value</span><span class="tag">Book Value</span><span class="tag">Replacement Cost</span><span class="tag">Accounting Assumptions</span><span class="tag">Accounting Principles</span><span class="tag">Revenue Recognition (IFRS 15)</span><span class="tag">Matching Principle</span><span class="tag">Full Disclosure</span><span class="tag">Financial Statements</span></div>
+
+  <div class="article-domains"><span class="domain-pill"><span class="dot hospital"></span>醫院/急診</span><span class="domain-pill"><span class="dot startup"></span>資訊新創</span></div>
+
+  <section class="note-section">
+    <h2>核心概念 · Frameworks &amp; Concepts</h2>
+    <ul>
+      <li><b>三種價值 — <span class="kb-term">Going-Concern / Book / Replacement Value</span></b>
+        <table style="width:100%;border-collapse:collapse;margin-top:12px;font-size:15px;">
+          <thead>
+            <tr>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">價值類型</th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">定義</th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">衡量基礎</th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">何時用</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;"><b>營運價值</b><br><span style="font-family:var(--mono);font-size:12.5px;color:var(--text-3);">Going-Concern Value</span></td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">在「持續經營」前提下，企業未來現金流量的折現值</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">未來導向 · DCF</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">併購定價、投資評估</td>
+            </tr>
+            <tr>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;"><b>帳面價值</b><br><span style="font-family:var(--mono);font-size:12.5px;color:var(--text-3);">Book Value / Carrying Amount</span></td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">依歷史成本入帳，減累計折舊／攤銷／減損後的餘額；公司整體帳面價值＝股東權益＝資產−負債</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">過去導向 · historical cost</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">財報表達、債務契約條款</td>
+            </tr>
+            <tr>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;"><b>重置價值</b><br><span style="font-family:var(--mono);font-size:12.5px;color:var(--text-3);">Replacement Cost</span></td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">現在重新取得「同等效用」資產所需的支出</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">現在導向 · current cost</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">保險理賠、汰換決策、減損參考</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li><b>同一台設備、三個數字（例）：</b>
+        <ul>
+          <li>五年前購入超音波 NT$300 萬，直線折舊 5 年、已用 2 年 → <b>帳面價值 = 180 萬</b></li>
+          <li>今天買同級新機需 NT$380 萬（通膨＋規格升級）→ <b>重置價值 = 380 萬</b></li>
+          <li>該機支撐 POCUS/PSA 業務，年淨現金流 100 萬，折現後 → <b>營運價值 = 500 萬</b></li>
+        </ul>
+      </li>
+      <li><b>三者的差距來源：</b>帳面 vs 重置 → <b>通膨與技術變動</b>（historical cost 的相關性缺口）；帳面 vs 營運 → <b>未入帳的無形資產</b>（品牌、團隊、流程、網路效應）。</li>
+      <li><span class="kb-term">Tobin's Q</span> = 市值 ÷ 重置成本；Q &gt; 1 表示市場認為公司能創造超過重置成本的價值 → 存在競爭優勢。</li>
+      <li><span class="kb-term">Liquidation Value</span>（清算價值）是對照組 — 被迫拆賣的變現價格，只有在 <span class="kb-term">Going Concern</span> 假設<b>不成立</b>時才成為衡量基礎。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>基本假設 · Assumptions（決定「怎麼記」的前提）</h2>
+    <ul>
+      <li>
+        <table style="width:100%;border-collapse:collapse;font-size:15px;">
+          <thead>
+            <tr>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">假設</th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">內容</th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);">為什麼重要／例子</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;"><b>經濟個體</b><br><span style="font-family:var(--mono);font-size:12.5px;color:var(--text-3);">Economic Entity</span></td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">企業帳務與業主、其他個體分離</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">院長個人購車不得入醫院帳；反向地，合併報表把母子公司視為「單一經濟個體」</td>
+            </tr>
+            <tr>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;"><b>貨幣衡量</b><br><span style="font-family:var(--mono);font-size:12.5px;color:var(--text-3);">Monetary Unit</span></td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">只記錄可用貨幣客觀衡量的事項，且假設幣值穩定（忽略通膨）</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">醫師團隊素質、品牌、平台用戶忠誠度<b>不入帳</b> — 這是資產負債表最大的盲點</td>
+            </tr>
+            <tr>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;"><b>期間</b><br><span style="font-family:var(--mono);font-size:12.5px;color:var(--text-3);">Periodicity / Time Period</span></td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">把連續的營運活動人為切成月／季／年報導</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">正因為要切期間，才需要 accrual、調整分錄與 cut-off；也才產生「認列時點」的爭議</td>
+            </tr>
+            <tr>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;"><b>繼續經營</b><br><span style="font-family:var(--mono);font-size:12.5px;color:var(--text-3);">Going Concern</span></td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">假設企業於可預見未來將持續營運，不會被迫清算</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">這是 <b>historical cost 的前提</b>：因為會繼續使用，成本才能遞延（折舊、預付費用）。假設不成立 → 改按清算價值並強制揭露</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li><b>四者的邏輯鏈：</b>Entity 界定「範圍」 → Monetary Unit 界定「可記錄的東西」 → Going Concern 讓成本「可以遞延」 → Periodicity 逼出「應計基礎」。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>基本原則 · Principles（決定「記多少、何時記」）</h2>
+    <ul>
+      <li><span class="kb-term">Cost Principle</span>（成本原則 / Measurement Principle）— 資產以<b>取得時的交換價格</b>入帳。優點為 verifiable、objective；代價是 relevance 低（不反映現值）。現行 IFRS 實為 <span class="kb-term">mixed attribute model</span>：部分項目（金融資產、投資性不動產）改用 fair value。<b>這正是「帳面 ≠ 營運 ≠ 重置」的制度根源。</b></li>
+      <li><span class="kb-term">Revenue Recognition Principle</span>（收入承認原則）— 傳統表述：收入於<b>已賺得 (earned)</b> 且<b>已實現／可實現 (realized/realizable)</b> 時認列。現行 <span class="kb-term">IFRS 15 / ASC 606</span> 改為<b>控制權移轉予客戶時</b>認列，採五步法：辨認合約 → 辨認履約義務 → 決定交易價格 → 依相對單獨售價分攤 → 履約時認列。核心口訣：<b>收現 ≠ 認列收入。</b>
+        <ul>
+          <li>醫院：7 月看診即於 7 月認列收入（掛應收），健保 3–6 個月後撥款；核刪與浮動點值屬 <span class="kb-term">variable consideration</span>，應以最佳估計數入帳，非申報點數全額。</li>
+          <li>平台：用戶儲值購買 Ag/Au coin <b>不是收入</b>，而是 <span class="kb-term">contract liability</span>（預收／遞延收入），須待實際兌換使用才認列。</li>
+        </ul>
+      </li>
+      <li><span class="kb-term">Expense Recognition / Matching Principle</span>（費用配合原則）— 費用與其所產生的收入認列於同一期間。三種配合方式：(1) <b>直接因果</b>（銷貨成本、醫材耗材）；(2) <b>系統合理分攤</b>（折舊、攤銷）；(3) <b>立即認列</b>（廣告、研發、多數管理費用）。註：研發立即費用化，正是新創<b>帳面價值幾近於零</b>的原因之一。</li>
+      <li><span class="kb-term">Full Disclosure Principle</span>（充分揭露原則）— 凡足以影響使用者決策之資訊皆須揭露（報表本體＋<b>附註</b>＋補充資訊）。邊界由 <span class="kb-term">materiality</span> 與 <span class="kb-term">cost-benefit</span> 界定。例：或有負債（醫療糾紛訴訟）、關係人交易、期後事項、會計政策變動。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>財務報表比較 · Comparison of Financial Statements</h2>
+    <ul>
+      <li>
+        <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px;">
+          <thead>
+            <tr>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-family:var(--mono);font-size:11.5px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--text-4);"></th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-size:14px;">資產負債表<br><span style="font-family:var(--mono);font-size:11.5px;color:var(--text-3);">Balance Sheet</span></th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-size:14px;">綜合損益表<br><span style="font-family:var(--mono);font-size:11.5px;color:var(--text-3);">Income Statement</span></th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-size:14px;">現金流量表<br><span style="font-family:var(--mono);font-size:11.5px;color:var(--text-3);">Cash Flows</span></th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-size:14px;">權益變動表<br><span style="font-family:var(--mono);font-size:11.5px;color:var(--text-3);">Changes in Equity</span></th>
+              <th style="text-align:left;padding:8px 10px;border-bottom:1px solid rgba(24,24,27,.14);font-size:14px;">附註<br><span style="font-family:var(--mono);font-size:11.5px;color:var(--text-3);">Notes</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;font-family:var(--mono);font-size:12px;color:var(--text-3);">回答什麼問題</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">我<b>現在</b>有什麼、欠什麼？</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">這段期間<b>賺不賺錢</b>？</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;"><b>現金</b>從哪來、去哪了？</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">股東的錢<b>怎麼變的</b>？</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">這些數字<b>怎麼算出來的</b>？</td>
+            </tr>
+            <tr>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;font-family:var(--mono);font-size:12px;color:var(--text-3);">時間屬性</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;"><b>時點</b>（snapshot）</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;"><b>期間</b>（flow）</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;"><b>期間</b>（flow）</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;"><b>期間</b>（flow）</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">兩者皆有</td>
+            </tr>
+            <tr>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;font-family:var(--mono);font-size:12px;color:var(--text-3);">核心結構</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">Assets = Liabilities + Equity</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">Revenue − Expenses = Net Income</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">營業 (O) / 投資 (I) / 融資 (F)</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">期初 + NI + 增資 − 股利 ± OCI = 期末</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">政策、明細、判斷、或有事項</td>
+            </tr>
+            <tr>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;font-family:var(--mono);font-size:12px;color:var(--text-3);">衡量基礎</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">混合（歷史成本為主＋部分 fair value）</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;"><b>Accrual basis</b></td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;"><b>Cash basis</b></td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">Accrual</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">—</td>
+            </tr>
+            <tr>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;font-family:var(--mono);font-size:12px;color:var(--text-3);">主要限制</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">不含未入帳無形資產；靜態</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">淨利可被應計項目調節；非現金</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">不衡量獲利能力；不含非現金交易</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">資訊量小、常被略過</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">冗長，但風險常藏在此</td>
+            </tr>
+            <tr>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;font-family:var(--mono);font-size:12px;color:var(--text-3);">主導的假設／原則</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">Going Concern、Cost</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">Periodicity、Revenue Recognition、Matching</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">最不受應計判斷影響</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">Economic Entity</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;"><b>Full Disclosure</b></td>
+            </tr>
+            <tr>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;font-family:var(--mono);font-size:12px;color:var(--text-3);">我的場景</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">ED 設備、應收健保款</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">月度 ED 損益、PSA 業務貢獻</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">健保撥款落差 → 營運現金流</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">醫院基金／新創增資</td>
+              <td style="padding:10px;border-bottom:1px solid var(--border);vertical-align:top;">醫糾或有負債、關係人交易</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </li>
+      <li><b>四表勾稽 (<span class="kb-term">articulation</span>)：</b>損益表的 Net Income → 流入權益變動表的保留盈餘 → 落入資產負債表的 Equity；現金流量表的期末現金 → 等於資產負債表的現金科目。<b>四張表是同一組交易的四個投影，不是四份獨立文件。</b></li>
+      <li><b>最重要的一句話：Profit ≠ Cash。</b>損益表告訴你「有沒有賺」，現金流量表告訴你「會不會死」。黑字倒閉（帳上賺錢卻現金斷鏈）就是這兩張表分道揚鑣。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>應用 · Application</h2>
+    <ul>
+      <li>要<b>衡量績效</b>看損益表；要<b>活下去</b>看現金流量表；要<b>賣掉公司／併購別人</b>看營運價值，不是帳面價值。</li>
+      <li>設備汰換決策：不要問「還沒折舊完，可惜」（sunk cost ＋ 帳面價值謬誤），要問「<b>重置成本</b> vs 它未來能產生的<b>營運價值</b>」。</li>
+    </ul>
+  </section>
+
+  <section class="note-section synthesis">
+    <h2>我的綜整 · My Synthesis（So what）</h2>
+    <ul>
+      <li><b>醫院：健保收入的三個數字要分開管。</b>申報點數 ≠ 認列收入（點值 × 核刪估列後） ≠ 實收現金（3–6 個月後）。ED 財務分析若直接拿「申報點數」當收入，等於同時違反 revenue recognition（未考慮 variable consideration）與現金流的現實。<b>建議在 ED 損益模型裡三欄並列，把「時間差」與「打折率」變成可追蹤的 KPI。</b></li>
+      <li><b>醫院：ART Center / ICU 設備投資。</b>帳面價值近零的舊機器不代表「零成本繼續用」。決策基礎是 <b>重置成本</b> 與 <b>它撐起的業務營運價值（PSA / POCUS 現金流）</b>。用帳面價值做資本預算是最常見的財務誤判。</li>
+      <li><b>醫院：Matching 原則的組織意涵。</b>ED 人力成本是期間費用、幾乎立即認列；但醫師訓練與 credentialing 的收益是跨年的，會計上又無法資本化人才投資 → 制度性地，訓練投資在預算會議上永遠「看起來只是成本」。提案時必須自己補上未來收入端的估算，否則結構上就會被砍。</li>
+      <li><b>新創（Spridea）：Monetary Unit ＋ Cost 原則是平台公司的結構性盲點。</b>用戶、內容資產、網路效應都不進資產負債表，研發又立即費用化 → <b>帳面價值近乎零、營運價值可能很高</b>。所以早期平台看 BS 沒有意義，要看 cohort retention、contribution margin、現金流。這也是 Tobin's Q &gt; 1 的來源。</li>
+      <li><b>新創：Ag/Au coin wallet 的會計設計要在寫程式時就決定。</b>用戶儲值 = <b>contract liability（預收），不是收入</b>；只有在幣被實際兌換／消費時才依 IFRS 15 認列。未兌換部分（breakage）如何估列、何時認列屬實質判斷。<b>技術面：wallet ledger 從 day 1 就要分「已儲值未使用」與「已消耗」兩個狀態</b> — 事後補不回來，且直接影響稅務與募資時的財報可信度。</li>
+      <li><b>新創：Full Disclosure 的產品意涵。</b>平台代幣制度愈不透明，使用者的信任成本愈高。揭露原則在平台商業模式裡不只是會計義務，而是<b>信任基礎設施</b>。</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>關鍵詞 · Key terms</h2>
+    <ul>
+      <li><span class="kb-term">Going-Concern Value</span> — 持續營運下未來現金流量的現值</li>
+      <li><span class="kb-term">Book Value / Carrying Amount</span> — 歷史成本減累計折舊、攤銷、減損後的帳面餘額</li>
+      <li><span class="kb-term">Replacement Cost</span> — 現在取得同等效用資產所需的支出</li>
+      <li><span class="kb-term">Liquidation Value</span> — 被迫拆賣時的變現價值；going concern 不成立時的衡量基礎</li>
+      <li><span class="kb-term">Tobin's Q</span> — 市值 ÷ 重置成本；&gt; 1 表示存在超額價值來源</li>
+      <li><span class="kb-term">Accrual Basis</span> — 應計基礎；收入費用依「發生」而非「收付現金」認列</li>
+      <li><span class="kb-term">Variable Consideration</span> — 變動對價（健保浮動點值、核刪）→ 以最佳估計數入帳</li>
+      <li><span class="kb-term">Contract Liability / Deferred Revenue</span> — 已收現但尚未履約 → 是負債，不是收入</li>
+      <li><span class="kb-term">Materiality</span> — 重要性；充分揭露的實務界線</li>
+      <li><span class="kb-term">Mixed Attribute Model</span> — 現行 IFRS 同時採歷史成本與公允價值的混合衡量制度</li>
+      <li><span class="kb-term">Articulation</span> — 四表勾稽</li>
+    </ul>
+  </section>
+
+  <section class="note-section">
+    <h2>待追 · Follow-ups</h2>
+    <ul>
+      <li>用 SKHER 的 NHI 申報資料，實測「申報點數 → 認列收入 → 實收現金」三者的時間差與差異率，做成月度圖。</li>
+      <li>確認台灣醫院對健保核刪的<b>實務估列做法</b>（列為收入減項或提列備抵？）— 影響 ED 損益的期間可比較性。</li>
+      <li>查 Spridea 儲值幣的會計與稅務處理（contract liability、breakage 認列時點、營業稅時點）。</li>
+      <li>確認老師教材採 <b>IFRS 或 US GAAP</b> — revenue recognition 的傳統表述（earned + realized）與 IFRS 15（控制權移轉）說法不同，考試須用對版本。</li>
+      <li>讀 IFRS Conceptual Framework「衡量基礎 (measurement bases)」一章，補齊 historical cost vs current value 的取捨論證。</li>
+    </ul>
+  </section>
+
+  <section class="note-section refs">
+    <h2>延伸 · References</h2>
+    <ul>
+      <li><a href="https://www.ifrs.org/issued-standards/list-of-standards/ifrs-15-revenue-from-contracts-with-customers/" target="_blank" rel="noopener">IFRS 15 — Revenue from Contracts with Customers（IFRS Foundation）</a> — IASB 與 FASB 於 2014 年同步發布（FASB 版為 Topic 606），取代 IAS 11／IAS 18 等舊規範；五步法與控制權移轉原則的權威出處。</li>
+      <li><a href="https://www.iasplus.com/en/standards/ifrs/ifrs15" target="_blank" rel="noopener">IFRS 15 概覽（IAS Plus / Deloitte）</a> — 適用範圍限於「與客戶之合約」所產生之收入，適合快速查閱。</li>
+    </ul>
+  </section>
+</div>
+</body>
+</html>
