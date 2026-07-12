@@ -59,6 +59,35 @@
     "file": "notes/pmba-2026-07-12-discount-rate.html"
   },
   {
+    "id": "pmba-2026-07-12-market-multiples-seagate",
+    "prefix": "PMBA",
+    "skill": "mba-class-note",
+    "type": "class-note",
+    "title": "市場基本面比率評價：Seagate Technology Buyout",
+    "course": "財務管理／評價",
+    "date": "2026-07-12",
+    "topic": "市場基本面比率與相對評價 (Market Multiples / Relative Valuation)",
+    "tags": [
+      "Relative Valuation",
+      "Comparable Company Analysis",
+      "EV/EBITDA",
+      "EV/Sales",
+      "P/E",
+      "P/B",
+      "Sum-of-the-Parts",
+      "Stub Value",
+      "Normalized Earnings",
+      "LBO",
+      "Limits to Arbitrage"
+    ],
+    "domains": [
+      "hospital",
+      "startup"
+    ],
+    "created": "2026-07-12T21:40:00+08:00",
+    "file": "notes/pmba-2026-07-12-market-multiples-seagate.html"
+  },
+  {
     "id": "pmba-2026-07-12-financial-accounting-foundations",
     "prefix": "PMBA",
     "skill": "mba-class-note",
