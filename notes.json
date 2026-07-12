@@ -1,5 +1,96 @@
 [
   {
+    "id": "pmba-2026-07-12-capital-budgeting-roi-float",
+    "prefix": "PMBA",
+    "skill": "mba-class-note",
+    "type": "class-note",
+    "title": "帳面價值的陷阱：資本預算、ROA/ROI 與儲值 float 的會計處理",
+    "course": "財務會計延伸",
+    "date": "2026-07-12",
+    "topic": "帳面價值誤判、資本預算與 sunk cost、ROA/ROI/ROIC 與 DuPont、儲值 float 的會計與監理",
+    "tags": [
+      "Capital Budgeting",
+      "Sunk Cost",
+      "Incremental Cash Flow",
+      "Tax Shield",
+      "NPV",
+      "ROA",
+      "ROE",
+      "ROIC",
+      "DuPont Analysis",
+      "EVA / Residual Income",
+      "Contract Liability",
+      "Float",
+      "LTV/CAC"
+    ],
+    "domains": [
+      "hospital",
+      "startup"
+    ],
+    "created": "2026-07-12T22:10:00+08:00",
+    "file": "notes/pmba-2026-07-12-capital-budgeting-roi-float.html"
+  },
+  {
+    "id": "pmba-2026-07-12-discount-rate",
+    "prefix": "PMBA",
+    "skill": "mba-class-note",
+    "type": "class-note",
+    "title": "折現率：一切估值的那顆旋鈕",
+    "course": "財務管理／財務會計延伸",
+    "date": "2026-07-12",
+    "topic": "折現率、時間價值、WACC、CAPM、PVIFA、NPV/IRR",
+    "tags": [
+      "Discount Rate",
+      "Time Value of Money",
+      "Opportunity Cost of Capital",
+      "WACC",
+      "CAPM",
+      "PVIFA (Annuity Factor)",
+      "NPV",
+      "IRR",
+      "Hurdle Rate",
+      "Sensitivity Analysis"
+    ],
+    "domains": [
+      "hospital",
+      "startup"
+    ],
+    "created": "2026-07-12T22:10:00+08:00",
+    "file": "notes/pmba-2026-07-12-discount-rate.html"
+  },
+  {
+    "id": "pmba-2026-07-12-financial-accounting-foundations",
+    "prefix": "PMBA",
+    "skill": "mba-class-note",
+    "type": "class-note",
+    "title": "價值、假設、原則與四大報表：財務會計的地基",
+    "course": "財務會計",
+    "date": "2026-07-12",
+    "topic": "營運/帳面/重置價值、基本假設與原則、財務報表比較",
+    "tags": [
+      "Going-Concern Value",
+      "Book Value",
+      "Replacement Cost",
+      "Liquidation Value",
+      "Tobin's Q",
+      "Economic Entity Assumption",
+      "Monetary Unit Assumption",
+      "Periodicity Assumption",
+      "Going Concern Assumption",
+      "Cost Principle",
+      "Revenue Recognition Principle (IFRS 15)",
+      "Matching Principle",
+      "Full Disclosure Principle",
+      "Financial Statements Articulation"
+    ],
+    "domains": [
+      "hospital",
+      "startup"
+    ],
+    "created": "2026-07-12T21:30:00+08:00",
+    "file": "notes/pmba-2026-07-12-financial-accounting-foundations.html"
+  },
+  {
     "id": "pmba-2026-06-11-financial-statement-analysis",
     "prefix": "PMBA",
     "skill": "mba-class-note",
