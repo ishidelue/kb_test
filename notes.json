@@ -1,5 +1,36 @@
 [
   {
+    "id": "pmba-2026-07-26-cost-of-capital-verbatim",
+    "prefix": "PMBA",
+    "skill": "mba-class-note",
+    "type": "verbatim-transcript",
+    "title": "資金成本與投資決策門檻（對話逐字稿）",
+    "course": "財務管理",
+    "date": "2026-07-26",
+    "topic": "資金成本、IRR vs WACC、CAPM、build-up method、資本結構權重、稅盾",
+    "tags": [
+      "Cost of Capital",
+      "WACC",
+      "IRR",
+      "Hurdle Rate",
+      "CAPM",
+      "Build-up Method",
+      "Beta",
+      "Cost of Equity (Re)",
+      "Capital Structure",
+      "Tax Shield",
+      "Divisional WACC",
+      "WACC Fallacy",
+      "MIRR"
+    ],
+    "domains": [
+      "hospital",
+      "startup"
+    ],
+    "created": "2026-07-26T21:00:00+08:00",
+    "file": "notes/pmba-2026-07-26-cost-of-capital-verbatim.html"
+  },
+  {
     "id": "pmba-2026-07-12-capital-budgeting-roi-float",
     "prefix": "PMBA",
     "skill": "mba-class-note",
