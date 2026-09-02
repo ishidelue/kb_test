@@ -47,8 +47,9 @@ an edit (adjust the block, rebuild) and say so; don't add a second block.
 ## Steps
 
 1. **Read the file** and pull identity signals from its own content:
-   - `title` — from `<title>` or the `<h1>` (zh-TW, keep the note's wording; you
-     may append `（逐字稿）` if it's a transcript and the title doesn't say so).
+   - `title` — from `<title>` or the `<h1>` (zh-TW, keep the note's wording).
+     **Do not** annotate the title with `（逐字稿）` or similar — that it's a
+     transcript is carried by the `tags` (see below) and `type`, not the title.
    - `course` (課程) — look for a "課程 | Course: …" line or equivalent.
    - `date` — from an explicit date in the body, else the filename
      (`YYYY-MM-DD`). If none, use today's date and flag it as provisional in chat.
@@ -56,6 +57,8 @@ an edit (adjust the block, rebuild) and say so; don't add a second block.
      own section headings / key terms; don't invent scope).
    - `tags[]` — **English** framework/concept names for cross-cutting search
      (e.g. `WACC`, `CAPM`, `IRR`, `Beta`, `Tax Shield`). Pull these from the note.
+     Also add a **`Verbatim`** tag so the note is discoverable as a transcript —
+     this is where "it's a 逐字稿" lives, not in the title.
    - `domains` ⊆ `{ "hospital", "startup" }` — include a domain only if the note
      actually discusses it (醫院/hospital → `hospital`; 新創/Spridea/startup →
      `startup`). Omit domains the note doesn't touch.
@@ -129,7 +132,8 @@ an edit (adjust the block, rebuild) and say so; don't add a second block.
 - [ ] `id` deterministic; filename = `notes/<id>.html`; `kb-meta.file` matches.
 - [ ] Required fields present (`id, prefix, skill, type, title, date, file`) and
       `type` = `verbatim-transcript` (not `class-note`).
-- [ ] `tags[]` English; `title`/`course`/`topic` zh-TW; `domains` ⊆
-      {hospital, startup} and only those the note discusses.
+- [ ] `tags[]` English and include `Verbatim`; `title` NOT annotated with
+      （逐字稿）; `title`/`course`/`topic` zh-TW; `domains` ⊆ {hospital, startup}
+      and only those the note discusses.
 - [ ] Manifest rebuilt via venv; `--check` clean; note count increased by one.
 - [ ] Any provisional value (date/created) surfaced to the user for confirmation.
