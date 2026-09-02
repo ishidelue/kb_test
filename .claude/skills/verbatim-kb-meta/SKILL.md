@@ -103,6 +103,21 @@ an edit (adjust the block, rebuild) and say so; don't add a second block.
 4. **Inject** the block just before `</head>` (or, if the file has no `<head>`,
    just before `</body>`). Insert only — change nothing else.
 
+4b. **Add a "回知識庫" back-to-KB button.** Insert a fixed, self-contained
+   anchor just after `<body>` that links to the portal, so the reader can jump
+   back to the index from a verbatim page:
+
+   ```html
+   <a href="../index.html" aria-label="回知識庫" style="position:fixed;top:16px;left:16px;z-index:1000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.04em;text-decoration:none;color:#16191C;background:rgba(255,255,255,.86);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(22,25,28,.14);border-radius:999px;box-shadow:0 2px 10px rgba(22,25,28,.10);">
+     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>回知識庫</a>
+   ```
+
+   - **All styling is inline** so the button needs no external CSS and the note
+     still renders standalone (single-file rule). Don't add it to `kb.css`.
+   - Link is **`../index.html`** — notes live in `notes/`, the portal at root.
+   - Idempotent: if the note already has a `回知識庫` / back-to-KB link, leave it;
+     don't add a second one.
+
 5. **Align the filename.** If the current name ≠ `<id>.html`, rename it:
 
    ```
@@ -129,6 +144,8 @@ an edit (adjust the block, rebuild) and say so; don't add a second block.
 ## Checklist before finishing
 
 - [ ] Exactly one `kb-meta` block added; note body/CSS/MathJax untouched.
+- [ ] One inline-styled `回知識庫` button added after `<body>`, linking
+      `../index.html` (not duplicated if already present).
 - [ ] `id` deterministic; filename = `notes/<id>.html`; `kb-meta.file` matches.
 - [ ] Required fields present (`id, prefix, skill, type, title, date, file`) and
       `type` = `verbatim-transcript` (not `class-note`).
